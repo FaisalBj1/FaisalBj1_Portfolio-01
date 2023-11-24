@@ -178,7 +178,7 @@ class MyFooter extends HTMLElement {
             
                 <div>
                     <p class="links">
-                        <a href="">link</a>
+                        <a href="/FaisalBj1_Projects">Projects</a>
                         <a href="">link</a>
                         <a href="">link</a>
                         <a href="">link</a>

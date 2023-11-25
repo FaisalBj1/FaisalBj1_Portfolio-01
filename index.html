@@ -1,66 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>--- FAISAL BANJAR ---</title>
-        <link rel="icon" type="image/png" href="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>--- FAISAL BANJAR ---</title>
+    <link rel="icon" type="image/png" href="">
+    <script>
+        // Dynamically set the href attribute for the stylesheet link
+        document.addEventListener('DOMContentLoaded', function () {
+            const randomVersion = Math.floor(Math.random() * 100);
+            const linkElement = document.createElement('link');
+            linkElement.rel = 'stylesheet';
+            linkElement.href = `/style-01.css?dev=${randomVersion}`;
+            document.head.appendChild(linkElement);
+        });
+    </script>
+    <script type="module" src="/header_footer.js?t=<?=time();?>"></script>
+    <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('load', (event) => {
+            // alert('page is fully loaded');
+        });
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
 
-        <!-- FaisalBj1 -->
-        <link rel="stylesheet" href="/style-01.css?t=<?=time();?>">
-        <script type=module src="/header_footer.js?t=?t=<?=date('ms');?>"></script>
+        .container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
 
-        <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
+        h1, h2 {
+            color: transparent;
+            font-weight: 900;
+            font-family: 'poppins', sans-serif;
+        }
 
-        <script>
-            window.addEventListener('load', (event) => {
-                // alert('page is fully loaded');
-            });
-        </script>
+        h1 {
+            font-size: 3.5rem;
+            -webkit-text-stroke: 0.21rem var(--secondary-color);
+            text-transform: uppercase;
+        }
 
-        <style>
-            body{
-                display: flex;
-                justify-content: center;
-                text-align: center;
-            }
-            .container {
-                display: flex;
-                justify-content: center;
-                text-align: center;
-                flex-direction: column;
-                /* border: solid 5px white; */
-            }
-
-            
-            h1 {
-                color: transparent;
-                font-weight: 900;
-                font-size: 3.5rem;
-                -webkit-text-stroke: 0.21rem var(--secondary-color);
-                text-transform: uppercase;
-                font-family: 'poppins', sans-serif;
-            }
-            h2 {
-                color: transparent;
-                font-weight: 900;
-                font-size: 2rem;
-                -webkit-text-stroke: 0.15rem var(--third-color);
-                text-transform: uppercase;
-                font-family: 'poppins', sans-serif;
-            }
-        </style>
-    </head>
-
-    <body class="body">
-        <my-header></my-header>
-
-        <div class="container">
-            <h1>Welcome to my website</h1>
-            <h2>TEST Portfoilo</h2>
-            <h2>phone edit test</h2>
-        </div>
-
-        <my-footer></my-footer> 
-    </body>
+        h2 {
+            font-size: 2rem;
+            -webkit-text-stroke: 0.15rem var(--third-color);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="body">
+    <my-header></my-header>
+    <div class="container">
+        <h1>Welcome to my website</h1>
+        <h2>TEST Portfolio</h2>
+        <h2>phone edit test</h2>
+    </div>
+    <my-footer></my-footer>
+</body>
 </html>

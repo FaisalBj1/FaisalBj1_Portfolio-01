@@ -15,6 +15,8 @@
         <script>
             window.addEventListener('load', (event) => {
                 // alert('page is fully loaded');
+                var loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.style.display = 'none';
             });
         </script>
 
@@ -32,29 +34,6 @@
 
             });
         </script>
-
-        <!-- loading screen -->
-        <style>
-            /* Styling for the loading screen */
-            #loading-screen {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #fff; /* Set your desired background color */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000; /* Ensure it's above other elements */
-            }
-
-            #loading-text {
-                font-size: 24px;
-                font-weight: bold;
-                color: #333; /* Set your desired text color */
-            }
-        </style>
 
         <style>
             body{
@@ -90,11 +69,34 @@
     </head>
 
     <body>
-    <!-- Loading screen -->
-    <div id="loading-screen">
-        <p id="loading-text">Loading...</p>
-    </div>
-        <my-header></my-header>
+        <!-- loading screen -->
+        <style>
+            /* Styling for the loading screen */
+            #loading-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff; /* Set your desired background color */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000; /* Ensure it's above other elements */
+            }
+
+            #loading-text {
+                font-size: 24px;
+                font-weight: bold;
+                color: #333; /* Set your desired text color */
+            }
+        </style>
+        <!-- Loading screen -->
+        <div id="loading-screen">
+            <p id="loading-text">Loading...</p>
+        </div>
+
+            <my-header></my-header>
 
         <div class="container">
             <h1>Welcome to my website</h1>
@@ -102,14 +104,5 @@
         </div>
 
         <my-footer></my-footer> 
-
-            <!-- Your scripts go here -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Hide the loading screen once the page is fully loaded
-            var loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.style.display = 'none';
-        });
-        </script>
     </body>
 </html>

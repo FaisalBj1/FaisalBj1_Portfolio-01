@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="\images\شعار مسرعة الأعمال.png" type="image/icon type">
+    <title>قاعدة بيانات مسرعة الأعمال</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="StyleSheet1.css" />
+    
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+          * {box-sizing: border-box}
+
+      h1 {
+        font-weight: 700;
+      } 
+      
+      h2 {
+        font-weight: 500;
+      }
+
+
+      #top-left, #part, #sign {
+        font-size: x-large;
+      }
+
+    </style>
+
+    <!--Sign table style-->
+    <style>
+          /* Full-width input fields */
+          input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+          }
+          
+          input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+          }
+          
+          /* Set a style for all buttons */
+          button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+          }
+          
+          button:hover {
+            opacity:1;
+          }
+    
+          /* Add padding to container elements */
+          .container {
+            padding: 16px;
+          }
+          
+          /* Clear floats */
+          .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+
+          table td {
+            padding: 17px;
+            padding-top: 0;
+            padding-bottom: 0;
+            border: 0;
+          }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-padding w3-card">
+        <a id="top-left" href="index.html" class="w3-bar-item w3-button"><img src="\images\شعار مسرعة الأعمال.png" height="155px"></a>
+        <br><br><br><br><br>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="w3-right w3-hide-small" style="font-weight: bolder;">
+          <a id="part" href="participants.html" class="w3-bar-item w3-button">مشاريع المسرّعة</a>
+          <a id="sign" href="participants_profile_page.html" class="w3-bar-item w3-button">تسجيل</a>
+          <a id="sign" href="login.html"         class="w3-bar-item w3-button">تسجيل الدخول </a>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br>
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:1150px;">
+
+       <!-- About Section -->
+      <div class="w3-row w3-padding-64" id="about">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+          <center><img src="\images\شعار مسرعة الأعمال.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="350"></center>
+        </div>
+
+        <div class="w3-col m6 w3-padding-large">
+          <h1 class="w3-center">مُسرّعة الأعمال</h1><br>
+          <h5 class="w3-center">نبذة عن المسرّعة</h5>
+          <p class="w3-center">مع زيادة الاهتمام العالمي والمحلي بريادة الأعمال وتشجيع الأفكار الطموحة والمشروعات الريادية للشباب التي تسهم في نمو الاقتصاد المعرفي، حرصت جامعة الملك عبد العزيز على أن يكون لها قصب السبق في هذا المجال، استكمالاً لما بدأته في خططها الاستراتيجية الثلاث والتي تركز على الجودة، والعالمية والاستدامة، والتميز في البحث العلمي وخدمة المجتمع وريادة الأعمال. وقد كان لرؤية المملكة 2030 الدور الكبير في تطوير هذا التوجه الاستراتيجي للجامعة، مما أثمر نشاطا ملحوظا في الجهات التابعة للجامعة التي تهتم برعاية الموهبة الإبداع ودعم الأفكار والأنشطة والمشروعات الريادية.
+
+            ويعمل المركز على تقديم نموذج متكامل يشمل جهود توعية طالب وطالبات الجامعة بريادة الاعمال ودعم ورعاية المبدعين، واحتضان المشروعات ذات القيم العلمية واالقتصادية، وتسريع أعمال الشركات الناشئة، وذلك عن طريق ذراعي المركز المتمثلين في حاضنات الأعمال ، ومسرعة الأعمال .
+          </div>
+      </div>         
+
+
+      <!--sign up/login table/form-->
+      <hr style="border:0.25px solid rgb(110, 110, 110);">
+      <br><br><br>
+      <!-- <table border="0">
+        <td style="border-right:3px solid #25aa04;">
+          <form action="..."> 
+            <div class="container">
+              <h1>Sign Up</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+    
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+              
+              <p>By creating an account you agree to our <a href="terms_conditions.html" style="color:dodgerblue">Terms & conditions</a>.</p>
+        
+              <button type="submit" name="submit" class="signupbtn"><a href="participants_profile_page.html">Sign Up</a></button>
+
+            </div>
+          </form>
+        </td>
+        
+        <td style="border-top-width: 0;">
+          <form action="..."> 
+            <div class="container">
+            <h1>Login</h1>
+            <p>Please fill in this form to Login to your account.</p>
+            <hr>
+  
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="uname" required>
+  
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+  
+              <label style="font-size:16.70pt;"><input type="checkbox" checked="checked" name="remember"> Remember me</label>
+              
+              <br><br><br><br>
+              <p>&nbsp Forgot <a href="..." style="color:dodgerblue">password?</a></p>
+              
+              <button id="submit" type="submit"><a href="participants_profile_page.html">Login</a></button>
+  
+            </div>
+          </form>
+        </td>
+      </table> -->
+    </div>
+
+
+    <!-- Footer (at the bottom of the page -->
+    <br><br><br><br><br>
+    <footer><iframe src="page_footer.html" scrolling ="no" width ="100%" height="395px" style="border:none;"></iframe></footer>
+
+  </body>
+</html>

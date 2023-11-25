@@ -1,50 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>--- FAISALBJ1 PROJECTS ---</title>
-        <link rel="icon" type="image/png" href="">
-
-        <!-- FaisalBj1 -->
-        <link rel="stylesheet" href="/style-01.css?v=123456789">
-        <script type=module src="/header_footer.js?v=123456789"></script>
-
-        <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
-
-        <script>
-            window.addEventListener('load', (event) => {
-                // alert('page is fully loaded');
-            });
-        </script>
+        <title>PROJECTS</title>
 
         <style>
-        .container {
-                display: flex;
-                justify-content: center;
+            * {
+                box-sizing: border-box;
+                /* border: solid 1px black; */
                 text-align: center;
-                flex-direction: column;
+            }
+            body {
+                padding: 0;
+                margin: 0;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                min-height: 100vh;
+                gap: 0;
+                /* background-color: #000; */
+                /* color: white; */
             }
 
-            h1, h3 {
-                font-weight: 999;
-                
+            header, main, footer {
+                border: 1px solid #ccc;
             }
+                a {
+                    text-decoration: none;
+                }
+
+                nav .menu {
+                    display: flex;
+                    width: 100%;
+                    background: #ff8b8b;
+                    display: none;
+                    justify-content: center;
+                    text-align: center;
+                }
+
+                .menu ul li {
+                    list-style: none;
+                }
+
+            #nav_menu_toggle, #nav_menu_btn {
+                text-align: center;
+                display: none;
+                cursor: pointer;
+            }
+
+
+            @media (max-width: 600px) {
+                #nav_menu_btn {
+                    display: block;
+                }
+
+                .menu {
+                  display: block;
+                }
+
+                #nav_menu_toggle:checked ~ .menu {
+                    display: block;
+                }
+            }
+
+            
+
+            
+
+                /* @media (max-width: 50em){
+                    nav .menu{
+                        width: 100%;
+                        display:none;
+                    }
+                    nav ul {
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 0.5rem 0;
+                    }
+                    nav label {
+                        display: inline-flex;
+                        color: var(--text-color);
+                        cursor: pointer;
+                    }
+                    nav #toggle:checked ~ .menu {
+                        display: block;
+                        animation: slideIn 0.5s ease-out;
+                    }                                
+                } */
+        
+                /* @keyframes slideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-9px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                } */
 
         </style>
-
     </head>
 
-    <body class="body">
-        <my-header></my-header>
+    <body>
+        <header>
+            <h1>HEADER</h1>
+            <my-header></my-header>
+            <nav>
+                <input type="checkbox" id="nav_menu_toggle">
+                <label for="nav_menu_toggle" id="nav_menu_btn">MENU</label>
+                <div class="menu">
+                    <p><a href="#">Menu Item 1</a></p>
+                    <p><a href="#">Menu Item 1</a></p>
+                    <p><a href="#">Menu Item 1</a></p>
+                </div>
+            </nav>
+        </header>
 
-        <div class="container">
-            <h1>Projects Page</h1>
-            <h3></h3>
-        </div>
+            
 
+        <main>
+            <h1>MAIN</h1>
+        </main>
 
-        <my-footer></my-footer> 
-
+        <footer>
+            <h1>FOOTER</h1>
+        </footer>
     </body>
+
 </html>

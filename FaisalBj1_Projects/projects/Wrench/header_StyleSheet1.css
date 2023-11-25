@@ -1,0 +1,40 @@
+﻿body {
+    background-image: url('images/project images/header_background2.jpg');
+    background-size: cover;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /*font-family: 'Agency FB';*/
+    /*font-family: 'Dead Kansas';*/
+}
+
+h1 {
+    /*text-shadow: 2px 2px #6b4500;*/
+    color: #6b4500;
+    font-family: 'Cascadia Code';
+}
+
+h2 {
+    color: #3a3a3c;
+    font-family: 'Cascadia Code';
+}
+
+h3 {
+    color: #3a3a3c;
+    font-family: 'Cascadia Code';
+}
+
+th {
+    border-top: groove;
+    border-bottom: groove;
+    border-width: thin;
+    width: 170px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #efefef;
+    font-size: smaller;
+}
+
+a {
+    text-decoration: none;
+    text-decoration-color: white;
+    color: white;
+}

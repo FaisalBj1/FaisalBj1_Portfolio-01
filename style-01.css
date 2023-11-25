@@ -12,18 +12,11 @@
 
 .light-theme {
     --primary-color: #000000;
-    --secondary-color: #2626eb;
-    --third-color: #3131dd;
-    --fourth-color: #4E4FEB;
-    --fifth-color: #8181db;
-    --text-color: #c0c0e1;
-    --link-color: #2626eb;
+    /* TODO */
 }
 
 * {
-    font-family: 'Smooch Sans', sans-serif;
-
-
+    font-family: 'popins', sans-serif;
     box-sizing: border-box;
     color: var(--text-color);
  }
@@ -39,7 +32,6 @@
     background-size: cover;
     background-position: center;
     /* background-repeat: no-repeat; */
-    
  }
 
  

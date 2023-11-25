@@ -1,0 +1,105 @@
+<style>
+    header,  my-header {
+        margin-bottom: auto;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background-color: var(--secondary-color);
+        background: linear-gradient(to bottom, var(--secondary-color), rgba(0, 0, 0, 0));
+        margin: 0;
+        padding: 1rem 1.5rem;
+        width: 100%;
+    }
+
+    nav :where(.logo, label) {
+        font-weight: bold;
+        color: var(--text-color);
+    }
+
+    nav label i:hover,
+    .logo:hover {
+        transition: all 0.15s ease-out;
+        transform: scale(1.07);
+    }
+
+    nav label i:not(hover),
+    .logo:not(hover) {
+        transition: all 0.25s ease-out;
+        transform: scale(1);
+    }
+
+    nav ul li:hover {
+        transition: all 0.25s ease-out;
+        transform: scale(1.25);
+    }
+
+    nav ul li:not(hover) {
+        transition: all 0.35s ease-out;
+        transform: scale(1);
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    nav #toggle, nav label {
+        display: none;
+    }
+
+    /* light/dark toggle icon */
+    nav :where(#toggle_light, #toggle_dark) {
+        display: none;
+    }
+
+    /* style for smaller screens */
+    @media (max-width: 50em) {
+        nav .menu {
+            width: 100%;
+            display: none;
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        nav label {
+            display: inline-flex;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        nav #toggle:checked~.menu {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+    }
+</style>
+
+<header>
+    <nav>
+        <a href="#index.html" class="logo">FAISAL BANJAR</a>
+        <input type="checkbox" name="" id="toggle">
+        <label for="toggle"><i class="fa-solid fa-bars" style="color: var(--text-color)"></i></label>
+        <div class="menu">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>

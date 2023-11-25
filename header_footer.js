@@ -3,7 +3,7 @@ class MyHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                header{
+                header, my-header{
                     margin-bottom: auto; 
                 }
         
@@ -135,23 +135,25 @@ class MyFooter extends HTMLElement {
                 }
         
                 footer a {
-                    color: var(--secondary-color);
+                    color: var(--text-color);
                     text-decoration: none;
                 }
         
                 footer p {
-                    color: var(--fourth-color);
+                    color: var(--fifth-color);
                 }
         
                 footer .footer-heading {
-                    font-size: 45px;
-                    color: var(--text-color);
-                    font-weight: 700;
-                    margin-bottom: 30px;
+                    color: transparent;
+                    font-weight: 900;
+                    font-size: 3em;
+                    -webkit-text-stroke: 2px var(--text-color);
+                    text-transform: uppercase;
+                    font-family: 'poppins', sans-serif;
                 }
         
                 footer .links a {
-                    color: var(--text-color);
+                    color: var(--fifth-color);
                     margin: 0 10px;
                     text-transform: uppercase;
                     letter-spacing: 1px;
@@ -168,7 +170,7 @@ class MyFooter extends HTMLElement {
                 }
                     .social_media_ a i {
                         font-size: 2em;
-                        color: var(--secondary-color);
+                        color: var(--text-color);
                         margin: 0.5rem;
                     }
             </style>    

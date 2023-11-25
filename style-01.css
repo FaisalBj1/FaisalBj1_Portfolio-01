@@ -3,7 +3,7 @@
     --secondary-color: #2626eb;
     --third-color: #3131dd;
     --fourth-color: #4E4FEB;
-    --fifth-color: #8181db;
+    --fifth-color: #8e8ed5;
     --text-color: #c0c0e1;
     --link-color: #2626eb;
     --opp-color: #2626eb;
@@ -34,10 +34,11 @@
     flex-direction: column;
     padding: 0;
     margin: 0;
+    background-color: #000000;
     background: linear-gradient(45deg, #000000bc, rgba(0, 0, 0, 0.64)), url('/Faisal_img-01.JPG');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     
  }
 

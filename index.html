@@ -7,14 +7,28 @@
         <link rel="icon" type="image/png" href="">
 
         <!-- FaisalBj1 -->
-        <link rel="stylesheet" href="/style-01.css?dev=<?php echo rand(); ?>">
-        <script type=module src="/header_footer.js?t=?t=<?=date('ms');?>"></script>
+        <link rel="stylesheet" href="/style-01.css?TIMESTAMP=<?php=date('ms');?>">
+        <script type=module src="/header_footer.js"></script>
 
         <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
 
         <script>
             window.addEventListener('load', (event) => {
                 // alert('page is fully loaded');
+            });
+        </script>
+
+        <!-- test -->
+        <link id="myStylesheet" rel="stylesheet" href="/style-01.css">
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the link element by its ID
+                const stylesheetLink = document.getElementById('myStylesheet');
+
+                // Add a timestamp to the href attribute
+                const timestamp = new Date().getTime();
+                stylesheetLink.href = `/style-01.css?dev=${timestamp}`;
             });
         </script>
 

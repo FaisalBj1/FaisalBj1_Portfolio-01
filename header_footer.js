@@ -125,57 +125,60 @@ class MyFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                footer, my-footer {
-                    background: var(--secondary-color);
+                .footer {
                     background: linear-gradient(to top, var(--secondary-color), rgba(0,0,0,0));
-                    text-align: center;
-                    margin-top: auto;
-                    line-height: 3rem;
-                    padding: 1rem;
-                }
-        
-                footer a {
-                    color: var(--text-color);
-                    text-decoration: none;
-                }
-        
-                footer p {
-                    color: var(--fifth-color);
-                }
-        
-                footer .footer-heading {
-                    color: transparent;
-                    font-weight: 900;
-                    font-size: 3em;
-                    -webkit-text-stroke: 2px var(--text-color);
-                    text-transform: uppercase;
-                    font-family: 'poppins', sans-serif;
-                }
-        
-                footer .links a {
-                    color: var(--fifth-color);
-                    margin: 0 10px;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                }
-
-                .social_media_container {
+                    box-sizing: border-box;
                     display: flex;
-                    justify-content: center;
-                }
-                .social_media_ {
-                    width: clamp(px, 50%, 1000px);
+                    flex-direction: column;
+                    justify-content:space-evenly;
                     text-align: center;
-                    overflow: hidden;
+                    align-items: center;
+                    
+                    gap: 1em;
+                    padding: 0;
+                    margin : 0;
+                    margin-top: auto; 
+                    width: 100%;
                 }
-                    .social_media_ a i {
-                        font-size: 2em;
+                    .footer a {
                         color: var(--text-color);
-                        margin: 0.5rem;
+                        text-decoration: none;
                     }
+                    .footer p {
+                        color: var(--fifth-color);
+                    }
+                    .footer .footer-heading {
+                        color: transparent;
+                        font-weight: 900;
+                        font-size: 3em;
+                        -webkit-text-stroke: 2px var(--text-color);
+                        text-transform: uppercase;
+                        font-family: 'poppins', sans-serif;
+                    }
+                    .footer .links a {
+                        color: var(--fifth-color);
+                        margin: 0 10px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    }
+                    .social_media_container {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                    }
+                    .social_media_ {
+                        width: clamp(px, 50%, 1000px);
+                        text-align: center;
+                        overflow: hidden;
+                    }
+                        .social_media_ a i {
+                            font-size: 2em;
+                            color: var(--text-color);
+                            margin: 0.5rem;
+                        }
             </style>    
             
-            <footer>
+            <div class='footer'>
                 <a href="#"><h2 class="footer-heading">Faisal Sami Banjar</h2></a>
             
                 <div>
@@ -183,16 +186,12 @@ class MyFooter extends HTMLElement {
                         <a href="/FaisalBj1_Projects">Projects</a>
                         <a href="">link</a>
                         <a href="">link</a>
-                        <a href="">link</a>
-                        <a href="">link</a>
-                        <a href="">link</a>
-                        <a href="">link</a>
                     </p>
                 </div>
             
                 <div class="social_media_container">
                     <div class="social_media_">
-                        <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://facebook.com/" target="_blank" aria-placeholder="hello"><i class="fa-brands fa-square-facebook"></i></a>
                         <a href="https://instagram.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
                         <a href="https://snapchat.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
                         <a href="https://x.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
@@ -203,12 +202,9 @@ class MyFooter extends HTMLElement {
                 </div>
             
                 <div>
-                    <p class="copyright">
-                    Copyright ©
-                    <script>document.write(new Date().getFullYear());</script> All rights reserved | Built & Developed by <a href="http://FaisalBj1.com" target="_blank">FaisalBj1</a>
-                    </p>
+                    <p>Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | Built & Developed by <a href="http://FaisalBj1.com" target="_blank">FaisalBj1</a></p>
                 </div>
-            </footer>
+            </div>
             `
     }
 }

@@ -1,0 +1,26 @@
+<!-- loading... -->
+<div class="loading_screen">
+    <style>
+        .loading {
+            width: 100vw;
+            height: 100svh;
+            background: rgba(0, 0, 0, 75%);
+            position: absolute;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    
+    <div class="loading" id="loading">
+        <h1>loading...</h1>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        // loading screen...
+        document.getElementById('loading').style.display = 'none';
+    });
+</script>

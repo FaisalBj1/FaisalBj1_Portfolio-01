@@ -15,9 +15,7 @@
         <script>
             // fully loaded page
             window.addEventListener('load', () => {
-                // loading screen...
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('body').style.visibility = 'visible';
+                //nothing for now
             });
 
             //time stamp
@@ -27,13 +25,19 @@
         </script>
 
         <style>
-            body{
-                display: flex;
-                justify-content: center;
-                text-align: center;
+            * {
+                /* border: solid 1px red; */
             }
-            #body{
-                visibility: hidden;
+            body{
+                box-sizing: border-box;
+                display: grid;
+                grid-template-areas: 
+                'header'
+                'main'
+                'footer';
+                justify-content: stretch;
+                text-align: center;
+                align-items: center;
             }
 
             h1 {
@@ -43,32 +47,26 @@
                 -webkit-text-stroke: 0.21rem var(--secondary-color);
                 text-transform: uppercase;
             }
+
+            .header {
+                grid-area: 'header';
+            }
+            .main {
+                grid-area: 'main';
+            }
+            .header {
+                grid-area: 'footer';
+            }
         </style>
     </head>
         
     <body>
-        <!-- loading... -->
-        <style>
-            .loading {
-                width: 100vw;
-                height: 100vh;
-                background: rgba(0, 0, 0, 75%);
-                position: fixed;
-                z-index: 99999;
-                justify-content: center;
-                padding: 25%;
-            }
-        </style>
-        <div class="loading" id="loading">
-            <h1>loading...</h1>
-        </div>
+        <my-header class="header"></my-header>
 
-        <my-header></my-header>
-
-        <main id="body">
+        <main class="main">
             <h1>Welcome to my website</h1>
         </main>
 
-        <my-footer></my-footer> 
+        <my-footer class="footer"></my-footer> 
     </body>
 </html>

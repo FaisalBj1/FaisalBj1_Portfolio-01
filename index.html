@@ -12,18 +12,7 @@
 
         <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
 
-        <script>
-            // fully loaded page
-            window.addEventListener('load', () => {
-                //nothing for now
-            });
-
-            //time stamp
-            const timestamp = new Date().getTime();
-            document.getElementById('myStylesheet').href = `/style-01.css?dev=${timestamp}`;
-            document.getElementById('myJS').src = `/header_footer.js?dev=${timestamp}`;//not working.
-        </script>
-
+        
         <style>
             * {
                 box-sizing: border-box;
@@ -50,9 +39,20 @@
                 text-transform: uppercase;
             }
 
-            body {
-                transition: all 0.25s ease-in-out;
+            html {
+                animation: body_in 9s ease-in-out;
             }
+
+            @keyframes body_in {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-9px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
         </style>
     </head>
         
@@ -64,5 +64,18 @@
         </main>
 
         <my-footer></my-footer> 
+
+        <script>
+            // fully loaded page
+            window.addEventListener('load', () => {
+                //nothing for now
+            });
+
+            //time stamp
+            const timestamp = new Date().getTime();
+            document.getElementById('myStylesheet').href = `/style-01.css?dev=${timestamp}`;
+            document.getElementById('myJS').src = `/header_footer.js?dev=${timestamp}`;//not working.
+        </script>
+
     </body>
 </html>

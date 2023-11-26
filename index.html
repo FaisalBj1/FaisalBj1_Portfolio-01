@@ -26,18 +26,20 @@
 
         <style>
             * {
+                box-sizing: border-box;
                 /* border: solid 1px red; */
             }
             body{
                 box-sizing: border-box;
-                display: grid;
-                grid-template-areas: 
-                'header'
-                'main'
-                'footer';
-                justify-content: stretch;
-                text-align: center;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: center;
                 align-items: center;
+                /* text-align: center; */
+            }
+            main {
+                box-sizing: border-box;
             }
 
             h1 {
@@ -47,26 +49,16 @@
                 -webkit-text-stroke: 0.21rem var(--secondary-color);
                 text-transform: uppercase;
             }
-
-            .header {
-                grid-area: 'header';
-            }
-            .main {
-                grid-area: 'main';
-            }
-            .header {
-                grid-area: 'footer';
-            }
         </style>
     </head>
         
     <body>
-        <my-header class="header"></my-header>
+        <my-header></my-header>
 
-        <main class="main">
+        <main>
             <h1>Welcome to my website</h1>
         </main>
 
-        <my-footer class="footer"></my-footer> 
+        <my-footer></my-footer> 
     </body>
 </html>

@@ -21,17 +21,21 @@
     color: var(--text-color);
  }
  
+ html {
+    box-sizing: border-box;
+ }
+
  body {
     height: 100svh; 
-    display: flex;
     padding: 0;
     margin: 0;
-    background-color: #000000;
-    background: linear-gradient(45deg, #000000bc, rgba(0, 0, 0, 0.64)), url('/Faisal_img-01.JPG');
+    background: linear-gradient(45deg, rgb(0, 0, 0, 1), rgba(0, 0, 0, 0.50)), url('/Faisal_img-01.JPG');
     background-size: cover;
     background-position: center;
     /* background-repeat: no-repeat; */
  }
+
+
 
  
 

@@ -10,10 +10,12 @@
     <body>
 
         <style>
-            header, my-header{
+            header ,my-header {
+                width: 100vw;
             }
-    
+
             nav {
+                width: 100vw;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
@@ -25,7 +27,7 @@
                 padding: 1rem 1.5rem;
                 width: 100%;
             }
-    
+
             nav :where(.logo, label) {
                 font-weight: bold;
                 color: var(--text-color);
@@ -39,7 +41,7 @@
                 transition: all 0.25s ease-out;
                 transform: scale(1);
             }
-    
+
             nav ul li:hover {
                 transition: all 0.25s ease-out;
                 transform: scale(1.25);
@@ -48,7 +50,7 @@
                 transition: all 0.35s ease-out;
                 transform: scale(1);
             }
-    
+
             nav ul {
                 list-style: none;
                 display: flex;
@@ -66,7 +68,7 @@
             nav :where(#toggle_light, #toggle_dark) {
                     display: none;
             }
-    
+
             /* style for smaller screens */
             @media (max-width: 50em){
                 nav .menu{
@@ -88,7 +90,7 @@
                     animation: slideIn 0.5s ease-out;
                 }                                
             }
-    
+
             @keyframes slideIn {
                 from {
                     opacity: 0;

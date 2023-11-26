@@ -3,11 +3,13 @@ class MyHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                header, my-header{
-                    margin-bottom: auto; 
+                header ,my-header {
+                    width: 100%;
+                    margin-bottom: auto;
                 }
-        
+
                 nav {
+                    width: 100%;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
@@ -19,7 +21,7 @@ class MyHeader extends HTMLElement {
                     padding: 1rem 1.5rem;
                     width: 100%;
                 }
-        
+
                 nav :where(.logo, label) {
                     font-weight: bold;
                     color: var(--text-color);
@@ -33,7 +35,7 @@ class MyHeader extends HTMLElement {
                     transition: all 0.25s ease-out;
                     transform: scale(1);
                 }
-        
+
                 nav ul li:hover {
                     transition: all 0.25s ease-out;
                     transform: scale(1.25);
@@ -42,7 +44,7 @@ class MyHeader extends HTMLElement {
                     transition: all 0.35s ease-out;
                     transform: scale(1);
                 }
-        
+
                 nav ul {
                     list-style: none;
                     display: flex;
@@ -60,7 +62,7 @@ class MyHeader extends HTMLElement {
                 nav :where(#toggle_light, #toggle_dark) {
                         display: none;
                 }
-        
+
                 /* style for smaller screens */
                 @media (max-width: 50em){
                     nav .menu{
@@ -82,7 +84,7 @@ class MyHeader extends HTMLElement {
                         animation: slideIn 0.5s ease-out;
                     }                                
                 }
-        
+
                 @keyframes slideIn {
                     from {
                         opacity: 0;
@@ -125,7 +127,7 @@ class MyFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                .footer {
+                footer ,my-footer {
                     background: linear-gradient(to top, var(--secondary-color), rgba(0,0,0,0));
                     box-sizing: border-box;
                     display: flex;
@@ -140,22 +142,22 @@ class MyFooter extends HTMLElement {
                     margin-top: auto; 
                     width: 100%;
                 }
-                    .footer a {
+                    footer a {
                         color: var(--text-color);
                         text-decoration: none;
                     }
-                    .footer p {
+                    footer p {
                         color: var(--fifth-color);
                     }
-                    .footer .footer-heading {
+                    footer .footer-heading {
                         color: transparent;
-                        font-weight: 900;
-                        font-size: 3em;
-                        -webkit-text-stroke: 2px var(--text-color);
+                        font-weight: 500;
+                        font-size: 2.5em;
+                        -webkit-text-stroke: 0.025em var(--text-color);
                         text-transform: uppercase;
                         font-family: 'poppins', sans-serif;
                     }
-                    .footer .links a {
+                    footer .links a {
                         color: var(--fifth-color);
                         margin: 0 10px;
                         text-transform: uppercase;
@@ -178,7 +180,7 @@ class MyFooter extends HTMLElement {
                         }
             </style>    
             
-            <div class='footer'>
+            <footer>
                 <a href="#"><h2 class="footer-heading">Faisal Sami Banjar</h2></a>
             
                 <div>
@@ -204,7 +206,7 @@ class MyFooter extends HTMLElement {
                 <div>
                     <p>Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | Built & Developed by <a href="http://FaisalBj1.com" target="_blank">FaisalBj1</a></p>
                 </div>
-            </div>
+            </footer>
             `
     }
 }

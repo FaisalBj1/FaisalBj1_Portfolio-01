@@ -50,6 +50,22 @@
     /* background-repeat: no-repeat; */
  }
 
+body::-webkit-scrollbar {
+    width: 5px; /* Set the width of the scrollbar */
+}
+body::-webkit-scrollbar-track {
+    background-color: #000000; /* Track color */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color); /* Thumb color */
+    border-radius: 6px; /* Round the corners of the thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--fourth-color) /* Thumb color on hover */
+}
+
 
 
  

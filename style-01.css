@@ -8,6 +8,8 @@
     --link-color: #2626eb;
     --opp-color: #2626eb;
     --op-color: rgba(0, 0, 0, 0);
+
+    --phone-width: 50em;
 }
 
 .light-theme {

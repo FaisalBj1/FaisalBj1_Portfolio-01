@@ -148,61 +148,88 @@ class MyFooter extends HTMLElement {
                     }
                     footer p {
                         color: var(--fifth-color);
+                        font-size: 0.75rem;
                     }
                     footer .footer-heading {
                         color: transparent;
-                        font-weight: 500;
-                        font-size: 2.5em;
-                        -webkit-text-stroke: 0.025em var(--text-color);
+                        font-weight: 100;
+                        font-size: 1.5rem;
+                        -webkit-text-stroke: 0.025rem var(--text-color);
                         text-transform: uppercase;
-                        font-family: 'poppins', sans-serif;
+                        letter-spacing: 3px;
+                    }
+
+                    footer .links {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        font-size: .75rem;
+                        gap: 15px;
                     }
                     footer .links a {
                         color: var(--fifth-color);
-                        margin: 0 10px;
                         text-transform: uppercase;
                         letter-spacing: 1px;
                     }
+                    footer .links a:hover {
+                        transform: scale(1.15);
+                        transition: transform 0.25s ease-out;
+                        color: var(--fourth-color);
+
+                    }
+                    footer .links a:not(hover) {
+                        transform: scale(1);
+                        transition: transform 0.25s ease-out;
+                    }
+
                     .social_media_container {
+                        width: 100%;
                         display: flex;
-                        justify-content: space-evenly;
-                        align-items: center;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 7px;
                     }
-                    .social_media_ {
-                        width: clamp(px, 50%, 1000px);
-                        text-align: center;
-                        overflow: hidden;
+                    .social_media_container a i {
+                        font-size: 1.5rem;
+                        color: var(--text-color);
                     }
-                        .social_media_ a i {
-                            font-size: 2em;
-                            color: var(--text-color);
-                            margin: 0.5rem;
+                    .social_media_container a i:hover {
+                        transform: scale(1.15);
+                        transition: transform 0.25s ease-out;
+                        color: var(--fourth-color);
+                    }
+                    .social_media_container a i:not(hover) {
+                        transform: scale(1);
+                        transition: transform 0.25s ease-out;
+                    }
+
+                    @media  (max-width: 50em) {
+                        footer .links, footer .social_media_container {
+                            flex-direction: column;
                         }
+                    }
             </style>    
             
             <footer>
                 <a href="#"><h2 class="footer-heading">Faisal Sami Banjar</h2></a>
             
-                <div>
-                    <p class="links">
-                        <a href="/FaisalBj1_Projects">Projects</a>
-                        <a href="">link</a>
-                        <a href="">link</a>
-                    </p>
+                <div class="links">
+                    <a href="/FaisalBj1_Projects">Projects</a>
+                    <a href="">link</a>
+                    <a href="">link</a>
+                    <br><br><br>
                 </div>
             
                 <div class="social_media_container">
-                    <div class="social_media_">
-                        <a href="https://facebook.com/" target="_blank" aria-placeholder="hello"><i class="fa-brands fa-square-facebook"></i></a>
-                        <a href="https://instagram.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
-                        <a href="https://snapchat.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
-                        <a href="https://x.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
-                        <a href="https://wa.me/+966562629866" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a>
-                        <a href="https://www.linkedin.com/in/faisal-banjar-943b791ba/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-github"></i></a>
-                    </div>
+                    <a href="https://facebook.com/" target="_blank" aria-placeholder="hello"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://instagram.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="https://snapchat.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
+                    <a href="https://x.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
+                    <a href="https://wa.me/+966562629866" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/faisal-banjar-943b791ba/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-github"></i></a>
                 </div>
-            
+        
                 <div>
                     <p>Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | Built & Developed by <a href="http://FaisalBj1.com" target="_blank">FaisalBj1</a></p>
                 </div>

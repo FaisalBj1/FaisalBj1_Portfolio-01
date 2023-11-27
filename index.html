@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,12 +32,10 @@
             body{
                 display: flex;
                 flex-wrap: wrap;
-                flex-direction: column;
+                flex-direction: row;
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-
-                /* animation: fade_in 3s ease-in-out; */
             }           
             main {
                 padding: 15px;
@@ -47,7 +45,7 @@
                 color: transparent;
                 font-weight: 900;
                 font-size: 3.5rem;
-                -webkit-text-stroke: 0.21rem var(--secondary-color);
+                -webkit-text-stroke: 0.21rem var(--primary-color);
                 text-transform: uppercase;
             }
         </style>
@@ -55,7 +53,7 @@
         
     <body>
         <my-header></my-header>
-        
+
         <main>
             <h1>Welcome to my website</h1>
         </main>

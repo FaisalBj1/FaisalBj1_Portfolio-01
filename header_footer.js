@@ -15,8 +15,7 @@ class MyHeader extends HTMLElement {
                     justify-content: space-between;
                     align-items: center;
                     padding: 1rem 1.5rem;
-                    background-color: var(--secondary-color);
-                    background: linear-gradient(to bottom, var(--secondary-color), rgba(0,0,0,0));
+                    background: linear-gradient(to bottom, var(--primary-color), rgba(0,0,0,0));
                     margin: 0;
                     padding: 1rem 1.5rem;
                     width: 100%;
@@ -24,7 +23,7 @@ class MyHeader extends HTMLElement {
 
                 nav :where(.logo, label) {
                     font-weight: bold;
-                    color: var(--text-color);
+                    color: var(--secondary-color);
                 }
                 
                 nav label i:hover, .logo:hover {

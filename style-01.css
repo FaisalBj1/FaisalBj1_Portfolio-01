@@ -7,7 +7,7 @@
     --accent-color: #fe9618;
     --link-color: #4712ab;
 
-    /* RGBA (use to control opacity)*/
+    cursor: url('dot_cursor-light.png'), auto;
 }
 :root[data-theme="dark"] {
     /* HEX */
@@ -18,7 +18,7 @@
     --accent-color: #6418dc;
     --link-color: #4712ab;
 
-    /* RGBA (use to control opacity)*/
+    cursor: url('dot_cursor-dark.png'), auto;
 }
 
 /* animations */

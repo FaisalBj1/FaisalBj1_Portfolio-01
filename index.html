@@ -16,9 +16,17 @@
         <script>
             // fully loaded page
             window.addEventListener('load', () => {
-                // nothing for now
-            });
+                const root = document.documentElement;
+                const currentTheme = root.getAttribute('data-theme');
+                    if (currentTheme === 'light') {
+                        document.getElementById('light_icon_li').style.display = 'none';
+                        document.getElementById('dark_icon_li').style.display = 'block';
+                    } else {
+                        document.getElementById('light_icon_li').style.display = 'block'; 
+                        document.getElementById('dark_icon_li').style.display = 'none';
+                    }
 
+            });
             //time stamp
             const timestamp = new Date().getTime();
             document.getElementById('myStylesheet').href = `/style-01.css?dev=${timestamp}`;
@@ -31,10 +39,15 @@
 
                 if (currentTheme === 'light') {
                     root.setAttribute('data-theme', 'dark');
+                    document.getElementById('light_icon_li').style.display = 'block';
+                    document.getElementById('dark_icon_li').style.display = 'none';
                 } else {
                     root.setAttribute('data-theme', 'light');
+                    document.getElementById('light_icon_li').style.display = 'none';
+                    document.getElementById('dark_icon_li').style.display = 'block';
                 }
             }// end of theme toggle
+            
         </script>
         
         <style>
@@ -61,6 +74,12 @@
                 -webkit-text-stroke: 0.25vw var(--text-color);
                 text-transform: uppercase;
             }
+            h2 {
+                font-weight: 500;
+                font-size: 1.5vw;
+                -webkit-text-stroke: 0.05vw var(--text-color);
+                text-transform: uppercase;
+            }
         </style>
     </head>
         
@@ -69,6 +88,7 @@
 
         <main>
             <h1>Welcome to my website</h1>
+            <h2>This is just a template</h2>
         </main>
 
         <my-footer></my-footer>  

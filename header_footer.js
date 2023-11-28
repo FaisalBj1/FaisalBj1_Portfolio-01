@@ -100,8 +100,8 @@ class MyHeader extends HTMLElement {
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact Us</a></li>
                             <li><a href="#">Projects</a></li>
-                            <li><label id="light_icon"><i class="fa-solid fa-sun"  onclick="toggleTheme()"></i></label></li>
-                            <li><label id="dark_icon" ><i class="fa-solid fa-moon" onclick="toggleTheme()"></i></label> </li>
+                            <li id="light_icon_li"><label id="light_icon"><i class="fa-solid fa-sun"  onclick="toggleTheme()"></i></label></li>
+                            <li id="dark_icon_li"><label id="dark_icon" ><i class="fa-solid fa-moon" onclick="toggleTheme()"></i></label> </li>
                         </ul>
                     </div>
                 </nav>
@@ -123,7 +123,6 @@ class MyFooter extends HTMLElement {
                     height: 100svh;
                 }
 
-
                 footer, my-footer{
                     border-top: solid 1px var(--primary-color);
                     backdrop-filter: blur(15px);
@@ -138,13 +137,14 @@ class MyFooter extends HTMLElement {
                     padding: 0;
                     margin-top: auto; 
                     width: 100%;
+                    // background: linear-gradient(0, var(--primary-color), rgba(0, 0, 0, 0.0));
                 }
                     footer a {
-                        color: var(--text-color);
+                        color: var(--accent-color);
                         text-decoration: none;
                     }
                     footer p {
-                        color: var(--text-color);
+                        color: var(--accent-color);
                         font-size: 0.75vw;
                     }
                     footer .footer-heading {
@@ -155,30 +155,6 @@ class MyFooter extends HTMLElement {
                         text-transform: uppercase;
                         letter-spacing: 3px;
                     }
-
-                    footer .links {
-                        width: 100%;
-                        display: flex;
-                        justify-content: center;
-                        font-size: 1vw;
-                        gap: 15px;
-                    }
-                    footer .links a {
-                        color: var(--fifth-color);
-                        text-transform: uppercase;
-                        letter-spacing: 1px;
-                    }
-                    footer .links a:hover {
-                        transform: scale(1.15);
-                        transition: transform 0.25s ease-out;
-                        color: var(--fourth-color);
-
-                    }
-                    footer .links a:not(hover) {
-                        transform: scale(1);
-                        transition: transform 0.25s ease-out;
-                    }
-
                     .social_media_container {
                         width: 100%;
                         display: flex;
@@ -187,24 +163,29 @@ class MyFooter extends HTMLElement {
                         gap: 7px;
                     }
                     .social_media_container a i {
-                        font-size: 1.25vw;
+                        font-size: 1.75vw;
                         color: var(--text-color);
                     }
                     .social_media_container a i:hover {
                         transform: scale(1.15);
                         transition: transform 0.25s ease-out;
-                        color: var(--fourth-color);
+                        color: var(--accent-color);
                     }
                     .social_media_container a i:not(hover) {
                         transform: scale(1);
                         transition: transform 0.25s ease-out;
                     }
 
+                    p a {
+                        color: var(--text-color);
+                    }
+
 
             </style>    
             
             <footer>
-                <a href="#"><h2 class="footer-heading">Faisal Sami Banjar</h2></a>
+                <!-- <a href="#">LOGO</a> -->
+                <br/>
             
                 <div class="social_media_container">
                     <a href="https://facebook.com/" target="_blank" aria-placeholder="hello"><i class="fa-brands fa-square-facebook"></i></a>

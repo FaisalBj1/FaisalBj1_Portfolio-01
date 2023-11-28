@@ -53,7 +53,7 @@ class MyHeader extends HTMLElement {
                 }
 
                 /* style for smaller screens */
-                @media (max-width: 50em){
+                @media (max-width: 35rem){
                     #toggle_icon {
                         display: block;
                     }
@@ -150,7 +150,7 @@ class MyFooter extends HTMLElement {
                     footer .footer-heading {
                         color: transparent;
                         font-weight: 100;
-                        font-size: 2.5vw;
+                        font-size: 2.5rem;
                         -webkit-text-stroke: 0.025rem var(--text-color);
                         text-transform: uppercase;
                         letter-spacing: 3px;
@@ -163,7 +163,7 @@ class MyFooter extends HTMLElement {
                         gap: 7px;
                     }
                     .social_media_container a i {
-                        font-size: 1.75vw;
+                        font-size: 1.75rem;
                         color: var(--text-color);
                     }
                     .social_media_container a i:hover {

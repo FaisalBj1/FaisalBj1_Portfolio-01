@@ -21,6 +21,12 @@
     cursor: url('dot_cursor-dark.png'), auto;
 }
 
+@media (max-width: 50rem) {
+    :root{
+        font-size: 13px;
+    }
+}
+
 /* animations */
 @keyframes fade_in {
     0% {

@@ -123,8 +123,10 @@ class MyFooter extends HTMLElement {
                     height: 100svh;
                 }
 
-                footer ,my-footer {
-                    background: linear-gradient(to top, var(--primary-color), rgba(0,0,0,0));
+
+                footer, my-footer{
+                    border-top: solid 1px var(--primary-color);
+                    backdrop-filter: blur(15px);
                     box-sizing: border-box;
                     display: flex;
                     flex-direction: column;
@@ -134,7 +136,6 @@ class MyFooter extends HTMLElement {
                     
                     gap: 1em;
                     padding: 0;
-                    margin : 0;
                     margin-top: auto; 
                     width: 100%;
                 }
@@ -199,22 +200,11 @@ class MyFooter extends HTMLElement {
                         transition: transform 0.25s ease-out;
                     }
 
-                    @media  (max-width: 50em) {
-                        footer .links, footer .social_media_container {
-                            flex-direction: column;
-                        }
-                    }
+
             </style>    
             
             <footer>
                 <a href="#"><h2 class="footer-heading">Faisal Sami Banjar</h2></a>
-            
-                <div class="links">
-                    <a href="/FaisalBj1_Projects">Projects</a>
-                    <a href="">link</a>
-                    <a href="">link</a>
-                    <br><br><br>
-                </div>
             
                 <div class="social_media_container">
                     <a href="https://facebook.com/" target="_blank" aria-placeholder="hello"><i class="fa-brands fa-square-facebook"></i></a>
@@ -222,7 +212,6 @@ class MyFooter extends HTMLElement {
                     <a href="https://snapchat.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
                     <a href="https://x.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
                     <a href="https://wa.me/+966562629866" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a>
-                    
                     <a href="https://www.linkedin.com/in/faisal-banjar-943b791ba/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-github"></i></a>
                 </div>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!-- <html lang="en" data-theme="light"> -->
+<html lang="en" data-theme="dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>--- FAISAL BANJAR ---</title>
+        <title>- FAISAL BANJAR -</title>
         <link rel="icon" type="image/png" href="">
 
         <!-- FaisalBj1 -->
@@ -15,18 +16,30 @@
         <script>
             // fully loaded page
             window.addEventListener('load', () => {
+                // nothing for now
             });
 
             //time stamp
             const timestamp = new Date().getTime();
             document.getElementById('myStylesheet').href = `/style-01.css?dev=${timestamp}`;
             document.getElementById('myJS').src = `/header_footer.js?dev=${timestamp}`;//not working.
+
+            // theme toggle
+            function toggleTheme() {
+                const root = document.documentElement;
+                const currentTheme = root.getAttribute('data-theme');
+
+                if (currentTheme === 'light') {
+                    root.setAttribute('data-theme', 'dark');
+                } else {
+                    root.setAttribute('data-theme', 'light');
+                }
+            }// end of theme toggle
         </script>
         
         <style>
             * {
                 box-sizing: border-box;
-                
                 /* border: solid 1px red; */
             }
             body{
@@ -44,8 +57,8 @@
             h1 {
                 color: transparent;
                 font-weight: 900;
-                font-size: 3.5rem;
-                -webkit-text-stroke: 0.21rem var(--primary-color);
+                font-size: 3.5vw;
+                -webkit-text-stroke: 0.15rem var(--text-color);
                 text-transform: uppercase;
             }
         </style>
@@ -59,5 +72,7 @@
         </main>
 
         <my-footer></my-footer>  
+
+
     </body>
 </html>

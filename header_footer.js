@@ -3,44 +3,35 @@ class MyHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
+                body {
+                    height: 100svh;
+                }
+
                 header ,my-header {
                     width: 100%;
                     margin-bottom: auto;
+                    border-bottom: solid 0.25px var(--primary-color);
+                    backdrop-filter: blur(15px);
                 }
 
                 nav {
-                    width: 100%;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
+                    text-align: center;
                     align-items: center;
-                    padding: 1rem 1.5rem;
-                    background: linear-gradient(to bottom, var(--primary-color), rgba(0,0,0,0));
+                    padding: 0.5rem 1.5rem;
+                    background: transparent;
                     margin: 0;
-                    padding: 1rem 1.5rem;
-                    width: 100%;
                 }
 
-                nav :where(.logo, label) {
-                    font-weight: bold;
-                    color: var(--secondary-color);
-                }
-                
-                nav label i:hover, .logo:hover {
+                        
+                nav label i:hover, .logo:hover, ul li:hover {
                     transition: all 0.15s ease-out;
-                    transform: scale(1.07);
-                }
-                nav label i:not(hover), .logo:not(hover) {
-                    transition: all 0.25s ease-out;
-                    transform: scale(1);
-                }
-
-                nav ul li:hover {
-                    transition: all 0.25s ease-out;
                     transform: scale(1.25);
                 }
-                nav ul li:not(hover) {
-                    transition: all 0.35s ease-out;
+                nav label i:not(hover), .logo:not(hover), ul li:not(hover) {
+                    transition: all 0.25s ease-out;
                     transform: scale(1);
                 }
 
@@ -48,25 +39,28 @@ class MyHeader extends HTMLElement {
                     list-style: none;
                     display: flex;
                     gap: 2rem;
+                    padding: 0;
+                    margin: 0;
                 }
-                nav a {
+                nav :where(a, ul li, i) {
+                    color: var(--link-color);
                     text-decoration: none;
-                    color: var(--text-color);
-                }
-                nav #toggle,  nav label {
-                    display: none;
+                    cursor: pointer;
                 }
 
-                /* light/dark toggle icon */
-                nav :where(#toggle_light, #toggle_dark) {
-                        display: none;
+                #toggle_icon {
+                    display: none;
                 }
 
                 /* style for smaller screens */
                 @media (max-width: 50em){
+                    #toggle_icon {
+                        display: block;
+                    }
                     nav .menu{
                         width: 100%;
-                        display:none;
+                        /* height: 100svh; */
+                        display: none;
                     }
                     nav ul {
                         flex-direction: column;
@@ -74,14 +68,14 @@ class MyHeader extends HTMLElement {
                         padding: 0.5rem 0;
                     }
                     nav label {
-                        display: inline-flex;
                         color: var(--text-color);
                         cursor: pointer;
                     }
                     nav #toggle:checked ~ .menu {
-                        display: block;
-                        animation: slideIn 0.5s ease-out;
-                    }                                
+                            display: block;
+                            animation: slideIn 0.75s ease-out;
+                                                        
+                    }   
                 }
 
                 @keyframes slideIn {
@@ -93,22 +87,21 @@ class MyHeader extends HTMLElement {
                         opacity: 1;
                         transform: translateY(0);
                     }
-                }
+                } 
             </style>
-            
+
             <header>
-                <nav>
-                    <a href="#index.html" class="logo">FAISAL BANJAR</a>
-                    <input type="checkbox" name="" id="toggle">
-                    <label for="toggle"><i class="fa-solid fa-bars" style="color: var(--text-color)"></i></label>
+                <nav> 
+                    <a href="#index.html" class="logo" style="font-weight: bold;">FAISAL BANJAR</a>
+                    <input type="checkbox" name="" id="toggle" style="display: none;">
+                    <label for="toggle" id="toggle_icon"><i class="fa-solid fa-bars"></i></label>
                     <div class="menu">
                         <ul>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact Us</a></li>
                             <li><a href="#">Projects</a></li>
-
-                            <li><input type="checkbox" name="" id="toggle_light"> <label for="toggle_light" id="light_icon"><i class="fa-solid fa-sun"  style="color: var(--text-color)"></i></label></li>
-                            <li><input type="checkbox" name="" id="toggle_dark" > <label for="toggle_dark"  id="dark_icon" ><i class="fa-solid fa-moon" style="color: var(--text-color)"></i></label></li>
+                            <li><label id="light_icon"><i class="fa-solid fa-sun"  onclick="toggleTheme()"></i></label></li>
+                            <li><label id="dark_icon" ><i class="fa-solid fa-moon" onclick="toggleTheme()"></i></label> </li>
                         </ul>
                     </div>
                 </nav>
@@ -126,8 +119,12 @@ class MyFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
+                body {
+                    height: 100svh;
+                }
+
                 footer ,my-footer {
-                    background: linear-gradient(to top, var(--secondary-color), rgba(0,0,0,0));
+                    background: linear-gradient(to top, var(--primary-color), rgba(0,0,0,0));
                     box-sizing: border-box;
                     display: flex;
                     flex-direction: column;
@@ -146,13 +143,13 @@ class MyFooter extends HTMLElement {
                         text-decoration: none;
                     }
                     footer p {
-                        color: var(--fifth-color);
-                        font-size: 0.75rem;
+                        color: var(--text-color);
+                        font-size: 0.75vw;
                     }
                     footer .footer-heading {
                         color: transparent;
                         font-weight: 100;
-                        font-size: 1.5rem;
+                        font-size: 2.5vw;
                         -webkit-text-stroke: 0.025rem var(--text-color);
                         text-transform: uppercase;
                         letter-spacing: 3px;
@@ -162,7 +159,7 @@ class MyFooter extends HTMLElement {
                         width: 100%;
                         display: flex;
                         justify-content: center;
-                        font-size: .75rem;
+                        font-size: 1vw;
                         gap: 15px;
                     }
                     footer .links a {
@@ -189,7 +186,7 @@ class MyFooter extends HTMLElement {
                         gap: 7px;
                     }
                     .social_media_container a i {
-                        font-size: 1.5rem;
+                        font-size: 1.25vw;
                         color: var(--text-color);
                     }
                     .social_media_container a i:hover {
@@ -225,6 +222,7 @@ class MyFooter extends HTMLElement {
                     <a href="https://snapchat.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
                     <a href="https://x.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
                     <a href="https://wa.me/+966562629866" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    
                     <a href="https://www.linkedin.com/in/faisal-banjar-943b791ba/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-github"></i></a>
                 </div>

@@ -145,7 +145,7 @@ class MyFooter extends HTMLElement {
                     }
                     footer p {
                         color: var(--accent-color);
-                        font-size: 0.75vw;
+                        font-size: 0.75rem;
                     }
                     footer .footer-heading {
                         color: transparent;
@@ -178,6 +178,7 @@ class MyFooter extends HTMLElement {
 
                     p a {
                         color: var(--text-color);
+
                     }
 
 

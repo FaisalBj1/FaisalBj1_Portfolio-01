@@ -16,7 +16,6 @@
             :root {
                 display: none;
             }
-
             h1 {
                 color: transparent;
                 font-weight: 900;
@@ -33,6 +32,8 @@
         </style>
 
         <script>
+            // TODO: why not reaching main.js functions
+
             // theme toggle
             function toggleTheme() {
                 const root = document.documentElement;
@@ -48,10 +49,8 @@
                     document.getElementById('dark_icon_li').style.display = 'block';
                 }
             }
-            
-            document.getElementById('main_js').addEventListener('load', (event) => {
-                test();//not workind not defined error
-            });
+
+            test();
         </script>
     </head>
         

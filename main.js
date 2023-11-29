@@ -6,22 +6,21 @@ const root = document.documentElement;
 
 document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="/style-01.css?dev=${timestamp}">`);
 
-//to prevent unstyled HTML flashing
+// to prevent unstyled HTML flashing
 window.addEventListener('load', () => {
     setTimeout(function() {
         // :root {display:none;} in the page.
         root.style.display = 'block';
-    }, 250);
+    }, 250);//ms
 });
   
 // -------------------------------------------------------------------------------------------------------------------------------------
-
 // theme control---
 
 root.setAttribute('data-theme', 'dark');
 const currentTheme = root.getAttribute('data-theme');
 
-//initializing the theme the toggle icon/btn.
+// initializing the theme the toggle icon/btn.
 window.addEventListener('load', () => {
     // inetializing the toggle icon.
     if (currentTheme === 'light') {
@@ -33,24 +32,23 @@ window.addEventListener('load', () => {
     }
 });
 
-// // theme toggle
-// function toggleTheme() {
-//     // const root = document.documentElement;
-//     // const currentTheme = root.getAttribute('data-theme');
+// theme toggle
+function toggleTheme() {
+    // const root = document.documentElement;
+    // const currentTheme = root.getAttribute('data-theme');
 
-//     if (currentTheme === 'light') {
-//         root.setAttribute('data-theme', 'dark');
-//         document.getElementById('light_icon_li').style.display = 'block';
-//         document.getElementById('dark_icon_li').style.display = 'none';
-//     } else {
-//         root.setAttribute('data-theme', 'light');
-//         document.getElementById('light_icon_li').style.display = 'none';
-//         document.getElementById('dark_icon_li').style.display = 'block';
-//     }
-// }
+    if (currentTheme === 'light') {
+        root.setAttribute('data-theme', 'dark');
+        document.getElementById('light_icon_li').style.display = 'block';
+        document.getElementById('dark_icon_li').style.display = 'none';
+    } else {
+        root.setAttribute('data-theme', 'light');
+        document.getElementById('light_icon_li').style.display = 'none';
+        document.getElementById('dark_icon_li').style.display = 'block';
+    }
+}
 
 // -------------------------------------------------------------------------------------------------------------------------------------
-
 // header code---
 
 class MyHeader extends HTMLElement {
@@ -82,7 +80,7 @@ class MyHeader extends HTMLElement {
                         
                 nav label i:hover, .logo:hover, ul li:hover {
                     transition: all 0.15s ease-out;
-                    transform: scale(1.25);
+                    transform: scale(1.15);
                 }
                 nav label i:not(hover), .logo:not(hover), ul li:not(hover) {
                     transition: all 0.25s ease-out;
@@ -167,7 +165,6 @@ class MyHeader extends HTMLElement {
 customElements.define('my-header', MyHeader)
 
 // -------------------------------------------------------------------------------------------------------------------------------------
-
 // footer code---
 
 class MyFooter extends HTMLElement {
@@ -263,25 +260,12 @@ class MyFooter extends HTMLElement {
 
 customElements.define('my-footer', MyFooter)
 
-
 // -------------------------------------------------------------------------------------------------------------------------------------
+// TEST---
 
-            // theme toggle
-            function toggleTheme() {
-                // const root = document.documentElement;
-                // const currentTheme = root.getAttribute('data-theme');
+function test(){
+    console.log("TEST");
+    alert("TEST");
+};
 
-                if (currentTheme === 'light') {
-                    root.setAttribute('data-theme', 'dark');
-                    document.getElementById('light_icon_li').style.display = 'block';
-                    document.getElementById('dark_icon_li').style.display = 'none';
-                } else {
-                    root.setAttribute('data-theme', 'light');
-                    document.getElementById('light_icon_li').style.display = 'none';
-                    document.getElementById('dark_icon_li').style.display = 'block';
-                }
-            }
 
-            function test(){
-                alert("test");
-            }

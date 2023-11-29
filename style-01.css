@@ -1,3 +1,5 @@
+/* root */
+
 :root[data-theme="light"] {
     /* HEX */
     --text-color: #20005a;
@@ -21,24 +23,31 @@
     cursor: url('dot_cursor-dark.png'), auto;
 }
 
+:root {
+    color: var(--text-xolor);
+}
+
 @media (max-width: 50rem) {
     :root{
-        font-size: 13px;
+        font-size: 13px;        
     }
 }
 
+/* ---------------------------------------------------------------------------------------------------------------- */
 /* animations */
+
 @keyframes fade_in {
-    0% {
+    from {
         opacity: 0;
     }
 
-    100% {
+    to {
         opacity: 1;
     }
 }
-/* end of animations */
 
+/* ---------------------------------------------------------------------------------------------------------------- */
+/* elements */
 
 * {
     font-family: 'popins', sans-serif;

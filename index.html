@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- <html lang="en" data-theme="light"> -->
-<html lang="en" data-theme="dark">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,63 +7,14 @@
         <link rel="icon" type="image/png" href="">
 
         <!-- FaisalBj1 -->
-        <link rel="stylesheet" id="myStylesheet" href="/style-01.css">
-        <script type="module" id="myJS" src="/header_footer.js"></script>
-
+        <script type="module" id="main_js" src="/main.js" defer></script>
+        <!-- outsource -->
         <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
 
-        <script>
-            // fully loaded page
-            window.addEventListener('load', () => {
-                const root = document.documentElement;
-                const currentTheme = root.getAttribute('data-theme');
-                    if (currentTheme === 'light') {
-                        document.getElementById('light_icon_li').style.display = 'none';
-                        document.getElementById('dark_icon_li').style.display = 'block';
-                    } else {
-                        document.getElementById('light_icon_li').style.display = 'block'; 
-                        document.getElementById('dark_icon_li').style.display = 'none';
-                    }
-
-            });
-            //time stamp
-            const timestamp = new Date().getTime();
-            document.getElementById('myStylesheet').href = `/style-01.css?dev=${timestamp}`;
-            document.getElementById('myJS').src = `/header_footer.js?dev=${timestamp}`;//not working.
-
-            // theme toggle
-            function toggleTheme() {
-                const root = document.documentElement;
-                const currentTheme = root.getAttribute('data-theme');
-
-                if (currentTheme === 'light') {
-                    root.setAttribute('data-theme', 'dark');
-                    document.getElementById('light_icon_li').style.display = 'block';
-                    document.getElementById('dark_icon_li').style.display = 'none';
-                } else {
-                    root.setAttribute('data-theme', 'light');
-                    document.getElementById('light_icon_li').style.display = 'none';
-                    document.getElementById('dark_icon_li').style.display = 'block';
-                }
-            }// end of theme toggle
-            
-        </script>
-        
         <style>
-            * {
-                box-sizing: border-box;
-                /* border: solid 1px red; */
-            }
-            body{
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-            }           
-            main {
-                padding: 5px;
+            /* to prevent unstyled HTML flashing */
+            :root {
+                display: none;
             }
 
             h1 {
@@ -81,6 +31,28 @@
                 text-transform: uppercase;
             }
         </style>
+
+        <script>
+            // theme toggle
+            function toggleTheme() {
+                const root = document.documentElement;
+                const currentTheme = root.getAttribute('data-theme');
+
+                if (currentTheme === 'light') {
+                    root.setAttribute('data-theme', 'dark');
+                    document.getElementById('light_icon_li').style.display = 'block';
+                    document.getElementById('dark_icon_li').style.display = 'none';
+                } else {
+                    root.setAttribute('data-theme', 'light');
+                    document.getElementById('light_icon_li').style.display = 'none';
+                    document.getElementById('dark_icon_li').style.display = 'block';
+                }
+            }
+            
+            document.getElementById('main_js').addEventListener('load', (event) => {
+                test();//not workind not defined error
+            });
+        </script>
     </head>
         
     <body>

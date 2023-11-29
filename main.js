@@ -1,4 +1,58 @@
-// header.
+//general---
+
+const timestamp = new Date().getTime();
+
+const root = document.documentElement;
+
+document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="/style-01.css?dev=${timestamp}">`);
+
+//to prevent unstyled HTML flashing
+window.addEventListener('load', () => {
+    setTimeout(function() {
+        // :root {display:none;} in the page.
+        root.style.display = 'block';
+    }, 250);
+});
+  
+// -------------------------------------------------------------------------------------------------------------------------------------
+
+// theme control---
+
+root.setAttribute('data-theme', 'dark');
+const currentTheme = root.getAttribute('data-theme');
+
+//initializing the theme the toggle icon/btn.
+window.addEventListener('load', () => {
+    // inetializing the toggle icon.
+    if (currentTheme === 'light') {
+        document.getElementById('light_icon_li').style.display = 'none';
+        document.getElementById('dark_icon_li').style.display = 'block';
+    } else {
+        document.getElementById('light_icon_li').style.display = 'block';
+        document.getElementById('dark_icon_li').style.display = 'none';
+    }
+});
+
+// // theme toggle
+// function toggleTheme() {
+//     // const root = document.documentElement;
+//     // const currentTheme = root.getAttribute('data-theme');
+
+//     if (currentTheme === 'light') {
+//         root.setAttribute('data-theme', 'dark');
+//         document.getElementById('light_icon_li').style.display = 'block';
+//         document.getElementById('dark_icon_li').style.display = 'none';
+//     } else {
+//         root.setAttribute('data-theme', 'light');
+//         document.getElementById('light_icon_li').style.display = 'none';
+//         document.getElementById('dark_icon_li').style.display = 'block';
+//     }
+// }
+
+// -------------------------------------------------------------------------------------------------------------------------------------
+
+// header code---
+
 class MyHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -53,7 +107,7 @@ class MyHeader extends HTMLElement {
                 }
 
                 /* style for smaller screens */
-                @media (max-width: 35rem){
+                @media (max-width: 50rem){
                     #toggle_icon {
                         display: block;
                     }
@@ -114,7 +168,8 @@ customElements.define('my-header', MyHeader)
 
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-// footer code.
+// footer code---
+
 class MyFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -208,4 +263,25 @@ class MyFooter extends HTMLElement {
 
 customElements.define('my-footer', MyFooter)
 
+
 // -------------------------------------------------------------------------------------------------------------------------------------
+
+            // theme toggle
+            function toggleTheme() {
+                // const root = document.documentElement;
+                // const currentTheme = root.getAttribute('data-theme');
+
+                if (currentTheme === 'light') {
+                    root.setAttribute('data-theme', 'dark');
+                    document.getElementById('light_icon_li').style.display = 'block';
+                    document.getElementById('dark_icon_li').style.display = 'none';
+                } else {
+                    root.setAttribute('data-theme', 'light');
+                    document.getElementById('light_icon_li').style.display = 'none';
+                    document.getElementById('dark_icon_li').style.display = 'block';
+                }
+            }
+
+            function test(){
+                alert("test");
+            }

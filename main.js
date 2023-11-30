@@ -263,8 +263,10 @@ customElements.define('my-footer', MyFooter)
 // -------------------------------------------------------------------------------------------------------------------------------------
 // TEST---
 
+//window.location.href = '/example';
+
 function test(){
-    console.log("Function [test()] in [main.ja] is successfully executed.");
+    console.log("Function [test()] in [main.js] is successfully executed.");
 };
 
 // console.log("TEST");

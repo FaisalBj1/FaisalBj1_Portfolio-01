@@ -29,7 +29,13 @@
 
 @media (max-width: 50rem) {
     :root{
-        font-size: 0.85rem;        
+        font-size: 0.9rem;        
+    }
+}
+
+@media screen and (orientation: landscape) {
+    :root{
+        width:100svw;       
     }
 }
 

@@ -8,7 +8,7 @@
     --secondary-color: #fbe2c5;
     --accent-color: #fe9618;
 
-    cursor: url('dot_cursor-light.png'), auto;
+    cursor: url('/cursors/dot_cursor-light.png'), auto;
 }
 :root[data-theme="dark"] {
     /* HEX */
@@ -18,7 +18,7 @@
     --secondary-color: #080425;
     --accent-color: #702edb;
 
-    cursor: url('dot_cursor-dark.png'), auto;
+    cursor: url('cursors/dot_cursor-dark.png'), auto;
 }
 
 :root {

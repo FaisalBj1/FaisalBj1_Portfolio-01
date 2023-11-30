@@ -95,7 +95,7 @@ class MyHeader extends HTMLElement {
                     margin: 0;
                 }
                 nav :where(a, ul li, i) {
-                    color: var(--link-color);
+                    color: var(--primary-color);
                     text-decoration: none;
                     cursor: pointer;
                 }
@@ -264,8 +264,7 @@ customElements.define('my-footer', MyFooter)
 // TEST---
 
 function test(){
-    console.log("TEST");
-    alert("TEST");
+    console.log("Function [test()] in [main.ja] is successfully executed.");
 };
 
-console.log("TEST") //?
+// console.log("TEST");

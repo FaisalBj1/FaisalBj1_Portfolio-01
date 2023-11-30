@@ -7,7 +7,6 @@
     --primary-color: #4712ab;
     --secondary-color: #fbe2c5;
     --accent-color: #fe9618;
-    --link-color: #4712ab;
 
     cursor: url('dot_cursor-light.png'), auto;
 }
@@ -17,19 +16,20 @@
     --bg-color: #010104;
     --primary-color: #4712ab;
     --secondary-color: #080425;
-    --accent-color: #6418dc;
-    --link-color: #4712ab;
+    --accent-color: #702edb;
 
     cursor: url('dot_cursor-dark.png'), auto;
 }
 
 :root {
+    box-sizing: border-box;
+    font-family: 'popins', sans-serif;
     color: var(--text-xolor);
 }
 
 @media (max-width: 50rem) {
     :root{
-        font-size: 13px;        
+        font-size: 0.75rem;        
     }
 }
 
@@ -48,15 +48,6 @@
 
 /* ---------------------------------------------------------------------------------------------------------------- */
 /* elements */
-
-* {
-    font-family: 'popins', sans-serif;
-    color: var(--text-color);
-}
-
-html {
-    box-sizing: border-box;
-}
 
 body {
     height: 100svh;
@@ -93,5 +84,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 main {
-    padding: 5px;
+    padding: 2.5%;
+}
+
+h1, h2, h3 {
+    letter-spacing: -0.25px;
 }

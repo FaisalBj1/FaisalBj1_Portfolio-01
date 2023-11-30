@@ -4,7 +4,11 @@ const timestamp = new Date().getTime();
 
 const root = document.documentElement;
 
-document.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" href="/style-01.css?dev=${timestamp}">`);
+// css
+document.head.insertAdjacentHTML('beforeend', `
+<link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
+<link rel="stylesheet" href="/fontawesome-06/css/all.css?dev=${timestamp}">
+`);
 
 // to prevent unstyled HTML flashing
 window.addEventListener('load', () => {
@@ -151,7 +155,7 @@ class MyHeader extends HTMLElement {
                         <ul>
                             <li><a href="#">About</a></li>
                             <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Projects</a></li>
+                            <li><a href="/projects.html">Projects</a></li>
                             <li id="light_icon_li"><label id="light_icon"><i class="fa-solid fa-sun"  onclick="toggleTheme()"></i></label></li>
                             <li id="dark_icon_li"><label id="dark_icon" ><i class="fa-solid fa-moon" onclick="toggleTheme()"></i></label> </li>
                         </ul>

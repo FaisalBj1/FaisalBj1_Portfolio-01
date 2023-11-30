@@ -5,126 +5,54 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PROJECTS</title>
+        <link rel="icon" type="text" href="path/to/your/favicon.png">
 
         <!-- FaisalBj1 -->
-        <link rel="stylesheet" href="/style-01.css?v=123456789">
-        <script type=module src="/header_footer.js?v=123456789"></script>
+        <script type="module" id="main_js" src="/main.js" defer></script>
+        <!-- outsource -->
+        <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
 
         <style>
-            * {
-                box-sizing: border-box;
-                border: solid 1px black;
-                text-align: center;
-            }
-            body {
-                padding: 0;
-                margin: 0;
-                display: grid;
-                grid-template-rows: auto 1fr auto;
-                min-height: 100vh;
-                gap: 0;
-                /* background-color: #000; */
-                /* color: white; */
-            }
-
-            /* header, main, footer {
-                border: 1px solid #ccc;
-            } */
-                /* a {
-                    text-decoration: none;
-                }
-
-                nav .menu {
-                    display: flex;
-                    width: 100%;
-                    background: #ff8b8b;
-                    display: none;
-                    justify-content: center;
-                    text-align: center;
-                }
-
-                .menu ul li {
-                    list-style: none;
-                }
-
-            #nav_menu_toggle, #nav_menu_btn {
-                text-align: center;
+            /* to prevent unstyled HTML flashing */
+            :root {
                 display: none;
-                cursor: pointer;
             }
-
-
-            @media (max-width: 600px) {
-                #nav_menu_btn {
-                    display: block;
-                }
-
-                .menu {
-                  display: block;
-                }
-
-                #nav_menu_toggle:checked ~ .menu {
-                    display: block;
-                }
-            } */
-
-            
-
-
-                /* @media (max-width: 50em){
-                    nav .menu{
-                        width: 100%;
-                        display:none;
-                    }
-                    nav ul {
-                        flex-direction: column;
-                        align-items: center;
-                        padding: 0.5rem 0;
-                    }
-                    nav label {
-                        display: inline-flex;
-                        color: var(--text-color);
-                        cursor: pointer;
-                    }
-                    nav #toggle:checked ~ .menu {
-                        display: block;
-                        animation: slideIn 0.5s ease-out;
-                    }                                
-                } */
-        
-                /* @keyframes slideIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(-9px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                } */
-
+            h1 {
+                color: transparent;
+                font-weight: 900;
+                font-size: 3.5rem;
+                text-transform: uppercase;
+                -webkit-text-stroke: 0.15rem var(--text-color);
+            }
         </style>
+
+        <script>            
+            // TODO: why not reaching main.js functions
+
+            // temporarly until probem solved
+            // theme toggle
+            function toggleTheme() {
+                const root = document.documentElement;
+                const currentTheme = root.getAttribute('data-theme');
+
+                if (currentTheme === 'light') {
+                    root.setAttribute('data-theme', 'dark');
+                    document.getElementById('light_icon_li').style.display = 'block';
+                    document.getElementById('dark_icon_li').style.display = 'none';
+                } else {
+                    root.setAttribute('data-theme', 'light');
+                    document.getElementById('light_icon_li').style.display = 'none';
+                    document.getElementById('dark_icon_li').style.display = 'block';
+                }
+            }
+        </script>
     </head>
 
     <body>
-        <header>
-            <!-- <h1>HEADER</h1> -->
-            <my-header></my-header>
-            <!-- <nav>
-                <input type="checkbox" id="nav_menu_toggle">
-                <label for="nav_menu_toggle" id="nav_menu_btn">MENU</label>
-                <div class="menu">
-                    <p><a href="#">Menu Item 1</a></p>
-                    <p><a href="#">Menu Item 1</a></p>
-                    <p><a href="#">Menu Item 1</a></p>
-                </div>
-            </nav> -->
-        </header>
-
+        <my-header></my-header>
             
-
         <main>
-            <h1>MAIN</h1>
+            <h1>PROJECTS</h1>
         </main>
 
         <footer>

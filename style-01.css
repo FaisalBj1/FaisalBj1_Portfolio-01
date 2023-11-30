@@ -35,7 +35,7 @@
 
 @media screen and (orientation: landscape) {
     :root{
-        width:100svw;       
+        background: #ff0000;       
     }
 }
 
@@ -56,7 +56,7 @@
 /* elements */
 
 body {
-    height: 100svh;
+    height: 100dvh;
     padding: 0;
     margin: 0;
     background: var(--bg-color);

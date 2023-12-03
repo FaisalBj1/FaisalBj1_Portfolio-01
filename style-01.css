@@ -50,7 +50,7 @@
 /* elements */
 
 body {
-    height: 100dvh;
+    height: 100svh;
     padding: 0;
     margin: 0;
     background: var(--bg-color);

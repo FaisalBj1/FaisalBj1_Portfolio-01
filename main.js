@@ -8,6 +8,7 @@ const root = document.documentElement;
 document.head.insertAdjacentHTML('beforeend', `
 <link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
 <link rel="stylesheet" href="/fontawesome-06/css/all.css?dev=${timestamp}">
+<style>:root {display:none;}</style>
 `);
 
 // to prevent unstyled HTML flashing
@@ -267,10 +268,4 @@ customElements.define('my-footer', MyFooter)
 // -------------------------------------------------------------------------------------------------------------------------------------
 // TEST---
 
-//window.location.href = '/example';
 
-function test(){
-    console.log("Function [test()] in [main.js] is successfully executed.");
-};
-
-// console.log("TEST");

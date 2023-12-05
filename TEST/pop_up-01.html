@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Modal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrolling when modal is open */
+        }
+
+        .blurred-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* Replace with your background image URL */
+            background-size: cover;
+            filter: blur(155px); /* Adjust the blur radius as needed */
+            z-index: 9999;
+        }
+
+        .modal-card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .confirm-btn, .cancel-btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .confirm-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <center><h1>TEST</h1></center>
+
+<!-- Button to Trigger Modal -->
+<button id="openModalBtn">Open Modal</button>
+
+<!-- Confirmation Modal Card -->
+<div class="modal-card" id="confirmationModal">
+    <h2>Confirmation</h2>
+    <p>Are you sure you want to proceed?</p>
+    <div class="buttons">
+        <button class="confirm-btn">Confirm</button>
+        <button class="cancel-btn" id="closeModalBtn">Cancel</button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Button click to open modal
+        $("#openModalBtn").click(function() {
+            $("body").append('<div class="blurred-background"></div>');
+            $(".blurred-background, #confirmationModal").fadeIn();
+        });
+
+        // Button click to close modal
+        $("#closeModalBtn").click(function() {
+            $(".blurred-background, #confirmationModal").fadeOut(function() {
+                $(this).remove(); // Remove the blurred background after fade out
+            });
+            $("body").css("overflow", "auto"); // Enable scrolling when modal is closed
+        });
+    });
+</script>
+
+</body>
+</html>

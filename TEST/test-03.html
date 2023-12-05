@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .colored-text {
+            padding: 20px;
+            background-color: #dedede; /* Set your background color here */
+            color: white; /* Initial text color */
+        }
+    </style>
+</head>
+<body>
+
+<div class="colored-text" id="dynamicText">Hello, World!</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the background color of the element
+        const element = document.getElementById("dynamicText");
+        const bgColor = window.getComputedStyle(element).backgroundColor;
+
+        // Convert the background color to its negative (complementary) color
+        const negativeColor = getNegativeColor(bgColor);
+
+        // Apply the negative color to the text
+        element.style.color = negativeColor;
+    });
+
+    function getNegativeColor(color) {
+        // Function to calculate the negative color
+        return color.replace(/^rgb\((\d+), (\d+), (\d+)\)$/, function(_, r, g, b) {
+            return 'rgb(' + (255 - r) + ',' + (255 - g) + ',' + (255 - b) + ')';
+        });
+    }
+</script>
+
+</body>
+</html>

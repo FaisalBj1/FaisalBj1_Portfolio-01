@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <style>
+            @keyframes slide_from_left {
+                from {
+                    transform: translate(-250px);
+                }
+        
+                to {
+                    transform: translate(0);
+                }
+            }
+        
+            .slide_from_left {
+                animation: slide_from_left 1s ease-out;
+            }
+        </style>
+
+        <h1 class="slide_from_left">Hello, World!</h1>
+        
+    </body>
+</html>

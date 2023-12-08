@@ -27,9 +27,19 @@
     color: var(--text-color);
 }
 
-@media (max-width: 50rem) {
+/* style for different screens */
+/* [laptop] */
+@media screen and (min-width: 1025px){
+    /* default */
+}
+/* [ipad] */
+@media screen and (min-width: 768px) and (max-width: 1024px) { 
+    /* nothing yet */
+}
+/* [phone] */
+@media screen and (max-width: 767px){
     :root{
-        font-size: 0.9rem;        
+        font-size: 1rem;        
     }
 }
 
@@ -50,7 +60,7 @@
 /* elements */
 
 body {
-    height: 100svh;
+    height: 100dvh;
     padding: 0;
     margin: 0;
     background: var(--bg-color);
@@ -58,13 +68,12 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; 
 
     animation: fade_in 1.5s ease-in-out;
 }

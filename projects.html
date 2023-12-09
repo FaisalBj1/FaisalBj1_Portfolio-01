@@ -5,13 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PROJECTS</title>
-        <link rel="icon" type="text" href="path/to/your/favicon.png">
-
         <!-- FaisalBj1 -->
         <script type="module" id="main_js" src="/main.js" defer></script>
-        <!-- outsource -->
-        <script src="https://kit.fontawesome.com/f11ec627ea.js" crossorigin="anonymous"></script>
-
         <style>
             /* to prevent unstyled HTML flashing */
             :root {
@@ -25,40 +20,13 @@
                 -webkit-text-stroke: 0.15rem var(--text-color);
             }
         </style>
-
-        <script>            
-            // TODO: why not reaching main.js functions
-
-            // temporarly until probem solved
-            // theme toggle
-            function toggleTheme() {
-                const root = document.documentElement;
-                const currentTheme = root.getAttribute('data-theme');
-
-                if (currentTheme === 'light') {
-                    root.setAttribute('data-theme', 'dark');
-                    document.getElementById('light_icon_li').style.display = 'block';
-                    document.getElementById('dark_icon_li').style.display = 'none';
-                } else {
-                    root.setAttribute('data-theme', 'light');
-                    document.getElementById('light_icon_li').style.display = 'none';
-                    document.getElementById('dark_icon_li').style.display = 'block';
-                }
-            }
-        </script>
     </head>
 
     <body>
         <my-header></my-header>
-            
         <main>
             <h1>PROJECTS</h1>
         </main>
-
-        <footer>
-            <!-- <h1>FOOTER</h1> -->
-            <my-footer></my-footer>
-        </footer>
+        <my-footer></my-footer>
     </body>
-
 </html>

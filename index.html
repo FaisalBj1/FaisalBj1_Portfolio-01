@@ -10,32 +10,25 @@
         <script type="module" id="main_js" src="/main.js" defer></script>
 
         <style>
-            /* to prevent unstyled HTML flashing */
-            :root {
-                display: none;
-            }
             h1 {
                 color: transparent;
                 font-weight: 900;
-                font-size: 3.5rem;
+                font-size: 3rem;
                 text-transform: uppercase;
                 -webkit-text-stroke: 0.15rem var(--text-color);
             }
         </style>
-
-        <script>            
-
-        </script>
     </head>
         
     <body>
         <my-header></my-header>
         <main>
             <canvas></canvas>
+            <br><br><br><br><br><br><br>
 
-            <h1>Welcome to my website</h1>
-            <button type="button" class="btn primary">Primary</button>
-            <button type="button" class="btn secondary">secondary</button>
+            <h1>hello world!</h1>
+            <button type="button" class="btn primary">about me</button>
+            <button type="button" class="btn secondary">my projects</button>
         </main>
         <my-footer></my-footer>  
 
@@ -46,7 +39,7 @@
             var canvas, ctx;
             var count = 0;
             var points = [];
-            var sizeFactor = 75; 
+            var sizeFactor = 50; 
             var canvasSize = sizeFactor / 0.375;
 
             window.onload = function () {

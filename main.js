@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
 // -------------------------------------------------------------------------------------------------------------------------------------
 // theme control---
 
+// initializing the theme
 root.setAttribute('data-theme', 'dark');
 
 window.addEventListener('load', () => {
@@ -260,6 +261,7 @@ class MyHeader extends HTMLElement {
 
 customElements.define('my-header', MyHeader)
 
+// to display the meny when toggle is clicked.
 window.addEventListener('load', () => {
     document.getElementById('menu_icon').addEventListener('click', function() {
         if (document.getElementById('toggle').checked) {
@@ -367,6 +369,6 @@ class MyFooter extends HTMLElement {
 customElements.define('my-footer', MyFooter)
 
 // -------------------------------------------------------------------------------------------------------------------------------------
-// TEST--- style="display: none;"
+// TEST--- 
 
 

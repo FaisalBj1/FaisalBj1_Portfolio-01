@@ -21,11 +21,6 @@
     cursor: url('cursors/dot_cursor-dark.png'), auto;
 }
 
-:root {
-    box-sizing: border-box;
-    font-family: 'popins', sans-serif;
-    color: var(--text-color);
-}
 
 /* style for different screens */
 /* [laptop] */
@@ -39,7 +34,7 @@
 /* [phone] */
 @media screen and (max-width: 767px){
     :root{
-        font-size: 1rem;        
+        font-size: 0.85rem;        
     }
 }
 
@@ -59,11 +54,28 @@
 /* ---------------------------------------------------------------------------------------------------------------- */
 /* elements */
 
+
+/* to prevent unstyled HTML flashing */
+:root {
+    display: none;
+}
+
+* {
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'popins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+html {
+    /* norhing so far */
+}
+
 body {
     height: 100dvh;
     padding: 0;
     margin: 0;
-    background: var(--bg-color);
     /* background: linear-gradient(45deg, var(--bg-color), rgba(0, 0, 0, 0.0)), url('/Faisal_img-01.JPG'); */
     background-size: cover;
     background-position: center;

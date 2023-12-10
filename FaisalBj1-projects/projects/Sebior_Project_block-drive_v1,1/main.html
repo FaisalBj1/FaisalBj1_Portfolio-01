@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--website title bar-->
+    <link rel="icon" href="/imgs/white logo.png" type="image/icon type">
+    <title>main(drive)</title>
+    <!--my css-->
+    <link rel="stylesheet" type="text/css" href="./css/StyleSheet1.css" />
+</head>
+
+<!-- main frameset for user -->
+<frameset rows="7%,*,10%" border="1">
+    <!-- header farame-->
+    <frame src="./header.html" scrolling="no"/>
+
+    <!-- middle frameset (sidebar/body) -->
+    <frameset cols="15%,85%">
+        <!-- sidebar frame -->
+        <frame src="./sidebar1.html" />
+        <!-- body frame -->
+        <frame src="./drive.html" name="main_body_fr"/>
+    </frameset>
+
+    <!-- footer frame -->
+    <frame src="./footer.html" scrolling="no" style="max-height:10px;" id="footer_fr"/>
+</frameset>
+<noframes></noframes>
+
+
+</html>

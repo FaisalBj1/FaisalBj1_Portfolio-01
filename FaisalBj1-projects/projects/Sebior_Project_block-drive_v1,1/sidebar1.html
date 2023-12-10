@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>sidebar</title>
+    <style>
+        body {
+            background-image: url('./imgs/web background/light_background.jpg');
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        /* grid css */
+        .w3-btn:hover {
+            opacity: 50%;
+            color: brown;
+            font-style: italic;
+        }
+
+        .grid-item a {
+            text-decoration: none;
+            font-size: 11pt;
+        }
+
+        .grid-container {
+            /* border: 3px solid; */
+            display: grid;
+            grid-template-columns: auto auto;
+            background: none;
+            padding: 1px;
+            row-gap: 1px;
+        }
+
+        .grid-item {
+            /* border: 3px solid black; */
+            padding: 0px;
+            margin: 1px;
+            font-size: 11pt;
+            text-align: left;
+        }/* end of grid css */
+    </style>
+</head>
+
+<body>
+    <!-- Page content -->
+    <div style="padding: 1px; margin:0px; width:100%">
+
+        <br>
+
+        <div class="grid-container">
+            <!-- profile & sign out btn -->
+            <a href="./profile.html" target="main_body_fr"><div class="w3-btn" width="auto"><div class="grid-item"><img src="./imgs/icons/profile avatar.png" alt="profile_icon" width="35px"><b>&nbsp &nbsp Faisal Example</B></div></div></a>
+            <a href="./index.html" target="_parent"><div class="w3-btn"><div class="grid-item"><img src="./imgs/icons/sign_out icon.png" alt="name" width="13px"></div></div></a>
+
+            <!-- devider -->
+            <div class="grid-item" style="text-align:end;">______________________</div>
+            <div class="grid-item"></div>
+            <div class="grid-item">&nbsp</div>
+            <div class="grid-item">&nbsp</div>
+            
+            <!-- body frame nav menu -->
+            <a href="./drive.html" target="main_body_fr" class="w3-btn"><div class="grid-item" ><img src="./imgs/icons/drive icon.png" alt="drive_icon" width="33px"><b>&nbsp &nbsp My drive</b></div></a>
+            <div class="grid-item"></div>
+
+            <a href="./e-Wallet.html" target="main_body_fr" class="w3-btn"><div class="grid-item" ><img src="./imgs/icons/wallet icon.png" alt="wallet_icon" width="33px"><b>&nbsp &nbsp e-Wallet</b></div></a>
+            <div class="grid-item"></div>
+
+            <a href="./transfer.html" target="main_body_fr" class="w3-btn"><div class="grid-item" ><img src="./imgs/icons/exchange icon.png" alt="exchange_icon" width="33px"><b>&nbsp &nbsp Exchange/Transfer</b></div></a>
+            <div class="grid-item"></div>
+
+            <a href="./trash.html" target="main_body_fr" class="w3-btn"><div class="grid-item" ><img src="./imgs/icons/trash icon.png" alt="trash_icon" width="33px"><b>&nbsp &nbsp trash</b></div></a>
+            <div class="grid-item"></div>
+
+            <a href="./setting.html" target="main_body_fr" class="w3-btn"><div class="grid-item" ><img src="./imgs/icons/setting icon.png" alt="setting_icon" width="33px"><b>&nbsp &nbsp Setting</b></div></a>
+            <div class="grid-item"></div>
+
+            <!-- devider -->
+            <div class="grid-item">&nbsp</div>
+            <div class="grid-item">&nbsp</div>
+            <div class="grid-item" style="text-align:end;">______________________</div>
+            <div class="grid-item"></div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

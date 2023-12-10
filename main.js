@@ -231,7 +231,7 @@ class MyHeader extends HTMLElement {
             </style>
 
             <nav> 
-                <a class="logo" href="./" style="font-weight: bold;">FAISAL BANJAR</a>
+                <a class="logo" href="/" style="font-weight: bold;">FAISAL BANJAR</a>
 
                 <input type="checkbox" id="toggle-02" style="display: none;">
                 <div class="icons">
@@ -251,7 +251,7 @@ class MyHeader extends HTMLElement {
                     <ul>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="/FaisalBj1_Projects/projects.html">Projects</a></li>
+                        <li><a href="/FaisalBj1-Projects">Projects</a></li>
                     </ul>
                 </div>
             </nav>

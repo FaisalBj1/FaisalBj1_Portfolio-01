@@ -7,7 +7,7 @@ const root = document.documentElement;
 // css
 document.head.insertAdjacentHTML('beforeend', `
 <link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
-<link rel="stylesheet" href="/fontawesome-06/css/all.css?dev=${timestamp}">
+<link rel="stylesheet" href="/vendor/fontawesome-06/css/all.css?dev=${timestamp}">
 <style>:root {display:none;}</style>
 `);
 
@@ -250,8 +250,8 @@ class MyHeader extends HTMLElement {
                 <div class="menu">
                     <ul>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="/FaisalBj1_Projects/projects.html">Projects</a></li>
                     </ul>
                 </div>
             </nav>

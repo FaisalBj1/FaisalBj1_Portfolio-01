@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('images/project images/light_background.jpg');
+    background-image: url('./images/project images/light_background.jpg');
     margin: 0;
     padding: 0;
 }

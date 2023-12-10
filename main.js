@@ -231,7 +231,7 @@ class MyHeader extends HTMLElement {
             </style>
 
             <nav> 
-                <a class="logo" href="#index.html" style="font-weight: bold;">FAISAL BANJAR</a>
+                <a class="logo" href="./" style="font-weight: bold;">FAISAL BANJAR</a>
 
                 <input type="checkbox" id="toggle-02" style="display: none;">
                 <div class="icons">

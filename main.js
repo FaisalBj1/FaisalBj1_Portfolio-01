@@ -121,11 +121,11 @@ class MyHeader extends HTMLElement {
                     cursor: pointer;
                 }
                         
-                nav label:hover,  ul li:hover {
+                nav label:hover,  nav ul li:hover {
                     transition: all 0.15s ease-out;
                     transform: scale(1.15);
                 }
-                nav label:not(hover),  ul li:not(hover) {
+                nav label:not(hover),  nav ul li:not(hover) {
                     transition: all 0.25s ease-out;
                     transform: scale(1);
                 }

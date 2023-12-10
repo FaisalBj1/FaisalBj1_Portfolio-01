@@ -19,6 +19,20 @@
                 text-transform: uppercase;
                 -webkit-text-stroke: 0.15rem var(--text-color);
             }
+            .container {
+                display: flex; 
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                list-style: none;
+            }
+
+            
+            .container a {
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--accent-color);
+            }
         </style>
     </head>
 
@@ -26,6 +40,13 @@
         <my-header></my-header>
         <main>
             <h1>PROJECTS</h1>
+            <div class="container">
+                <a>
+                    <li><a href="./projects/Senior_Project_2_(implementation)(old)">Senior Project [block drive] v1.0</a></li>
+                    <li><a href="./projects/Wrench">Web Developement Course [Wrench]</a></li>
+                    <li><a href="./">NOTHING SO FAR</a></li>
+                </ul>
+            </div>
         </main>
         <my-footer></my-footer>
     </body>

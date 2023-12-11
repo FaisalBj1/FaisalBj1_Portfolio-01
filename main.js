@@ -239,7 +239,7 @@ class MyHeader extends HTMLElement {
                     <ul>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="/FaisalBj1-Projects">Projects</a></li>
+                        <li><a href="/FaisalBj1-projects">Projects</a></li>
                     </ul>
                 </div>
             </nav>

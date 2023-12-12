@@ -8,6 +8,7 @@
     --secondary-color: #fbe2c5;
     --accent-color: #fe9618;
 
+    color-scheme: light;
     cursor: url('/cursors/dot_cursor-light.png'), auto;
 }
 :root[data-theme="dark"] {
@@ -17,7 +18,8 @@
     --primary-color: #4712ab;
     --secondary-color: #080425;
     --accent-color: #702edb;
-
+    
+    color-scheme: dark;
     cursor: url('cursors/dot_cursor-dark.png'), auto;
 }
 

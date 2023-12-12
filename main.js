@@ -22,8 +22,16 @@ window.addEventListener('load', () => {
 // -------------------------------------------------------------------------------------------------------------------------------------
 // theme control---
 
-// initializing the theme
+var theme = root.getAttribute('data-theme');
+
+// initializing/retrieving the theme
 root.setAttribute('data-theme', 'dark');
+root.setAttribute('data-theme', localStorage.getItem("theme"));
+
+//storing the theme
+const storeTheme = function(theme){
+    localStorage.setItem("theme", theme);
+}
 
 window.addEventListener('load', () => {
     // Initialize the toggle icon based on the current theme
@@ -32,19 +40,22 @@ window.addEventListener('load', () => {
     // Theme toggle
     document.getElementById('theme_icon').addEventListener('click', function () {
         // Toggle the theme
-        if (root.getAttribute('data-theme') === 'light') {
+        if (theme === 'light') {
             root.setAttribute('data-theme', 'dark');
         } else {
             root.setAttribute('data-theme', 'light');
-        }
+        } 
+        theme = root.getAttribute('data-theme');
 
+        storeTheme(theme);    
+        
         // Update the toggle icon
         updateToggleIcon();
     });
 
     function updateToggleIcon() {
         // Update the toggle icon based on the current theme
-        if (root.getAttribute('data-theme') === 'dark') {
+        if (theme === 'dark') {
             document.getElementById('theme_icon').classList.add('fa-sun');
             document.getElementById('theme_icon').classList.remove('fa-moon');
         } else {
@@ -52,6 +63,10 @@ window.addEventListener('load', () => {
             document.getElementById('theme_icon').classList.add('fa-moon');
         }
     }
+
+    
+
+
 });
   
 
@@ -63,13 +78,14 @@ class MyHeader extends HTMLElement {
         this.innerHTML = `
             <style>
                 my-header {
-                    z-index: 9999999;
-                    width: 100%;
+                    /*position: relative;
+                    top: 0;
+                    z-index: 9999999;*/
+                    width: 100vw;
                     padding: 9px 15px;
                     margin-bottom: auto;
-                    border-bottom: solid 0.25px var(--primary-color);
                     background: transparent;
-                    backdrop-filter: blur(15px);
+                    border-bottom: solid 1px var(--primary-color);
                 }
                 my-header * {
                     color: var(--primary-color);
@@ -90,7 +106,6 @@ class MyHeader extends HTMLElement {
                     flex-direction: row;
                     justify-content: start;
                     align-items: center;
-
                 }
                 nav .icons {
                     grid-area: icons;
@@ -268,7 +283,9 @@ class MyFooter extends HTMLElement {
         this.innerHTML = `
             <style>
                 my-footer{
-                    z-index: 9999999;
+                    /*position: absolute;
+                    bottom:0;
+                    z-index: 9999999;*/
                     box-sizing: border-box; 
                     width: 100%; 
                     margin-top: auto;

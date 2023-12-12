@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
 var theme = root.getAttribute('data-theme');
 
 // initializing/retrieving the theme
-if ((localStorage.getItem("theme") != 'dark') || (localStorage.getItem("theme") != 'light')){
+if ((localStorage.getItem("theme") != 'dark') && (localStorage.getItem("theme") != 'light')){
     root.setAttribute('data-theme', 'dark');
 } else {
     root.setAttribute('data-theme', localStorage.getItem("theme"));
@@ -37,7 +37,6 @@ if ((localStorage.getItem("theme") != 'dark') || (localStorage.getItem("theme") 
 const storeTheme = function(theme){
     localStorage.setItem("theme", theme);
 }
-
 window.addEventListener('load', () => {
     // Initialize the toggle icon based on the current theme
     updateToggleIcon();
@@ -68,9 +67,6 @@ window.addEventListener('load', () => {
             document.getElementById('theme_icon').classList.add('fa-moon');
         }
     }
-
-    
-
 
 });
   
@@ -366,4 +362,6 @@ customElements.define('my-footer', MyFooter)
 // TEST--- 
 //
 
-
+function test(){
+    console.log('test - main.js');
+}

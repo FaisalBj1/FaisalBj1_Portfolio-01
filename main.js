@@ -25,8 +25,13 @@ window.addEventListener('load', () => {
 var theme = root.getAttribute('data-theme');
 
 // initializing/retrieving the theme
-root.setAttribute('data-theme', 'dark');
-root.setAttribute('data-theme', localStorage.getItem("theme"));
+if ((localStorage.getItem("theme") != 'dark') || (localStorage.getItem("theme") != 'light')){
+    root.setAttribute('data-theme', 'dark');
+} else {
+    root.setAttribute('data-theme', localStorage.getItem("theme"));
+}
+
+
 
 //storing the theme
 const storeTheme = function(theme){

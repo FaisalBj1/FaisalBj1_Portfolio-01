@@ -16,7 +16,29 @@
                 font-weight: 900;
                 font-size: 3rem;
                 text-transform: uppercase;
-                -webkit-text-stroke: 0.15rem var(--text-color);   
+                -webkit-text-stroke: 0.15rem var(--text-color);  
+                display: inline-block;
+                border-right: solid 3px var(--text-color); 
+                overflow: hidden; 
+                white-space: nowrap; 
+                animation: typing 5s steps(14),  cursor .4s step-end infinite alternate-reverse;
+                animation-iteration-count: infinite;
+            }
+            @keyframes typing {
+                0% {
+                    width: 0;
+                }
+                50% {
+                    width: 100%;
+                }
+                100% {
+                    width: 0%;
+                }
+            }
+            @keyframes cursor {
+                50% {
+                    border-color: transparent;
+                }
             }
         </style>
     </head>
@@ -27,7 +49,7 @@
             <canvas></canvas>
             <br><br><br><br><br>
 
-            <h1>hello world!</h1>
+            <h1>hello world! &nbsp&nbsp</h1>
             <br><br><br>
             <a href="#"><button type="button" class="btn primary">Resume</button></a>
             <a href="/FaisalBj1-projects/projects"></a><button type="button" class="btn secondary">my projects</button></a>

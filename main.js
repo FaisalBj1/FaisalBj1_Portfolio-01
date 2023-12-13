@@ -25,13 +25,12 @@ window.addEventListener('load', () => {
 var theme = root.getAttribute('data-theme');
 
 // initializing/retrieving the theme
-if ((localStorage.getItem("theme") != 'dark') && (localStorage.getItem("theme") != 'light')){
+// if ((localStorage.getItem("theme") != 'dark') && (localStorage.getItem("theme") != 'light')){
+if (localStorage.getItem("theme") == null){
     root.setAttribute('data-theme', 'dark');
 } else {
     root.setAttribute('data-theme', localStorage.getItem("theme"));
 }
-
-
 
 //storing the theme
 const storeTheme = function(theme){
@@ -69,7 +68,6 @@ window.addEventListener('load', () => {
     }
 
 });
-  
 
 // -------------------------------------------------------------------------------------------------------------------------------------
 // header code---

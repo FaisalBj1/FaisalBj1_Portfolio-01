@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FaisalBj1 - QR Code Generator</title>
+        <!-- FaisalBj1 -->
+        <script type="module" id="main_js" src="/main.js"></script>
+        <style>:root {display:none;}</style>
+        
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <style>
+            main {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+            }
+            #qrcode {
+                max-width: 100%;
+            }
+            input {
+                width: 100%;
+                height: 35px;
+                border-radius: 15px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <my-header></my-header>
+        <main>
+
+            <h1 class="fancy">QR Code</h1>
+            <h1 class="fancy" style="animation: none; border-right: 0;">Generator</h1>
+            <br><br><br>
+            <div style="width: 50%;">
+                <label for="urlInput"><h3>Enter URL:</h3></label>
+                <input type="text" id="urlInput" placeholder="     https://example.com">
+            </div>
+            <br>
+            <button class="btn primary" onclick="generateQRCode()">Generate QR Code&nbsp</button>
+            <br>
+            <div style="background-color: white; padding:5px; border:solid 1px var(--primary-color);">
+                <div id="qrcode"></div>
+            </div>
+        
+            <script>
+                function generateQRCode() {
+                    var urlInput = document.getElementById('urlInput').value;
+                    var qrcode = new QRCode(document.getElementById("qrcode"), {
+                        text: urlInput,
+                        width: 128,
+                        height: 128
+                    });
+                }
+            </script>
+        </main>
+        <my-footer></my-footer>
+
+        
+        
+    </body>
+</html>

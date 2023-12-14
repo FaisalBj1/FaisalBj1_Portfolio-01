@@ -25,6 +25,7 @@
                     text-align: center;
                     align-items: center;
                     gap: 5rem;
+                    
                 }
 
                 .options {
@@ -143,6 +144,9 @@
                 }
                 /* [phone] */
                 @media screen and (max-width: 767px){
+                    main {
+                        gap: 12rem;
+                    }
                     .options {
                         flex-direction: column;
                         min-width: 250px;
@@ -245,7 +249,8 @@
                 </div>            
             </div>
 
-            <a href="./all_prjects.html">All Projects</a>
+            
+            <a href="./all_prjects.html" ><button class="btn primary" >All Projects</button></a>
 
             <!-- script for setting the active option in gallery -->
             <script>

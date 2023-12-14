@@ -15,6 +15,13 @@
                 justify-content: center;
                 align-items: center;
             }
+            .projects_list_container {
+                border: solid 1px var(--primary-color);
+                padding: 25px;
+            }
+            ul {
+                line-height: 2rem;
+            }
             li {
                 list-style: none;
                 padding: 0;
@@ -28,17 +35,16 @@
             <h1 class="fancy">All projects</h1>
 
             <br><br><br>
-
-            <ul>
-                <li><a href="./mini_projects/qr_code_generator.html"> QR Code Generator</a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-            </ul>
-
+            <div class="projects_list_container">
+                <ul>
+                    <li><a href="./mini_projects/qr_code_generator.html"> QR Code Generator</a></li>
+                    <li><a href="./projects/Wrench">Wrench - Web Developement Course Final Project</a></li>
+                    <li><a href="./projects/Senior_Project_block-drive_v1.0">block drive v1.0 - Senior Project</a></li>
+                    <li><a href="./projects/Sebior_Project_block-drive_v1,1">block drive v1.1 - Senior Project</a></li>
+                    <li><a href="#">block drive v2.0 - Senior Project</a></li>
+                    <li><a href="#">block drive v2.0 - [Blockchain Network Demo]</a></li>
+                </ul>
+            </div>
 
         </main>
         <my-footer></my-footer>

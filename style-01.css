@@ -86,7 +86,7 @@ animation-iteration-count: infinite; */
 /* to prevent unstyled HTML flashing */
 :root {
     display: none;
-    font-family: 'popins', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 * {

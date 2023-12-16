@@ -9,6 +9,14 @@
         <!-- FaisalBj1 -->
         <script type="module" id="main_js" src="./main.js"></script>
         <style>:root {display:none;}</style>
+
+        <style>
+            body {
+                background: linear-gradient(45deg, rgb(0, 0, 0, 1), rgba(0, 0, 0, 0.50)), url('/Faisal_img-01.JPG');
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
     </head>
         
     <body>
@@ -17,10 +25,10 @@
             <canvas></canvas>
             <br><br><br><br><br>
 
-            <h1 class="fancy typing_anim">hello world! &nbsp&nbsp</h1>
+            <h1 class="fancy typing_animation glow">hello world! &nbsp&nbsp</h1>
             <br><br><br>
-            <a href="#"><button type="button" class="btn primary">Resume</button></a>
-            <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">my projects</button></a>
+            <a href="#"><button type="button" class="btn primary">résumé</button></a>
+            <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
         </main>
         <my-footer></my-footer> 
 
@@ -31,7 +39,7 @@
             var canvas, ctx;
             var count = 0;
             var points = [];
-            var sizeFactor = 50; 
+            var sizeFactor = 75; 
             var canvasSize = sizeFactor / 0.375;
 
             window.onload = function () {
@@ -59,15 +67,12 @@
 
             function rus() {
                 ctx.globalCompositeOperation = "source-over";
-                // ctx.clearRect(0, 0, canvas.width, canvas.height); // Use clearRect to make the canvas background transparent
-                ctx.fillStyle = "rgba(0,0,0,0.075)";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.globalCompositeOperation = "lighter";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                 var tim = count / 7;
 
                 for (var e = 0; e < 3; e++) {
-                    tim *= 1.7;
+                    tim *= 1.75;
                     var s = 1 - e / 3;
                     a = tim / 59;
                     var yp = Math.cos(a);
@@ -100,7 +105,7 @@
                             ctx.beginPath();
 
                             var hue = (((a / MAX) * 60) + 240) % 360;
-                            ctx.strokeStyle = "hsla(" + hue + ", 70%, 60%, 0.15)";
+                            ctx.strokeStyle = "hsla(" + hue + ", 75%, 50%, 0.15)";
                             
                             ctx.lineWidth = Math.pow(6, b[2]);
                             ctx.lineTo(b[0] * sizeFactor + canvas.width / 2, b[1] * sizeFactor + canvas.height / 2);

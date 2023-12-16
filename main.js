@@ -22,20 +22,20 @@ window.addEventListener('load', () => {
 // -------------------------------------------------------------------------------------------------------------------------------------
 // theme control---
 
-var theme = root.getAttribute('data-theme');
-
 // initializing/retrieving the theme
-// if ((localStorage.getItem("theme") != 'dark') && (localStorage.getItem("theme") != 'light')){
 if (localStorage.getItem("theme") == null){
     root.setAttribute('data-theme', 'dark');
 } else {
     root.setAttribute('data-theme', localStorage.getItem("theme"));
 }
 
+var theme = root.getAttribute('data-theme');
+
 //storing the theme
 const storeTheme = function(theme){
     localStorage.setItem("theme", theme);
 }
+
 window.addEventListener('load', () => {
     // Initialize the toggle icon based on the current theme
     updateToggleIcon();
@@ -59,11 +59,11 @@ window.addEventListener('load', () => {
     function updateToggleIcon() {
         // Update the toggle icon based on the current theme
         if (theme === 'dark') {
-            document.getElementById('theme_icon').classList.add('fa-sun');
-            document.getElementById('theme_icon').classList.remove('fa-moon');
-        } else {
-            document.getElementById('theme_icon').classList.remove('fa-sun');
             document.getElementById('theme_icon').classList.add('fa-moon');
+            document.getElementById('theme_icon').classList.remove('fa-sun');
+        } else {
+            document.getElementById('theme_icon').classList.remove('fa-moon');
+            document.getElementById('theme_icon').classList.add('fa-sun');
         }
     }
 
@@ -76,11 +76,14 @@ class MyHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                my-header {
-                    /*position: relative;
+                 my-header {
+                    /*
+                    position: absolute;
                     top: 0;
-                    z-index: 9999999;*/
-                    width: 100vw;
+                    z-index: 9999999;
+                    */
+
+                    width: 100%;
                     padding: 9px 15px;
                     margin-bottom: auto;
                     background: transparent;
@@ -94,7 +97,6 @@ class MyHeader extends HTMLElement {
                 nav {
                     display: grid;
                     grid-template-areas: 'logo nav_menu icons';
-                    background: transparent;
                     margin: 0;
                     padding: 0;
                     justify-content: stretch;
@@ -135,24 +137,15 @@ class MyHeader extends HTMLElement {
                     font-size: 1.35rem;
                     cursor: pointer;
                 }
-                        
-                nav label:hover,  nav ul li:hover {
-                    transition: all 0.15s ease-out;
-                    transform: scale(1.15);
-                }
-                nav label:not(hover),  nav ul li:not(hover) {
-                    transition: all 0.25s ease-out;
-                    transform: scale(1);
-                }
 
-                .menu_icon_anim {
+                .menu_icon_animation {
                     display: none;
                     cursor: pointer;
                 }
-                .menu_icon_anim input {
+                .menu_icon_animation input {
                     display: none;
                 }
-                .menu_icon_anim svg {
+                .menu_icon_animation svg {
                     /* The size of the SVG defines the overall size */
                     height: 2rem;
                     /* Define the transition for transforming the SVG */
@@ -173,10 +166,10 @@ class MyHeader extends HTMLElement {
                 .line-top-bottom {
                     stroke-dasharray: 12 63;
                 }
-                .menu_icon_anim input:checked + svg {
+                .menu_icon_animation input:checked + svg {
                     transform: rotate(-45deg);
                 }
-                .menu_icon_anim input:checked + svg .line-top-bottom {
+                .menu_icon_animation input:checked + svg .line-top-bottom {
                     stroke-dasharray: 20 300;
                     stroke-dashoffset: -32.42;
                 }
@@ -188,7 +181,7 @@ class MyHeader extends HTMLElement {
                 }
                 /* [ipad] */
                 @media screen and (min-width: 768px) and (max-width: 1024px) { 
-                    .menu_icon_anim {
+                    .menu_icon_animation {
                         display: block;
                     }
                     nav {
@@ -205,12 +198,12 @@ class MyHeader extends HTMLElement {
                     }
                     nav #toggle-02:checked ~ .menu {
                         display: block;
-                        animation: fade_in .75s ease-out;
+                        animationation: fade_in .75s ease-out;
                     }  
                 }
                 /* [phone] */
                 @media screen and (max-width: 767px){
-                    .menu_icon_anim {
+                    .menu_icon_animation {
                         display: block;
                     }
                     nav {
@@ -227,7 +220,7 @@ class MyHeader extends HTMLElement {
                     }
                     nav #toggle-02:checked ~ .menu {
                         display: block;
-                        animation: fade_in .75s ease-out;
+                        animationation: fade_in .75s ease-out;
                     }  
                 }
             </style>
@@ -237,7 +230,7 @@ class MyHeader extends HTMLElement {
 
                 <input type="checkbox" id="toggle-02" style="display: none;">
                 <div class="icons">
-                    <label class="menu_icon_anim" id="menu_icon" for="toggle">
+                    <label class="menu_icon_animation" id="menu_icon" for="toggle">
                         <input type="checkbox" id="toggle" style="display: none;">
                         <svg viewBox="0 0 32 32">
                         <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
@@ -251,7 +244,7 @@ class MyHeader extends HTMLElement {
 
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Resume</a></li>
+                        <li><a href="#">Résumé</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="/FaisalBj1-projects">Projects</a></li>
                     </ul>
@@ -285,6 +278,7 @@ class MyFooter extends HTMLElement {
                     /*position: absolute;
                     bottom:0;
                     z-index: 9999999;*/
+                    
                     box-sizing: border-box; 
                     width: 100%; 
                     margin-top: auto;
@@ -299,8 +293,8 @@ class MyFooter extends HTMLElement {
                     justify-content: space-between;
                     text-align: center;
                     align-items: center;
-                    gap: 1.5rem;
-                    padding: 25px 25px 11px 25px;
+                    gap: 1rem;
+                    padding: 9px 15px;
                 }
                     footer a {
                         color: var(--accent-color);

@@ -22,51 +22,34 @@ window.addEventListener('load', () => {
 // -------------------------------------------------------------------------------------------------------------------------------------
 // theme control---
 
-// initializing/retrieving the theme
-if (localStorage.getItem("theme") == null){
-    root.setAttribute('data-theme', 'dark');
-} else {
-    root.setAttribute('data-theme', localStorage.getItem("theme"));
-}
-
-var theme = root.getAttribute('data-theme');
-
-//storing the theme
-const storeTheme = function(theme){
-    localStorage.setItem("theme", theme);
-}
-
 window.addEventListener('load', () => {
-    // Initialize the toggle icon based on the current theme
-    updateToggleIcon();
 
-    // Theme toggle
-    document.getElementById('theme_icon').addEventListener('click', function () {
-        // Toggle the theme
-        if (theme === 'light') {
-            root.setAttribute('data-theme', 'dark');
-        } else {
-            root.setAttribute('data-theme', 'light');
-        } 
-        theme = root.getAttribute('data-theme');
+    const colorThemes = document.querySelectorAll('[name="theme"]');
 
-        storeTheme(theme);    
-        
-        // Update the toggle icon
-        updateToggleIcon();
+    // store theme
+    const storeTheme = function (theme) {
+        localStorage.setItem("theme", theme);
+    };
+
+    // set theme when visitor returns
+    const setTheme = function () {
+        const activeTheme = localStorage.getItem("theme");
+        colorThemes.forEach((themeOption) => {
+            if (themeOption.id === activeTheme) {
+                themeOption.checked = true;
+            }
+        });
+        root.setAttribute('data-theme', activeTheme);
+    };
+
+    colorThemes.forEach((themeOption) => {
+        themeOption.addEventListener("click", () => {
+            storeTheme(themeOption.id);
+            root.setAttribute('data-theme', themeOption.id);
+        });
     });
 
-    function updateToggleIcon() {
-        // Update the toggle icon based on the current theme
-        if (theme === 'dark') {
-            document.getElementById('theme_icon').classList.add('fa-moon');
-            document.getElementById('theme_icon').classList.remove('fa-sun');
-        } else {
-            document.getElementById('theme_icon').classList.remove('fa-moon');
-            document.getElementById('theme_icon').classList.add('fa-sun');
-        }
-    }
-
+    document.onload = setTheme();
 });
 
 // -------------------------------------------------------------------------------------------------------------------------------------
@@ -75,81 +58,183 @@ window.addEventListener('load', () => {
 class MyHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
+            <!-- header / nav  -->
             <style>
-                 my-header {
-                    /*
-                    position: absolute;
-                    top: 0;
+                header {
+                    position: absolute; 
+                    top: 0; 
+                    left: 0;
+                    right: 0;
                     z-index: 9999999;
-                    */
+                    display: flex;
+                    flex-direction: column;
+                    min-width: 100%;
+                }
 
-                    width: 100%;
-                    padding: 9px 15px;
-                    margin-bottom: auto;
-                    background: transparent;
-                    border-bottom: solid 1px var(--primary-color);
-                }
-                my-header * {
-                    color: var(--primary-color);
-                    box-sizing: border-box;
-                    text-decoration: none;
-                }
-                nav {
-                    display: grid;
-                    grid-template-areas: 'logo nav_menu icons';
+                header * {
                     margin: 0;
                     padding: 0;
-                    justify-content: stretch;
+                    color: var(--primary-color);
                 }
+
+                nav {
+                    box-sizing: border-box;
+                    border-bottom: solid 1px var(--primary-color);
+                    min-width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 0;
+                    padding: 9px 15px;
+                }
+
                 nav .logo {
-                    grid-area: logo;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: start;
-                    align-items: center;
+                    order: 1;
+                    font-weight: 900;
                 }
+
+                nav .logo a {
+                    text-decoration: none;
+                }
+
                 nav .icons {
-                    grid-area: icons;
+                    order: 3;
                     display: flex;
-                    flex-direction: row;
-                    justify-content: end;
+                    justify-content: center;
                     align-items: center;
                     gap: 15px;
                 }
-                nav .menu {
-                    grid-area: nav_menu;
-                    display: flex;
-                    flex-direction: row;
+
+                nav #menu_toggle {
+                    cursor: pointer;
+                    display: none;
                 }
-                nav .menu ul{
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 21px;
-                    transform: translate(-3rem);
-                    place-content: center;
-                }
-                nav .menu * {
-                    text-decoration: none;
-                    list-style: none;
-                }
-                nav i {
-                    font-size: 1.35rem;
+
+                nav #theme_toggle {
                     cursor: pointer;
                 }
 
-                .menu_icon_animation {
+                .menu {
+                    order: 2;
+                }
+
+                .menu *{
+                    text-decoration: none;
+                    list-style: none;
+                    font-weight: 500;
+                }
+
+                .menu ul {
+                    display: flex;
+                    gap: 15px;
+                }
+
+                #menu-1 {
+                    transform: translate(-3rem);
+                }
+
+                #menu-2 {
                     display: none;
+                    justify-content: center;
+                    padding: 15px 5px;
+                    border-bottom: solid 1px var(--primary-color);
+                    border-radius: 0 0 50px 50px;
+                    animation: fade_in 250ms ease-in-out;
+                }
+                #menu-2 ul {
+                    flex-direction: column;
+                }
+
+                .themes {
+                    order: 5;
+                    padding: 10px 0;
+                    border-bottom: solid 1px var(--primary-color);
+                    border-radius: 0 0 50px 50px;
+                    display: none;
+                    justify-content: center;
+                    animation: fade_in 250ms ease-in-out;
+                }
+
+                /* style for different screens */
+                /* [laptop] */
+                @media screen and (min-width: 1025px){
+                    
+                }
+                /* [ipad] */
+                @media screen and (min-width: 768px) and (max-width: 1024px) { 
+                    nav #menu_toggle {
+                        display: block;
+                    }
+                    #menu-1 {
+                        display: none;
+                    }
+                }
+                /* [phone] */
+                @media screen and (max-width: 767px){
+                    nav #menu_toggle {
+                        display: block;
+                    }
+                    #menu-1 {
+                        display: none;
+                    }
+                }
+            </style>
+
+            <!-- themes options -->
+            <style>
+                .visually-hidden {
+                    clip: rect(0 0 0 0);
+                    clip-path: inset(50%);
+                    height: 1px;
+                    overflow: hidden;
+                    position: absolute;
+                    white-space: nowrap;
+                    width: 1px;
+                }
+
+                .color-picker > fieldset {
+                    border: 0;
+                    display: flex;
+                    gap: 1rem;
+                    width: fit-content;
+                    padding: 0;
+                    margin: 0;
+                    border-radius: 0 0 1rem 1rem;
+                }
+
+                .color-picker input[type="radio"] {
+                    appearance: none;
+                    width: .5rem;
+                    height: .5rem;
+                    aspect-ratio: 1/1;
+                    outline: 2px solid var(--radio-color, currentColor);
+                    outline-offset: 1.5px;
+                    border-radius: 50%;
                     cursor: pointer;
                 }
-                .menu_icon_animation input {
-                    display: none;
+
+                .color-picker input[type="radio"]:checked {
+                    background-color: var(--radio-color);
                 }
+
+                .color-picker input[type="radio"]#light {
+                    --radio-color: rgb(188, 188, 255);
+                }
+                .color-picker input[type="radio"]#dark {
+                    --radio-color: rgb(81, 81, 172);
+                }
+                .color-picker input[type="radio"]#darkness {
+                    --radio-color: rgb(0, 0, 0);
+                }
+            </style>
+
+            <!-- menu togglle icon -->
+            <style>
                 .menu_icon_animation svg {
                     /* The size of the SVG defines the overall size */
-                    height: 2rem;
+                    height: 1.5rem;
                     /* Define the transition for transforming the SVG */
                     transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
                 }
                 .line {
                     fill: none;
@@ -173,76 +258,25 @@ class MyHeader extends HTMLElement {
                     stroke-dasharray: 20 300;
                     stroke-dashoffset: -32.42;
                 }
-
-                /* style for different screens */
-                /* [laptop] */
-                @media screen and (min-width: 1025px){
-                    /* default */
-                }
-                /* [ipad] */
-                @media screen and (min-width: 768px) and (max-width: 1024px) { 
-                    .menu_icon_animation {
-                        display: block;
-                    }
-                    nav {
-                        grid-template-areas: 
-                        'logo icons'
-                        'nav_menu nav_menu';
-                    }
-                    nav .menu {
-                        display: none;
-                    }
-                    nav .menu ul{
-                        flex-direction: column;
-                        transform: translate(0);
-                    }
-                    nav #toggle-02:checked ~ .menu {
-                        display: block;
-                        animationation: fade_in .75s ease-out;
-                    }  
-                }
-                /* [phone] */
-                @media screen and (max-width: 767px){
-                    .menu_icon_animation {
-                        display: block;
-                    }
-                    nav {
-                        grid-template-areas: 
-                        'logo icons'
-                        'nav_menu nav_menu';
-                    }
-                    nav .menu {
-                        display: none;
-                    }
-                    nav .menu ul{
-                        flex-direction: column;
-                        transform: translate(0);
-                    }
-                    nav #toggle-02:checked ~ .menu {
-                        display: block;
-                        animationation: fade_in .75s ease-out;
-                    }  
-                }
             </style>
 
-            <nav> 
-                <a class="logo" href="/" style="font-weight: bold;">FAISAL BANJAR</a>
+        
+            <header>
+                <nav>
+                    <div class="logo"><a href="/">FAISAL BANJAR</a></div>
 
-                <input type="checkbox" id="toggle-02" style="display: none;">
-                <div class="icons">
-                    <label class="menu_icon_animation" id="menu_icon" for="toggle">
-                        <input type="checkbox" id="toggle" style="display: none;">
-                        <svg viewBox="0 0 32 32">
-                        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                        <path class="line" d="M7 16 27 16"></path>
-                        </svg>
-                    </label>
-                    <div>
-                        <label><i id="theme_icon" class="fa-solid fa-sun"></i></label>
+                    <div class="icons">
+                        <label class="menu_icon_animation" for="toggle">
+                            <input type="checkbox" id="toggle" style="display: none;">
+                            <svg id="menu_toggle" viewBox="0 0 32 32">
+                            <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                            <path class="line" d="M7 16 27 16"></path>
+                            </svg>
+                        </label>
+                        <i id="theme_toggle" class="fa-solid fa-circle-half-stroke"></i>
                     </div>
-                </div>
 
-                <div class="menu">
+                <div id="menu-1" class="menu">
                     <ul>
                         <li><a href="#">Résumé</a></li>
                         <li><a href="#">Contact</a></li>
@@ -250,21 +284,55 @@ class MyHeader extends HTMLElement {
                     </ul>
                 </div>
             </nav>
+
+                <div id="menu-2" class="menu">
+                    <ul>
+                        <li><a href="#">Résumé</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="/FaisalBj1-projects">Projects</a></li>
+                    </ul>
+                </div>
+
+                <div id="themes" class="themes">
+                    <form class="color-picker" action="">
+                        <fieldset>
+                            <legend class="visually-hidden">Pick a color scheme</legend>
+                            <label for="light" class="visually-hidden">light theme</label>
+                            <input type="radio" id="light" name="theme">
+                        
+                            <label for="dark" class="visually-hidden">dark theme</label>
+                            <input type="radio" id="dark" name="theme">
+                        
+                            <label for="darkness" class="visually-hidden">darkness theme</label>
+                            <input type="radio" id="darkness" name="theme">
+                        </fieldset>
+                    </form>
+                </div>
+            </header>
             `
     }
 }
 
 customElements.define('my-header', MyHeader)
 
-// to display the meny when toggle is clicked.
+// themes & nav menu toggles
 window.addEventListener('load', () => {
-    document.getElementById('menu_icon').addEventListener('click', function() {
-        if (document.getElementById('toggle').checked) {
-            document.getElementById('toggle-02').checked = true;
+    document.getElementById('theme_toggle').addEventListener('click', function () {
+        if (document.getElementById('themes').style.display == 'flex'){
+            document.getElementById('themes').style.display = 'none';
         } else {
-            document.getElementById('toggle-02').checked = false;
+            document.getElementById('themes').style.display = 'flex';
         }
     });
+
+    document.getElementById('menu_toggle').addEventListener('click', function () {
+        if (document.getElementById('menu-2').style.display == 'flex'){
+            document.getElementById('menu-2').style.display = 'none';
+        } else {
+            document.getElementById('menu-2').style.display = 'flex';
+        } 
+    });
+
 });
 
 // -------------------------------------------------------------------------------------------------------------------------------------
@@ -275,13 +343,15 @@ class MyFooter extends HTMLElement {
         this.innerHTML = `
             <style>
                 my-footer{
-                    /*position: absolute;
-                    bottom:0;
-                    z-index: 9999999;*/
+                    position: absolute;
+                    bottom:0; 
+                    left: 0;
+                    right: 0;
+                    z-index: 9999999;
                     
                     box-sizing: border-box; 
                     width: 100%; 
-                    margin-top: auto;
+                    /*margin-top: auto;*/
                     background: transparent;
                     backdrop-filter: blur(15px);
                 }

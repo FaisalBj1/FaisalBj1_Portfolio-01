@@ -23,10 +23,6 @@ window.addEventListener('load', () => {
 // theme control---
 
 window.addEventListener('load', () => {
-
-
-
-
     const colorThemes = document.querySelectorAll('[name="theme"]');
 
     // set theme when visitor returns

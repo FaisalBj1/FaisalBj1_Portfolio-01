@@ -29,6 +29,17 @@ window.addEventListener('load', () => {
 
     const colorThemes = document.querySelectorAll('[name="theme"]');
 
+    // set theme when visitor returns
+    const setTheme = function () {
+        const activeTheme = localStorage.getItem("theme");
+        colorThemes.forEach((themeOption) => {
+            if (themeOption.id === activeTheme) {
+                themeOption.checked = true;
+            }
+        });
+        root.setAttribute('data-theme', activeTheme);
+    };
+
     // store theme
     const storeTheme = function (theme) {
         localStorage.setItem("theme", theme);
@@ -46,19 +57,8 @@ window.addEventListener('load', () => {
         // 'theme' does not exist in local storage
         console.log('Theme does not exist in local storage');
         root.setAttribute('data-theme', 'darkness');
-        document.onload = setTheme();
+        setTheme();
     }
-
-    // set theme when visitor returns
-    const setTheme = function () {
-        const activeTheme = localStorage.getItem("theme");
-        colorThemes.forEach((themeOption) => {
-            if (themeOption.id === activeTheme) {
-                themeOption.checked = true;
-            }
-        });
-        root.setAttribute('data-theme', activeTheme);
-    };
 
     colorThemes.forEach((themeOption) => {
         themeOption.addEventListener("click", () => {

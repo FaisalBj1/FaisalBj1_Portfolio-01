@@ -24,6 +24,13 @@ window.addEventListener('load', () => {
 
 window.addEventListener('load', () => {
 
+    // initializing/retrieving the theme
+    if (localStorage.getItem("theme") == null){
+        root.setAttribute('data-theme', 'darkness');
+    } else {
+        root.setAttribute('data-theme', localStorage.getItem("theme"));
+    }
+
     const colorThemes = document.querySelectorAll('[name="theme"]');
 
     // store theme

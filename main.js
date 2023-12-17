@@ -24,15 +24,15 @@ window.addEventListener('load', () => {
 
 window.addEventListener('load', () => {
 
-    // initializing/retrieving the theme
+    // Initializing/retrieving the theme
 
-    root.setAttribute('data-theme', 'darkness');
-
-    if ((localStorage.getItem("theme") != 'light') && (localStorage.getItem("theme") != 'dark') && (localStorage.getItem("theme") != 'darkness')){
+    // Set the default theme to 'darkness' if it's not 'light' or 'dark'
+    if (!['light', 'dark', 'darkness'].includes(localStorage.getItem('theme'))) {
         root.setAttribute('data-theme', 'darkness');
     } else {
-        root.setAttribute('data-theme', localStorage.getItem("theme"));
+        root.setAttribute('data-theme', localStorage.getItem('theme'));
     }
+
 
     const colorThemes = document.querySelectorAll('[name="theme"]');
 

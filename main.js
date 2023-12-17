@@ -25,26 +25,14 @@ window.addEventListener('load', () => {
 window.addEventListener('load', () => {
 
     // Initializing/retrieving the theme
-
-    // Set the default theme to 'darkness' if it's not 'light' or 'dark'
-    // if (!['light', 'dark', 'darkness'].includes(localStorage.getItem('theme'))) {
-    //     root.setAttribute('data-theme', 'darkness');
-    // } else {
-    //     root.setAttribute('data-theme', localStorage.getItem('theme'));
-    // }
-
-    function isThemeInLocalStorage() {
-        return localStorage.getItem('theme') !== null;
-      }
-      
-      // Example usage
-      if (isThemeInLocalStorage()) {
+    if (isThemeInLocalStorage()) {
         // 'theme' exists in local storage
         console.log('Theme exists:', localStorage.getItem('theme'));
-      } else {
+    } else {
         // 'theme' does not exist in local storage
         console.log('Theme does not exist in local storage');
-      }
+        root.setAttribute('data-theme', 'darkness');
+    }
 
 
 

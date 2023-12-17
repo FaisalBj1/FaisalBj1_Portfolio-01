@@ -57,7 +57,7 @@ window.addEventListener('load', () => {
         // 'theme' does not exist in local storage
         console.log('Theme does not exist in local storage');
         root.setAttribute('data-theme', 'darkness');
-        setTheme();
+        document.onload = setTheme();
     }
 
     colorThemes.forEach((themeOption) => {

@@ -40,10 +40,12 @@ window.addEventListener('load', () => {
         root.setAttribute('data-theme', activeTheme);
     };
 
+
     // store theme
     const storeTheme = function (theme) {
         localStorage.setItem("theme", theme);
     };
+
 
     // Initializing the theme
     function isThemeInLocalStorage() {
@@ -57,6 +59,7 @@ window.addEventListener('load', () => {
         // 'theme' does not exist in local storage
         console.log('Theme does not exist in local storage');
         root.setAttribute('data-theme', 'darkness');
+        localStorage.setItem("theme", 'darkness');
         document.onload = setTheme();
     }
 

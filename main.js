@@ -25,6 +25,10 @@ window.addEventListener('load', () => {
 window.addEventListener('load', () => {
 
     // Initializing/retrieving the theme
+    function isThemeInLocalStorage() {
+        return localStorage.getItem('theme') !== null;
+      }
+      
     if (isThemeInLocalStorage()) {
         // 'theme' exists in local storage
         console.log('Theme exists:', localStorage.getItem('theme'));

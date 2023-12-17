@@ -25,6 +25,9 @@ window.addEventListener('load', () => {
 window.addEventListener('load', () => {
 
     // initializing/retrieving the theme
+
+    root.setAttribute('data-theme', 'darkness');
+
     if (localStorage.getItem("theme") == null){
         root.setAttribute('data-theme', 'darkness');
     } else {

@@ -24,19 +24,6 @@ window.addEventListener('load', () => {
 
 window.addEventListener('load', () => {
 
-    // Initializing/retrieving the theme
-    function isThemeInLocalStorage() {
-        return localStorage.getItem('theme') !== null;
-      }
-      
-    if (isThemeInLocalStorage()) {
-        // 'theme' exists in local storage
-        console.log('Theme exists:', localStorage.getItem('theme'));
-    } else {
-        // 'theme' does not exist in local storage
-        console.log('Theme does not exist in local storage');
-        root.setAttribute('data-theme', 'darkness');
-    }
 
 
 
@@ -46,6 +33,21 @@ window.addEventListener('load', () => {
     const storeTheme = function (theme) {
         localStorage.setItem("theme", theme);
     };
+
+    // Initializing the theme
+    function isThemeInLocalStorage() {
+        return localStorage.getItem('theme') !== null;
+        }
+        
+    if (isThemeInLocalStorage()) {
+        // 'theme' exists in local storage
+        console.log('Theme exists:', localStorage.getItem('theme'));
+    } else {
+        // 'theme' does not exist in local storage
+        console.log('Theme does not exist in local storage');
+        root.setAttribute('data-theme', 'darkness');
+        document.onload = setTheme();
+    }
 
     // set theme when visitor returns
     const setTheme = function () {

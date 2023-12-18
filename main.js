@@ -84,12 +84,16 @@ class MyHeader extends HTMLElement {
         this.innerHTML = `
             <!-- header / nav  -->
             <style>
-                header {
-                    position: absolute; 
+                my-header {
+                    position: relative; 
                     top: 0; 
                     left: 0;
                     right: 0;
                     z-index: 9999999;
+                    min-width: 100vw;
+                    margin-bottom: auto;
+                }
+                header {
                     display: flex;
                     flex-direction: column;
                     min-width: 100%;
@@ -366,20 +370,20 @@ class MyFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <style>
-                my-footer{
-                    position: absolute;
-                    bottom:0; 
+                my-footer{ 
+                    position: relative; 
+                    bottom: 0; 
                     left: 0;
                     right: 0;
                     z-index: 9999999;
-                    
-                    box-sizing: border-box; 
-                    width: 100%; 
-                    /*margin-top: auto;*/
+                    min-width: 100vw;
+                    margin-top: auto;
                     background: transparent;
                     backdrop-filter: blur(15px);
                 }
                 footer {
+                    min-width: 100%; 
+                    box-sizing: border-box;
                     border-top: solid 1px var(--primary-color);
                     backdrop-filter: blur(15px);
                     display: flex;

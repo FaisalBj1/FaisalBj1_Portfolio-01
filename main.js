@@ -455,3 +455,4 @@ customElements.define('my-footer', MyFooter)
 function test(){
     console.log('test - main.js');
 }
+

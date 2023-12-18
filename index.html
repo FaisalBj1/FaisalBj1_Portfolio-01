@@ -16,6 +16,9 @@
                 background-size: cover;
                 background-position: center;
             }
+            .typed-cursor{
+                font-size: 3rem;
+            }
         </style>
     </head>
         
@@ -25,7 +28,7 @@
             <canvas></canvas>
             <br><br><br><br><br>
             <div style="display:flex;">
-                <h1 class="fancy  glow typedTextJS">hello world! &nbsp</h1>
+                <h1 class="fancy glow typedTextJS"></h1>
             </div>
             <br><br><br>
             <div>
@@ -121,13 +124,12 @@
                 requestAnimationFrame(rus);
             }
         </script>
-
         <!-- typing animation JS Link -->
         <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
         <script>
             /* ----- TYPING EFFECT ----- */
             let typingEffect = new Typed(".typedTextJS",{
-                strings : ["Faisal Banjar","Software Engineer","Data scientist"],
+                strings : ["hello world!","Faisal Banjar ","Software Engineer ","Data scientist "],
                 loop : true,
                 typeSpeed : 100, 
                 backSpeed : 80,

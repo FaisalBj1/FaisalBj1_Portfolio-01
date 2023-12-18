@@ -10,27 +10,24 @@
         <script type="module" id="main_js" src="/main.js"></script>
 
         <style>
+            * {
+                /* border:solid 1px red */
+            }
             #todo-container {
                 max-width: 400px;
                 width: 100%;
-                background-color: #fff;
+                /* background-color: #fff; */
                 border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
                 overflow: hidden;
-            }
-
-            #todo-header {
-                background-color: #343a40;
-                color: #fff;
-                padding: 20px;
-                text-align: center;
-                font-size: 24px;
+                border: solid 3px var(--primary-color);
             }
 
             #todo-list {
                 padding: 20px;
                 overflow-y: auto;
                 max-height: 300px;
+                border-bottom: solid 1px var(--primary-color);
             }
 
             .task {
@@ -43,11 +40,11 @@
             }
 
             .task.completed {
-                background-color: #d4edda;
+                /* background-color: #d4edda; */
             }
 
             .task:hover {
-                background-color: #f8f9fa;
+                /* background-color: #f8f9fa; */
             }
 
             .task input {
@@ -57,6 +54,7 @@
             .task-text {
                 flex: 1;
                 text-decoration: none;
+                text-align: start;
             }
 
             .task-text.completed {
@@ -65,7 +63,7 @@
 
             .task button {
                 background-color: #dc3545;
-                color: #fff;
+                /* color: #fff; */
                 border: none;
                 padding: 5px 10px;
                 border-radius: 5px;
@@ -78,48 +76,44 @@
             }
 
             #todo-footer {
-                padding: 20px;
+                padding: 15px;
                 display: flex;
+                gap: 5px;
                 justify-content: space-between;
                 align-items: center;
             }
 
-            #add-task-input {
+            .btn {
                 flex: 1;
                 padding: 10px;
+                border-radius: 7px;
                 margin-right: 10px;
+                font-size: .85rem;
             }
 
-            #add-task-button,
-            #clear-completed-button {
-                background-color: #28a745;
-                color: #fff;
-                border: none;
-                padding: 10px 15px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
+            #add-task-input {
+                min-height: 100%em;
             }
 
-            #add-task-button:hover,
-            #clear-completed-button:hover {
-                background-color: #218838;
-            }
         </style>
     </head>
 
     <body>
         <my-header></my-header>
         <main>
+
+            <h1 class="fancy glow typing_animation">To-Do List</h1>
+            <br><br><br><br><br>
+
             <div id="todo-container">
-                <div id="todo-header">To-Do List</div>
                 <div id="todo-list"></div>
                 <div id="todo-footer">
                     <input type="text" id="add-task-input" placeholder="Add a new task">
-                    <button id="add-task-button" onclick="addTask()">Add Task</button>
-                    <button id="clear-completed-button" onclick="clearCompleted()">Clear Completed</button>
+                    <button id="add-task-button" class="btn primary" onclick="addTask()">Add Task</button>
+                    <button id="clear-completed-button" class="btn secondary" onclick="clearCompleted()">Clear Completed</button>
                 </div>
             </div>
+
         </main>
         <my-footer></my-footer>
         <script>

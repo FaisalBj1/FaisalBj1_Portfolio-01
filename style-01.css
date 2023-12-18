@@ -113,7 +113,7 @@
 
 body {
     box-sizing: border-box;
-    min-height: 100dvh;
+    min-height: 100svh;
     background-color: var(--bg-color);
     animation: fade_in 1s ease-in;
 

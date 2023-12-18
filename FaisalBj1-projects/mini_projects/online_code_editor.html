@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FaisalBj1 - Online Code Editor</title>
+        <link rel="icon" type="image/png" href="">
+
+        <!-- FaisalBj1 -->
+        <script type="module" id="main_js" src="/main.js"></script>
+        <style>:root {display:none;}</style>
+
+        <style>
+            main {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: clamp(50vw, 1000px, 100vw);
+                height: clamp(50vh, 500px, 100vh);
+                gap: 1rem;
+                border: solid 1px var(--primary-color);
+                border-radius: 15px;
+                min-width: 95%;
+            }
+
+            body * {
+                box-sizing: border-box;
+            }
+
+            .output_container {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                max-width: 100%;
+                height: 100%;
+
+            }
+
+            .code_container {
+                display: grid;
+                grid-template-rows: repeat(3, 1fr);
+                gap: 10px;
+                min-height: 100%;
+                text-align: start;
+            }
+
+            .code {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .code_container label {
+                margin-left: 10px;
+            }
+
+            textarea {
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                color: rgb(40, 255, 40);
+                font-size: 1.15rem;
+                padding: 10px;
+
+            }
+            iframe {
+                max-width: 100%;
+                min-height: 95%;
+            }
+
+            /* style for different screens */
+            /* [laptop] */
+            @media screen and (min-width: 1025px){
+                /* default */
+            }
+            /* [ipad] */
+            @media screen and (min-width: 768px) and (max-width: 1024px) { 
+                main {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    width: clamp(50vw, 750px, 100vw);
+                    height: clamp(50vh, 600px, 100vh);
+                    gap: 1rem;
+                    border: solid 1px var(--primary-color);
+                    border-radius: 15px;
+                    min-width: 85%;
+                }
+            }
+            /* [phone] */
+            @media screen and (max-width: 767px){
+                main {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(2, 1fr);
+                    width: clamp(50vw, 400px, 100vw);
+                    height: clamp(50vh, 500px, 100vh);
+                }
+                .output_container {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+
+                    max-width: 100%;
+                    height: 100%;
+
+                }
+                .code_container {
+                    display: grid;
+                    grid-template-rows: 1fr;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                    min-height: 100%;
+                    text-align: start;
+                }
+            }
+
+
+        </style>
+    </head>
+        
+    <body>
+        <my-header></my-header>
+        <main>
+
+            <div class="code_container">
+                <div class="code">
+                    <label><i class="fa-brands fa-html5"></i> HTML</label>
+                    <textarea id="html_code" onkeyup="run()"></textarea>
+                </div>
+                <di class="code">
+                    <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
+                    <textarea id="css_code" onkeyup="run()"></textarea>
+                </di>
+                <div class="code">
+                    <label><i class="fa-brands fa-square-js"></i> JavaScript</label>
+                    <textarea id="js_code" onkeyup="run()"></textarea>
+                </div>
+            </div>
+
+            <div class="output_container">
+                <label><i class="fa-solid fa-code"></i> Output</label>
+                <iframe id="output"></iframe>
+            </div>
+
+        </main>
+        <my-footer></my-footer> 
+
+        <script>
+            function run() {
+                let htmlCode = document.getElementById("html_code").value;
+                let cssCode = document.getElementById("css_code").value;
+                let jsCode = document.getElementById("js_code").value;
+                let output = document.getElementById("output");
+
+                output.contentDocument.body.innerHTML = "<style>" + cssCode + "</style>" + htmlCode;
+                output.contentWindow.eval(jsCode);
+
+            }
+        </script>
+    </body>
+</html>

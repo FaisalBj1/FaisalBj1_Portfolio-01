@@ -5,7 +5,7 @@ const timestamp = new Date().getTime();
 const root = document.documentElement;
 
 // css
-document.head.insertAdjacentHTML('beforeend', `
+document.head.insertAdjacentHTML('afterbegin', `
 <link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
 <link rel="stylesheet" href="/vendor/fontawesome-06/css/all.css?dev=${timestamp}">
 <style>:root {display:none;}</style>

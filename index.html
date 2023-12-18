@@ -24,8 +24,9 @@
         <main>
             <canvas></canvas>
             <br><br><br><br><br>
-
-            <h1 class="fancy typing_animation glow">hello world! &nbsp</h1>
+            <div style="display:flex;">
+                <h1 class="fancy  glow typedTextJS">hello world! &nbsp</h1>
+            </div>
             <br><br><br>
             <div>
                 <a href="#"><button type="button" class="btn primary">résumé</button></a>
@@ -119,6 +120,19 @@
                 count++;
                 requestAnimationFrame(rus);
             }
+        </script>
+
+        <!-- typing animation JS Link -->
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        <script>
+            /* ----- TYPING EFFECT ----- */
+            let typingEffect = new Typed(".typedTextJS",{
+                strings : ["Faisal Banjar","Software Engineer","Data scientist"],
+                loop : true,
+                typeSpeed : 100, 
+                backSpeed : 80,
+                backDelay : 2000
+            })
         </script>
     </body>
 </html>

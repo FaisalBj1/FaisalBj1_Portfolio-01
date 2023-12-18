@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- UNICONS -->
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+     <!-- CSS -->
+     <link rel="stylesheet" href="./style.css">
+     <!-- Add favicon -->
+     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <!-- --------------- HEADER --------------- -->
+        <nav id="header">
+            <div class="nav-logo">
+                <p class="nav-name">Doe</p>
+                <span>.</span>
+            </div>
+            <div class="nav-menu" id="myNavMenu">
+                <ul class="nav_menu_list">
+                    <li class="nav_list">
+                        <a href="#home" class="nav-link active-link">Home</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#about" class="nav-link">About</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <div class="circle"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+
+        <!-- -------------- MAIN ---------------- -->
+        <main class="wrapper">
+            <!-- -------------- FEATURED BOX ---------------- -->
+            <section class="featured-box" id="home">
+                <div class="featured-text">
+                    <div class="featured-text-card">
+                        <span>John Doe</span>
+                    </div>
+                    <div class="featured-name">
+                        <p>I'm <span class="typedText"></span></p>
+                    </div>
+                    <div class="featured-text-info">
+                        <p>Experienced frontend developer with a passion for creating visually stunning
+                            and user-friendly websites.
+                        </p>
+                    </div>
+                    <div class="featured-text-btn">
+                        <button class="btn blue-btn">Hire Me</button>
+                        <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
+                    </div>
+                    <div class="social_icons">
+                        <div class="icon"><i class="uil uil-instagram"></i></div>
+                        <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+                        <div class="icon"><i class="uil uil-twitter"></i></div>
+                        <div class="icon"><i class="uil uil-github-alt"></i></div>
+                    </div>
+                </div>
+                <div class="featured-image">
+                    <div class="image">
+                        <img src="data:image/jpeg;base64,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" alt="avatar">
+                    </div>
+                </div>
+                <div class="scroll-icon-box">
+                    <a href="#about" class="scroll-btn">
+                        <i class="uil uil-mouse-alt"></i>
+                        <p>Scroll Down</p>
+                    </a>
+                </div>
+
+            </section>
+            <!-- -------------- ABOUT BOX ---------------- -->
+            <section class="section" id="about">
+                <div class="top-header">
+                    <h1>About Me</h1>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="about-info">
+                            <h3>My introduction</h3>
+                            <p>I am well-versed in HTML, CSS and JavaScript , and other cutting edge
+                                frameworks and libraries,which allows me to implement interactive features.
+                                Additionally, I have experirence working with content management systems (CMS) like
+                                WordPress.
+                            </p>
+                            <div class="about-btn">
+                                <button class="btn">Download CV <i class="uil uil-import"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="skills-box">
+                            <div class="skills-header">
+                                <h3>Frontend</h3>
+                            </div>
+                            <div class="skills-list">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Bootstrap</span>
+                                <span>JavaScript</span>
+                                <span>Vue</span>
+                                <span>React</span>
+                                <span>Angular</span>
+                            </div>
+                        </div>
+                        <div class="skills-box">
+                            <div class="skills-header">
+                                <h3>Backend</h3>
+                            </div>
+                            <div class="skills-list">
+                                <span>PHP</span>
+                                <span>JAVA</span>
+                                <span>Python</span>
+                                <span>C++</span>
+                            </div>
+                        </div>
+                        <div class="skills-box">
+                            <div class="skills-header">
+                                <h3>Database</h3>
+                            </div>
+                            <div class="skills-list">
+                                <span>MySQL</span>
+                                <span>PostgreSQL</span>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- -------------- PROJECT BOX ---------------- -->
+
+            <section class="section" id="projects">
+                <div class="top-header">
+                    <h1>Projects</h1>
+                </div>
+                <div class="project-container">
+                    <div class="project-box">
+                        <i class="uil uil-briefcase-alt"></i>
+                        <h3>Completed</h3>
+                        <label>15+ Finished Projects</label>
+                    </div>
+                    <div class="project-box">
+                        <i class="uil uil-users-alt"></i>
+                        <h3>Clients</h3>
+                        <label>25+ Happy Clients</label>
+                    </div>
+                    <div class="project-box">
+                        <i class="uil uil-award"></i>
+                        <h3>Experience</h3>
+                        <label>7+ Years in the field</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- -------------- CONTACT BOX ---------------- -->
+
+            <section class="section" id="contact">
+                <div class="top-header">
+                    <h1>Get in touch</h1>
+                    <span>Do you have a project in your mind, contact me here</span>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="contact-info">
+                            <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
+                            <p><i class="uil uil-envelope"></i> Email: john@doe.com</p>
+                            <p><i class="uil uil-phone"></i> +91 70822 00001</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-control">
+                            <div class="form-inputs">
+                                <input type="text" class="input-field" placeholder="Name">
+                                <input type="text" class="input-field" placeholder="Email">
+                            </div>
+                            <div class="text-area">
+                                <textarea placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-button">
+                                <button class="btn">Send <i class="uil uil-message"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+
+        <!-- --------------- FOOTER --------------- -->
+        <footer>
+            <div class="top-footer">
+                <p>John Doe .</p>
+            </div>
+            <div class="middle-footer">
+                <ul class="footer-menu">
+                    <li class="footer_menu_list">
+                        <a href="#home">Home</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-social-icons">
+                <div class="icon"><i class="uil uil-instagram"></i></div>
+                <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+                <div class="icon"><i class="uil uil-twitter"></i></div>
+                <div class="icon"><i class="uil uil-github-alt"></i></div>
+            </div>
+            <div class="bottom-footer">
+                <p>Copyright &copy; <a href="#home" style="text-decoration: none;">John Doe</a> - All rights reserved
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,201 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Enhanced To-Do List</title>
+    <!-- FaisalBj1 -->
+    <script type="module" id="main_js" src="/main.js"></script>
 
-        <!-- FaisalBj1 -->
-        <script type="module" id="main_js" src="/main.js"></script>
+    <style>
+        :root {
+            display: none; /* to prevent unstyled HTML flashing */
+        }
+        #todo-container {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: solid 3px var(--primary-color);
+        }
 
-        <style>
-            * {
-                /* border:solid 1px red */
-            }
-            #todo-container {
-                max-width: 400px;
-                width: 100%;
-                /* background-color: #fff; */
-                border-radius: 8px;
-                /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-                overflow: hidden;
-                border: solid 3px var(--primary-color);
-            }
+        #todo-list {
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 300px;
+            border-bottom: solid 1px var(--primary-color);
+        }
 
-            #todo-list {
-                padding: 20px;
-                overflow-y: auto;
-                max-height: 300px;
-                border-bottom: solid 1px var(--primary-color);
-            }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid var(--primary-color);
+            transition: background-color 0.3s ease;
+        }
 
-            .task {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px;
-                border-bottom: 1px solid #dee2e6;
-                transition: background-color 0.3s ease;
-            }
+        .task.completed {
+            /* background-color: #d4edda; */
+        }
 
-            .task.completed {
-                /* background-color: #d4edda; */
-            }
+        .task:hover {
+            /* background-color: #f8f9fa; */
+        }
 
-            .task:hover {
-                /* background-color: #f8f9fa; */
-            }
+        .task input {
+            margin-right: 10px;
+        }
 
-            .task input {
-                margin-right: 10px;
-            }
+        .task-text {
+            flex: 1;
+            text-decoration: none;
+            text-align: start;
+        }
 
-            .task-text {
-                flex: 1;
-                text-decoration: none;
-                text-align: start;
-            }
+        .task-text.completed {
+            text-decoration: line-through;
+        }
 
-            .task-text.completed {
-                text-decoration: line-through;
-            }
+        .task button {
+            background-color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-            .task button {
-                background-color: #dc3545;
-                /* color: #fff; */
-                border: none;
-                padding: 5px 10px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
+        .task button:hover {
+            background-color: #c82333;
+        }
 
-            .task button:hover {
-                background-color: #c82333;
-            }
+        #todo-footer {
+            padding: 10px;
+            display: flex;
+            gap: 5px;
+            justify-content: space-between;
+            place-content: center;
+            align-items: stretch; /* Ensure items stretch vertically */
+            height: 100%; /* Specify the height of #todo-footer */
+        }
 
-            #todo-footer {
-                padding: 15px;
-                display: flex;
-                gap: 5px;
-                justify-content: space-between;
-                align-items: center;
-            }
+        .btn {
+            flex: 1;
+            padding: 10px;
+            margin: 0;
+            border-radius: 7px;
+            font-size: .85rem;
+            min-height: 100%;
+        }
 
-            .btn {
-                flex: 1;
-                padding: 10px;
-                border-radius: 7px;
-                margin-right: 10px;
-                font-size: .85rem;
-            }
+        #add-task-input {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+            height: 100%; /* Make the input take the full height */
+        }
 
-            #add-task-input {
-                min-height: 100%em;
-            }
+        #todo-container i {
+            font-size: 1em;
+        }
 
-        </style>
-    </head>
+        #clear-completed-button {
+            display: flex;
+            gap: 1ch;
+        }
 
-    <body>
-        <my-header></my-header>
-        <main>
+        #clear-completed-button i {
+            font-size: 1em;
+        }
 
-            <h1 class="fancy glow typing_animation">To-Do List</h1>
-            <br><br><br><br><br>
+        #todo-footer input {
+            min-height: 100%;
+            border: 0;
+            outline: 0;
+            background-color: transparent;
+        }
+    </style>
+</head>
 
-            <div id="todo-container">
-                <div id="todo-list"></div>
-                <div id="todo-footer">
-                    <input type="text" id="add-task-input" placeholder="Add a new task">
-                    <button id="add-task-button" class="btn primary" onclick="addTask()">Add Task</button>
-                    <button id="clear-completed-button" class="btn secondary" onclick="clearCompleted()">Clear Completed</button>
-                </div>
+<body>
+    <my-header></my-header>
+    <main>
+
+        <h1 class="fancy glow typing_animation">To-Do List</h1>
+        <br><br><br><br><br>
+
+        <div id="todo-container">
+            <div id="todo-list"></div>
+            <div id="todo-footer">
+                <input type="text" id="add-task-input" placeholder="Add a new task">
+                <button id="add-task-button" class="btn primary" onclick="addTask()"><i class="fa-solid fa-plus"></i></button>
+                <button id="clear-completed-button" class="btn secondary" onclick="clearCompleted()">
+                    <i class="fa-solid fa-check"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
+        </div>
 
-        </main>
-        <my-footer></my-footer>
-        <script>
-            document.addEventListener('DOMContentLoaded', loadTasks);
+    </main>
+    <my-footer></my-footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadTasks);
 
-            function addTask() {
-                const addTaskInput = document.getElementById('add-task-input');
+        function addTask() {
+            const addTaskInput = document.getElementById('add-task-input');
 
-                if (addTaskInput.value.trim() === '') {
-                    alert('Please enter a task!');
-                    return;
+            if (addTaskInput.value.trim() === '') {
+                alert('Please enter a task!');
+                return;
+            }
+
+            const taskList = getTaskList();
+            const newTask = {
+                text: addTaskInput.value,
+                completed: false
+            };
+
+            taskList.push(newTask);
+            saveTaskList(taskList);
+            renderTasks();
+
+            addTaskInput.value = '';
+        }
+
+        function removeTask(index) {
+            const taskList = getTaskList();
+            taskList.splice(index, 1);
+            saveTaskList(taskList);
+            renderTasks();
+        }
+
+        function toggleTask(index) {
+            const taskList = getTaskList();
+            taskList[index].completed = !taskList[index].completed;
+            saveTaskList(taskList);
+            renderTasks();
+        }
+
+        function clearCompleted() {
+            const taskList = getTaskList();
+            const updatedTaskList = taskList.filter(task => !task.completed);
+            saveTaskList(updatedTaskList);
+            renderTasks();
+        }
+
+        function getTaskList() {
+            const storedTasks = localStorage.getItem('tasks');
+            return storedTasks ? JSON.parse(storedTasks) : [];
+        }
+
+        function saveTaskList(taskList) {
+            localStorage.setItem('tasks', JSON.stringify(taskList));
+        }
+
+        function renderTasks() {
+            const todoList = document.getElementById('todo-list');
+            todoList.innerHTML = '';
+
+            const taskList = getTaskList();
+
+            taskList.forEach((task, index) => {
+                const taskElement = document.createElement('div');
+                taskElement.classList.add('task');
+                if (task.completed) {
+                    taskElement.classList.add('completed');
                 }
-
-                const taskList = getTaskList();
-                const newTask = {
-                    text: addTaskInput.value,
-                    completed: false
-                };
-
-                taskList.push(newTask);
-                saveTaskList(taskList);
-                renderTasks();
-
-                addTaskInput.value = '';
-            }
-
-            function removeTask(index) {
-                const taskList = getTaskList();
-                taskList.splice(index, 1);
-                saveTaskList(taskList);
-                renderTasks();
-            }
-
-            function toggleTask(index) {
-                const taskList = getTaskList();
-                taskList[index].completed = !taskList[index].completed;
-                saveTaskList(taskList);
-                renderTasks();
-            }
-
-            function clearCompleted() {
-                const taskList = getTaskList();
-                const updatedTaskList = taskList.filter(task => !task.completed);
-                saveTaskList(updatedTaskList);
-                renderTasks();
-            }
-
-            function getTaskList() {
-                const storedTasks = localStorage.getItem('tasks');
-                return storedTasks ? JSON.parse(storedTasks) : [];
-            }
-
-            function saveTaskList(taskList) {
-                localStorage.setItem('tasks', JSON.stringify(taskList));
-            }
-
-            function renderTasks() {
-                const todoList = document.getElementById('todo-list');
-                todoList.innerHTML = '';
-
-                const taskList = getTaskList();
-
-                taskList.forEach((task, index) => {
-                    const taskElement = document.createElement('div');
-                    taskElement.classList.add('task');
-                    if (task.completed) {
-                        taskElement.classList.add('completed');
-                    }
-                    taskElement.innerHTML = `
-            <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTask(${index})">
-            <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
-            <button onclick="removeTask(${index})">Remove</button>
+                taskElement.innerHTML = `
+                <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTask(${index})">
+                <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
+                <button onclick="removeTask(${index})"><i class="fa-solid fa-trash"></i></button>
             `;
 
-                    todoList.appendChild(taskElement);
-                });
-            }
+                todoList.appendChild(taskElement);
+            });
+        }
 
-            function loadTasks() {
-                renderTasks();
-            }
-        </script>
-    </body>
+        function loadTasks() {
+            renderTasks();
+        }
+    </script>
+</body>
 
 </html>

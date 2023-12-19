@@ -92,6 +92,7 @@ class MyHeader extends HTMLElement {
                     z-index: 9999999;
                     min-width: 100vw;
                     margin-bottom: auto;
+                    backdrop-filter: blur(15px);
                 }
                 header {
                     display: flex;

@@ -256,7 +256,7 @@ class MyHeader extends HTMLElement {
                 }
             </style>
 
-            <!-- menu togglle icon -->
+            <!-- menu toggle icon -->
             <style>
                 .menu_icon_animation svg {
                     /* The size of the SVG defines the overall size */

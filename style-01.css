@@ -35,6 +35,8 @@
 
     color-scheme: dark;
     cursor: url('/cursors/dot_cursor-dark.png'), auto;
+
+    --color-01: #8c52ff;
 }
 
 /* :root[data-theme="light-b&w"] {    

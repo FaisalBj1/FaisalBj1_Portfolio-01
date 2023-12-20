@@ -382,7 +382,7 @@ class MyFooter extends HTMLElement {
                     background: transparent;
                     backdrop-filter: blur(15px);
                 }
-                footer {
+                my-footer footer {
                     min-width: 100%; 
                     box-sizing: border-box;
                     border-top: solid 1px var(--primary-color);
@@ -395,35 +395,35 @@ class MyFooter extends HTMLElement {
                     gap: 1rem;
                     padding: 9px 15px;
                 }
-                    footer a {
+                    my-footer footer a {
                         color: var(--accent-color);
                         text-decoration: none;
                     }
-                    footer p {
+                    my-footer footer p {
                         color: var(--accent-color);
                         font-size: 0.75rem;
                     }
-                    footer .social_media_container {
+                    my-footer footer .social_media_container {
                         width: 100%;
                         display: flex;
                         flex-wrap: wrap;
                         justify-content: center;
                         gap: 7px;
                     }
-                    footer .social_media_container a i {
+                    my-footer footer .social_media_container a i {
                         font-size: 1.75rem;
                         color: var(--text-color);
                     }
-                    footer .social_media_container a i:hover {
+                    my-footer footer .social_media_container a i:hover {
                         transform: scale(1.15);
                         transition: transform 0.25s ease-out;
                         color: var(--accent-color);
                     }
-                    footer .social_media_container a i:not(hover) {
+                    my-footer footer .social_media_container a i:not(hover) {
                         transform: scale(1);
                         transition: transform 0.25s ease-out;
                     }
-                    footer .copyright p a {
+                    my-footer footer .copyright p a {
                         color: var(--text-color);
                     }
             </style>    

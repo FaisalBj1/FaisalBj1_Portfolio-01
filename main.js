@@ -103,12 +103,12 @@ class MyHeader extends HTMLElement {
                 header * {
                     margin: 0;
                     padding: 0;
-                    color: var(--primary-color);
+                    color: var(--clr-primary);
                 }
 
                 nav {
                     box-sizing: border-box;
-                    border-bottom: solid 1px var(--primary-color);
+                    border-bottom: solid 1px var(--clr-primary);
                     min-width: 100%;
                     display: flex;
                     justify-content: space-between;
@@ -165,8 +165,7 @@ class MyHeader extends HTMLElement {
                     display: none;
                     justify-content: center;
                     padding: 15px 5px;
-                    border-bottom: solid 1px var(--primary-color);
-                    border-radius: 0 0 50px 50px;
+                    border-bottom: solid 1px var(--clr-primary);
                     animation: fade_in 250ms ease-in-out;
                 }
                 #menu-2 ul {
@@ -176,8 +175,7 @@ class MyHeader extends HTMLElement {
                 .themes {
                     order: 5;
                     padding: 10px 0;
-                    border-bottom: solid 1px var(--primary-color);
-                    border-radius: 0 0 50px 50px;
+                    border-bottom: solid 1px var(--clr-primary);
                     display: none;
                     justify-content: center;
                     animation: fade_in 250ms ease-in-out;
@@ -267,7 +265,7 @@ class MyHeader extends HTMLElement {
                 }
                 .line {
                     fill: none;
-                    stroke: var(--primary-color);
+                    stroke: var(--clr-primary);
                     stroke-linecap: round;
                     stroke-linejoin: round;
                     stroke-width: 3;
@@ -385,7 +383,7 @@ class MyFooter extends HTMLElement {
                 my-footer footer {
                     min-width: 100%; 
                     box-sizing: border-box;
-                    border-top: solid 1px var(--primary-color);
+                    border-top: solid 1px var(--clr-primary);
                     backdrop-filter: blur(15px);
                     display: flex;
                     flex-direction: column;
@@ -396,11 +394,11 @@ class MyFooter extends HTMLElement {
                     padding: 9px 15px;
                 }
                     my-footer footer a {
-                        color: var(--accent-color);
+                        color: var(--clr-accent);
                         text-decoration: none;
                     }
                     my-footer footer p {
-                        color: var(--accent-color);
+                        color: var(--clr-accent);
                         font-size: 0.75rem;
                     }
                     my-footer footer .social_media_container {
@@ -412,19 +410,19 @@ class MyFooter extends HTMLElement {
                     }
                     my-footer footer .social_media_container a i {
                         font-size: 1.75rem;
-                        color: var(--text-color);
+                        color: var(--clr-text);
                     }
                     my-footer footer .social_media_container a i:hover {
                         transform: scale(1.15);
                         transition: transform 0.25s ease-out;
-                        color: var(--accent-color);
+                        color: var(--clr-accent);
                     }
                     my-footer footer .social_media_container a i:not(hover) {
                         transform: scale(1);
                         transition: transform 0.25s ease-out;
                     }
                     my-footer footer .copyright p a {
-                        color: var(--text-color);
+                        color: var(--clr-text);
                     }
             </style>    
             
@@ -435,6 +433,7 @@ class MyFooter extends HTMLElement {
                     <a href="https://t.snapchat.com/Eo0muP3W" target="_blank"><i class="fa-brands fa-square-snapchat"></i></a>
                     <a href="https://x.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
                     <a href="https://wa.me/+966562629866" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="mailto:FaisalBj1@outlook.com" target="_blank"><i class="fa-solid fa-square-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/faisal-banjar-943b791ba/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/FaisalBj1" target="_blank"><i class="fa-brands fa-square-github"></i></a>
                 </div>
@@ -450,10 +449,92 @@ class MyFooter extends HTMLElement {
 customElements.define('my-footer', MyFooter)
 
 // -------------------------------------------------------------------------------------------------------------------------------------
-// TEST--- 
-//
+// -------------------------------------------------------------------------------------------------------------------------------------
+// typing animation JS Link 
 
-function test(){
-    console.log('test - main.js');
+// const script = document.createElement('script');
+// script.src = 'https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js';
+// document.head.appendChild(script);
+
+// /* ----- TYPING EFFECT ----- */
+// let typingEffect = new Typed(".typedTextJS",{
+//     strings : ["hello world! ","Faisal Banjar ", "Information System ", "Software Engineer ","Data scientist "],
+//     loop : true,
+//     typeSpeed : 100, 
+//     backSpeed : 75,
+//     backDelay : 1500
+// })
+
+// -------------------------------------------------------------------------------------------------------------------------------------
+// typing animation function
+
+function typing_animation(element){
+    // console.log(`typing animation for ${element.innerHTML} is executing`);
+    const current_text = element;
+    const og_text = current_text.innerHTML;
+    const text_len = og_text.length;
+
+    const delay_letter = 100;
+    const delay_total = delay_letter * text_len + 1500;
+
+    const type_forward = function(){
+        current_text.innerHTML = '';
+        var i = 0;                  
+        function type_forward_oop() {       
+            setTimeout(function() {  
+                current_text.innerHTML += og_text.charAt(i);
+                i++;                   
+                if (i < text_len) {           
+                    type_forward_oop();            
+                }                       
+            }, 100)
+        }
+        type_forward_oop();
+    };
+
+    const delete_backwards = function(){
+        var j = text_len;                  //  set your counter to 1
+        function delete_backwards_loop() {         //  create a loop function
+            setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+                current_text.innerHTML = current_text.innerHTML.substring(0, current_text.innerHTML.length - 1);
+                j--;                    //  increment the counter
+                if (j >= 0) {           //  if the counter < 10, call the loop function
+                    delete_backwards_loop();             //  ..  again which will trigger another 
+                }                       //  ..  setTimeout()
+            }, 100)
+        }
+        delete_backwards_loop();
+    };
+
+    // first time only
+    setTimeout(function() {
+        delete_backwards();  
+    }, delay_total/2);//ms
+
+    var animation_counter = 0;   
+    function animation_loop() {         
+        setTimeout(function() {
+
+            setTimeout(function() {
+                type_forward(); 
+            }, 0);//ms
+
+            setTimeout(function() {
+                delete_backwards();  
+            }, delay_total);//m
+
+            animation_counter++;                    
+            if (animation_counter < 99999) {          
+                animation_loop();             
+            }                       
+        }, delay_total*2)
+    }
+    animation_loop();
 }
 
+// calling the function
+const elements = document.querySelectorAll('.typing_animation_JS');
+// Loop through each element and apply the typing_animation function
+elements.forEach(function(element) {
+    typing_animation(element);
+});

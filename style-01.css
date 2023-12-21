@@ -1,42 +1,51 @@
 /* root */
 
 :root[data-theme="light"] {
-    --text-color: #0c0b19;
-    --bg-color: #fdf3e7;
-    --primary-color: #26255f;
-    --secondary-color: #8180d1;
-    --accent-color: #3e3cb4;
+    --clr-text: #0c0b19;
+    --clr-text-02: #6e778b;
 
-    --glow-color: #26255f07;
+    --clr-bg: #fdf3e7;
+
+    --clr-primary: #26255f;
+    --clr-secondary: #8180d1;
+    --clr-accent: #3e3cb4;
+
+    --clr-glow: #26255f07;
 
     color-scheme: light;
     cursor: url('/cursors/dot_cursor-light.png'), auto;
 }
+
 :root[data-theme="dark"] {
-    --text-color: #fdf3e7;
-    --bg-color: #0b0a1a;
-    --primary-color: #a1a0da;
-    --secondary-color: #2f2e7f;
-    --accent-color: #4d4bc3;
+    --clr-text: #fdf3e7;
+    --clr-text-02: #6e778b;
 
-    --glow-color: rgba(71, 18, 171, 0.75);
+    --clr-bg: #0a0d14;
 
+    --clr-primary: #4712ab;
+    --clr-secondary: #2f2e7f;
+    --clr-accent: #4d4bc3;
+
+    --clr-glow: rgba(71, 18, 171, 0.75);
+    
     color-scheme: dark;
     cursor: url('cursors/dot_cursor-dark.png'), auto;
 }
-:root[data-theme="darkness"] {
-    --text-color: #f7f6fe;
-    --bg-color: #000000;
-    --primary-color: #4712ab;
-    --secondary-color: #080425;
-    --accent-color: #702edb;
 
-    --glow-color: rgba(71, 18, 171, 0.75);
+:root[data-theme="darkness"] {
+    --clr-text: #f7f6fe;
+    --clr-text-02: #6e778b;
+
+    --clr-bg: #000000;
+
+    --clr-primary: #4712ab;
+    --clr-secondary: #080425;
+    --clr-accent: #702edb;
+
+    --clr-glow: rgba(71, 18, 171, 0.75);
 
     color-scheme: dark;
     cursor: url('/cursors/dot_cursor-dark.png'), auto;
-
-    --color-01: #8c52ff;
 }
 
 /* :root[data-theme="light-b&w"] {    
@@ -103,7 +112,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: monospace, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
     /* border: solid 1px red; */
 }
@@ -117,7 +126,7 @@
 body {
     box-sizing: border-box;
     min-height: 100svh;
-    background-color: var(--bg-color);
+    background-color: var(--clr-bg);
     animation: fade_in 1s ease-in;
 
     display: flex;
@@ -145,43 +154,44 @@ h1.fancy{
     font-weight: 900;
     font-size: 3rem;
     text-transform: uppercase;
-    -webkit-text-stroke: 0.15rem var(--text-color);
+    -webkit-text-stroke: 0.15rem var(--clr-text);
     overflow: visible;
 }
 h1.typing_animation {
     display: inline-block;
-    border-right: solid 1px var(--text-color); 
+    border-right: solid 1px var(--clr-text); 
     overflow: hidden; 
     white-space: nowrap; 
     animation: typing_animmation 5s steps(15), cursor_blink .4s step-end infinite alternate-reverse;
     animation-iteration-count: infinite;
 }
-.glow {
-    text-shadow: 0 0 5px var(--glow-color), 
-                 0 0 10px var(--glow-color), 
-                 0 0 15px var(--glow-color);
+.text_glow {
+    text-shadow: 0 0 10px var(--clr-glow), 
+                 0 0 20px var(--clr-glow), 
+                 0 0 30px var(--clr-glow),
+                 0 0 40px var(--clr-glow),
+                 0 0 50px var(--clr-glow);
 }
-
 
 .btn {
     box-sizing: border-box;
     font-size: 1rem;
     font-weight: 500;
-    border-radius: 50px;
+    border-radius: 1rem;
     cursor: pointer;
     padding: 1rem;
     margin: 0.5rem;
     text-transform: uppercase;
 }  
 .btn.primary {
-    background-color: var(--primary-color);
-    border: solid 3px var(--primary-color);
-    color: var(--bg-color);
+    background-color: var(--clr-primary);
+    border: solid 3px var(--clr-primary);
+    color: var(--clr-bg);
 }
 .btn.secondary {
     background-color: transparent;
-    border: solid 3px var(--primary-color);
-    color: var(--primary-color);
+    border: solid 3px var(--clr-primary);
+    color: var(--clr-primary);
 }
 
 .btn:hover {

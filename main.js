@@ -421,9 +421,16 @@ class MyFooter extends HTMLElement {
                         transform: scale(1);
                         transition: transform 0.25s ease-out;
                     }
+
                     my-footer footer .copyright p a {
                         color: var(--clr-text);
                     }
+
+                    /* [phone] */
+                    @media screen and (max-width: 767px){
+                        my-footer footer .copyright * {
+                            font-size: .65em;
+                        }
             </style>    
             
             <footer>

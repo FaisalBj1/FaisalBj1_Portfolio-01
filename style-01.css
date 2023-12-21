@@ -85,20 +85,6 @@
     }
 }
 
-@keyframes typing_animmation {
-    0% {
-        width: 0;
-    }
-    35% {
-        width: 100%;
-    }
-    75% {
-        width: 100%;
-    }
-    100% {
-        width: 0%;
-    }
-}
 @keyframes cursor_blink {
     50% {
         border-color: transparent;
@@ -196,4 +182,9 @@ h1.typing_animation {
 
 .btn:hover {
     transform: scale(0.975);
+}
+
+.cursor_blink {
+    border-right: solid 3px var(--clr-accent);
+    animation: cursor_blink 1s ease-out infinite;
 }

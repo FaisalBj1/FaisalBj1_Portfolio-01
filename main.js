@@ -449,23 +449,6 @@ class MyFooter extends HTMLElement {
 customElements.define('my-footer', MyFooter)
 
 // -------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------
-// typing animation JS Link 
-
-// const script = document.createElement('script');
-// script.src = 'https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js';
-// document.head.appendChild(script);
-
-// /* ----- TYPING EFFECT ----- */
-// let typingEffect = new Typed(".typedTextJS",{
-//     strings : ["hello world! ","Faisal Banjar ", "Information System ", "Software Engineer ","Data scientist "],
-//     loop : true,
-//     typeSpeed : 100, 
-//     backSpeed : 75,
-//     backDelay : 1500
-// })
-
-// -------------------------------------------------------------------------------------------------------------------------------------
 // typing animation function
 
 function typing_animation(element){
@@ -538,3 +521,21 @@ const elements = document.querySelectorAll('.typing_animation_JS');
 elements.forEach(function(element) {
     typing_animation(element);
 });
+
+// typing animation JS Link 
+
+// const script = document.createElement('script');
+// script.src = 'https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js';
+// document.head.appendChild(script);
+
+// /* ----- TYPING EFFECT ----- */
+// let typingEffect = new Typed(".typedTextJS",{
+//     strings : ["hello world! ","Faisal Banjar ", "Information System ", "Software Engineer ","Data scientist "],
+//     loop : true,
+//     typeSpeed : 100, 
+//     backSpeed : 75,
+//     backDelay : 1500
+// })
+
+// -------------------------------------------------------------------------------------------------------------------------------------
+// 

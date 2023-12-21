@@ -16,22 +16,45 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                min-width: fit-content;
             }
+
             .projects_list_container {
-                border: solid 1px var(--primary-color);
+                border: solid 1px var(--clr-primary);
                 border-radius: 15px;
                 padding: 25px;
+                overflow: auto; 
+                scroll-snap-type: mandatory;
+                max-height: 55vh;
+                min-width: fit-content;
             }
+
             .projects_list_container ul {
                 line-height: 2rem;
             }
+
             .projects_list_container li {
                 list-style: none;
-                padding: 0;
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+                border-bottom: .5px dotted var(--clr-primary);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
             }
+
+            .projects_list_container ul :last-child {
+                border: 0;
+            }
+
             .projects_list_container ul a {
                 text-decoration: none;
-                color: var(--text-color);
+                color: var(--clr-text);
+            }
+
+            li a[double-line='true']{
+                line-height: 1.25rem;
             }
         </style>
     </head>
@@ -39,7 +62,7 @@
     <body>
         <my-header></my-header>
         <main>
-            <h1 class="fancy typing_animation glow">All projects</h1>
+            <h1 class="fancy text_glow">All projects</h1>
 
             <br><br><br>
             <div class="projects_list_container">
@@ -49,11 +72,11 @@
                     <li><a href="./mini_projects/to-do.html">Simple To-Do list</a></li>
                     <li><a href="./mini_projects/tic_tac_toe.html">Tic Tac Toe [Game]</a></li>
                     <li><a href="./mini_projects/IPhone_calculator.html">IPhone Calculator</a></li>
-                    <li><a href="./projects/Wrench">Wrench - Web Developement Course Final Project</a></li>
-                    <li><a href="./projects/Senior_Project_block-drive_v1.0">block drive v1.0 - Senior Project</a></li>
-                    <li><a href="./projects/Senior_Project_block-drive_v1,1">block drive v1.1 - Senior Project</a></li>
-                    <li><a href="#">block drive v2.0 - Senior Project</a></li>
-                    <li><a href="#">block drive v2.0 - [Blockchain Network Demo]</a></li>
+                    <li><a href="./projects/Wrench" double-line='true'>Wrench<br>Web Developement Course Final Project</a></li>
+                    <li><a href="./projects/Senior_Project_block-drive_v1.0" double-line='true'>block drive v1.0<br>Senior Project</a></li>
+                    <li><a href="./projects/Senior_Project_block-drive_v1,1" double-line='true'>block drive v1.1<br>Senior Project</a></li>
+                    <li><a href="#" double-line='true'>block drive v2.0<br>Senior Project</a></li>
+                    <li><a href="#" double-line='true'>block drive v2.0<br>[Blockchain Network Demo]</a></li>
                 </ul>
             </div>
 

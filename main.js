@@ -3,12 +3,23 @@
 const timestamp = new Date().getTime();
 
 const root = document.documentElement;
+const head = document.head;
+const body = document.body;
 
 // css
-document.head.insertAdjacentHTML('afterbegin', `
+head.insertAdjacentHTML('afterbegin', `
 <link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
 <link rel="stylesheet" href="/vendor/fontawesome-06/css/all.css?dev=${timestamp}">
 <style>:root {display:none;}</style>
+`);
+
+body.insertAdjacentHTML('afterbegin', `
+<my-header></my-header>
+<main id="swup" class="transition-fade">
+`);
+body.insertAdjacentHTML('beforeend', `
+</main>
+<my-footer></my-footer> 
 `);
 
 // to prevent unstyled HTML flashing
@@ -305,7 +316,7 @@ class MyHeader extends HTMLElement {
 
                 <div id="menu-1" class="menu">
                     <ul>
-                        <li><a href="#">Résumé</a></li>
+                        <li><a href="/Faisal Sami Abdulattar Training resume (Black).pdf">Résumé</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="/FaisalBj1-projects">Projects</a></li>
                     </ul>
@@ -314,7 +325,7 @@ class MyHeader extends HTMLElement {
 
                 <div id="menu-2" class="menu">
                     <ul>
-                        <li><a href="#">Résumé</a></li>
+                        <li><a href="/Faisal Sami Abdulattar Training resume (Black).pdf">Résumé</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="/FaisalBj1-projects">Projects</a></li>
                     </ul>
@@ -470,28 +481,28 @@ function typing_animation(element){
     const type_forward = function(){
         current_text.innerHTML = '';
         var i = 0;                  
-        function type_forward_oop() {       
+        function type_forward_loop() {       
             setTimeout(function() {  
                 current_text.innerHTML += og_text.charAt(i);
                 i++;                   
                 if (i < text_len) {           
-                    type_forward_oop();            
+                    type_forward_loop();            
                 }                       
-            }, 100)
+            }, delay_letter)
         }
-        type_forward_oop();
+        type_forward_loop();
     };
 
     const delete_backwards = function(){
-        var j = text_len;                  //  set your counter to 1
-        function delete_backwards_loop() {         //  create a loop function
-            setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+        var j = text_len;                  
+        function delete_backwards_loop() {         
+            setTimeout(function() {  
                 current_text.innerHTML = current_text.innerHTML.substring(0, current_text.innerHTML.length - 1);
-                j--;                    //  increment the counter
-                if (j >= 0) {           //  if the counter < 10, call the loop function
-                    delete_backwards_loop();             //  ..  again which will trigger another 
-                }                       //  ..  setTimeout()
-            }, 100)
+                j--;                    
+                if (j >= 0) {           
+                    delete_backwards_loop();           
+                }                       
+            }, delay_letter)
         }
         delete_backwards_loop();
     };
@@ -528,6 +539,8 @@ const elements = document.querySelectorAll('.typing_animation_JS');
 elements.forEach(function(element) {
     typing_animation(element);
 });
+
+// ---------------------------------------------
 
 // typing animation JS Link 
 

@@ -104,7 +104,6 @@
 }
 
 :root {
-    display: none; /* to prevent unstyled HTML flashing */
     box-sizing: border-box;
 }
 
@@ -143,14 +142,7 @@ h1.fancy{
     -webkit-text-stroke: 0.15rem var(--clr-text);
     overflow: visible;
 }
-h1.typing_animation {
-    display: inline-block;
-    border-right: solid 1px var(--clr-text); 
-    overflow: hidden; 
-    white-space: nowrap; 
-    animation: typing_animmation 5s steps(15), cursor_blink .4s step-end infinite alternate-reverse;
-    animation-iteration-count: infinite;
-}
+
 .text_glow {
     text-shadow: 0 0 10px var(--clr-glow), 
                  0 0 20px var(--clr-glow), 
@@ -188,3 +180,4 @@ h1.typing_animation {
     border-right: solid 3px var(--clr-accent);
     animation: cursor_blink 1s ease-out infinite;
 }
+

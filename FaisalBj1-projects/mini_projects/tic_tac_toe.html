@@ -13,8 +13,6 @@
         <style>:root {display:none;}</style>
 
         <style>
-            body {
-            }
             section {
                 display: flex;
                 flex-direction: column;
@@ -41,135 +39,127 @@
                 font-size: 20px;
             }
         </style>
-
     </head>
 
     <body>
-        <my-header></my-header>
+        <h1 class="fancy text_glow">Tic Tac Toe</h1>
 
-        <main>
-            <h1 class="fancy text_glow">Tic Tac Toe</h1>
+        <br><br><br>
+
+        <section>
+            <div class="game--container">
+                <div data-cell-index="0" class="cell"></div>
+                <div data-cell-index="1" class="cell"></div>
+                <div data-cell-index="2" class="cell"></div>
+                <div data-cell-index="3" class="cell"></div>
+                <div data-cell-index="4" class="cell"></div>
+                <div data-cell-index="5" class="cell"></div>
+                <div data-cell-index="6" class="cell"></div>
+                <div data-cell-index="7" class="cell"></div>
+                <div data-cell-index="8" class="cell"></div>
+            </div>
+
+            <br>
+
+            <h3 class="game--status"></h3>
 
             <br><br><br>
 
-            <section>
-                <div class="game--container">
-                    <div data-cell-index="0" class="cell"></div>
-                    <div data-cell-index="1" class="cell"></div>
-                    <div data-cell-index="2" class="cell"></div>
-                    <div data-cell-index="3" class="cell"></div>
-                    <div data-cell-index="4" class="cell"></div>
-                    <div data-cell-index="5" class="cell"></div>
-                    <div data-cell-index="6" class="cell"></div>
-                    <div data-cell-index="7" class="cell"></div>
-                    <div data-cell-index="8" class="cell"></div>
-                </div>
+            <button class="game--restart btn primary">Restart Game</button>
+        </section>
 
-                <br>
+        <script>
+            const statusDisplay = document.querySelector('.game--status');
 
-                <h3 class="game--status"></h3>
+            let gameActive = true;
 
-                <br><br><br>
+            let currentPlayer = "X";
 
-                <button class="game--restart btn primary">Restart Game</button>
-            </section>
-    
-            <script>
-                const statusDisplay = document.querySelector('.game--status');
-    
-                let gameActive = true;
-    
-                let currentPlayer = "X";
-    
-                let gameState = ["", "", "", "", "", "", "", "", ""];
-    
-                const winningMessage = () => `Player ${currentPlayer} has won!`;
-                const drawMessage = () => `Game ended in a draw!`;
-                const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
-    
-                statusDisplay.innerHTML = currentPlayerTurn();
-    
-                document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-                document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
-    
-                function handleCellClick(clickedCellEvent) {   
-                        const clickedCell = clickedCellEvent.target;
-                        const clickedCellIndex = parseInt(
-                        clickedCell.getAttribute('data-cell-index')
-                        );
-                    
-                        if (gameState[clickedCellIndex] !== "" || !gameActive) {
-                            return;
-                        }
+            let gameState = ["", "", "", "", "", "", "", "", ""];
+
+            const winningMessage = () => `Player ${currentPlayer} has won!`;
+            const drawMessage = () => `Game ended in a draw!`;
+            const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
+
+            statusDisplay.innerHTML = currentPlayerTurn();
+
+            document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+            document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+
+            function handleCellClick(clickedCellEvent) {   
+                    const clickedCell = clickedCellEvent.target;
+                    const clickedCellIndex = parseInt(
+                    clickedCell.getAttribute('data-cell-index')
+                    );
                 
-                        handleCellPlayed(clickedCell, clickedCellIndex);
-                        handleResultValidation();
-                }
-    
-                function handleCellPlayed(clickedCell, clickedCellIndex) {
-                    
-                        gameState[clickedCellIndex] = currentPlayer;
-                        clickedCell.innerHTML = currentPlayer;
+                    if (gameState[clickedCellIndex] !== "" || !gameActive) {
+                        return;
                     }
-    
-                    const winningConditions = [
-                        [0, 1, 2],
-                        [3, 4, 5],
-                        [6, 7, 8],
-                        [0, 3, 6],
-                        [1, 4, 7],
-                        [2, 5, 8],
-                        [0, 4, 8],
-                        [2, 4, 6]
-                    ];
-                    function handleResultValidation() {
-                        let roundWon = false;
-                        for (let i = 0; i <= 7; i++) {
-                            const winCondition = winningConditions[i];
-                            let a = gameState[winCondition[0]];
-                            let b = gameState[winCondition[1]];
-                            let c = gameState[winCondition[2]];
-                            if (a === '' || b === '' || c === '') {
-                                continue;
-                            }
-                            if (a === b && b === c) {
-                                roundWon = true;
-                                break
-                            }
+            
+                    handleCellPlayed(clickedCell, clickedCellIndex);
+                    handleResultValidation();
+            }
+
+            function handleCellPlayed(clickedCell, clickedCellIndex) {
+                
+                    gameState[clickedCellIndex] = currentPlayer;
+                    clickedCell.innerHTML = currentPlayer;
+                }
+
+                const winningConditions = [
+                    [0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6]
+                ];
+                function handleResultValidation() {
+                    let roundWon = false;
+                    for (let i = 0; i <= 7; i++) {
+                        const winCondition = winningConditions[i];
+                        let a = gameState[winCondition[0]];
+                        let b = gameState[winCondition[1]];
+                        let c = gameState[winCondition[2]];
+                        if (a === '' || b === '' || c === '') {
+                            continue;
                         }
-                    if (roundWon) {
-                        statusDisplay.innerHTML = winningMessage();
-                        gameActive = false;
-                        return;
+                        if (a === b && b === c) {
+                            roundWon = true;
+                            break
+                        }
                     }
-    
-                    let roundDraw = !gameState.includes("");
-                    if (roundDraw) {
-                        statusDisplay.innerHTML = drawMessage();
-                        gameActive = false;
-                        return;
-                    }
-    
-                    handlePlayerChange();
+                if (roundWon) {
+                    statusDisplay.innerHTML = winningMessage();
+                    gameActive = false;
+                    return;
                 }
-    
-                function handlePlayerChange() {
-                    currentPlayer = currentPlayer === "X" ? "O" : "X";
-                    statusDisplay.innerHTML = currentPlayerTurn();
-                }
-    
-                function handleRestartGame() {
-                    gameActive = true;
-                    currentPlayer = "X";
-                    gameState = ["", "", "", "", "", "", "", "", ""];
-                    statusDisplay.innerHTML = currentPlayerTurn();
-                    document.querySelectorAll('.cell')
-                            .forEach(cell => cell.innerHTML = "");
-                }    
-            </script>
-        </main>
 
-        <my-footer></my-footer>       
+                let roundDraw = !gameState.includes("");
+                if (roundDraw) {
+                    statusDisplay.innerHTML = drawMessage();
+                    gameActive = false;
+                    return;
+                }
+
+                handlePlayerChange();
+            }
+
+            function handlePlayerChange() {
+                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                statusDisplay.innerHTML = currentPlayerTurn();
+            }
+
+            function handleRestartGame() {
+                gameActive = true;
+                currentPlayer = "X";
+                gameState = ["", "", "", "", "", "", "", "", ""];
+                statusDisplay.innerHTML = currentPlayerTurn();
+                document.querySelectorAll('.cell')
+                        .forEach(cell => cell.innerHTML = "");
+            }    
+        </script>   
     </body>
-
 </html>

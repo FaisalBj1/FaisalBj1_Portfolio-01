@@ -15,7 +15,7 @@ head.insertAdjacentHTML('afterbegin', `
 
 body.insertAdjacentHTML('afterbegin', `
 <my-header></my-header>
-<main id="swup" class="transition-fade">
+<main>
 `);
 body.insertAdjacentHTML('beforeend', `
 </main>

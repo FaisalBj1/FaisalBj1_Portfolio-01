@@ -91,6 +91,22 @@
     }
 }
 
+
+/* scroll animations */
+@keyframes fade_from_down_scoll {
+    0% {
+        opacity: 0;
+    }
+    7% {
+        opacity: 0;
+    }
+}
+/* 
+animation: scrollAnimation linear forwards;
+animation-timeline: view();
+animation-range: entry(); 
+*/
+
 /* ---------------------------------------------------------------------------------------------------------------- */
 /* elements */
 
@@ -128,6 +144,7 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center; 
+    min-width: fit-content;
 }
 
 h1, h2, h3 {

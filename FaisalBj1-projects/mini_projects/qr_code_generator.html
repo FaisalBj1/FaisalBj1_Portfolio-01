@@ -5,16 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FaisalBj1 - QR Code Generator</title>
         <!-- FaisalBj1 -->
-        <script type="module" id="main_js" src="/main.js"></script>
         <style>:root {display:none;}</style>
+        <script type="module" id="main_js" src="/main.js"></script>
         
         <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
         <style>
             main {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
                 max-width: 1024px;
                 width: 100vw;
             }
@@ -77,56 +73,58 @@
     </head>
 
     <body>
-        <div style="line-height: 3rem;">
-            <div style="display:flex;">
-                <h1 class="fancy typing_animation_JS text_glow">QR Code</h1>&nbsp
+        <main>
+            <div style="line-height: 3rem;">
+                <div style="display:flex;">
+                    <h1 class="fancy typing_animation_JS text_glow">QR Code</h1>&nbsp
+                </div>
+
+                <h1 class="fancy text_glow" style="animation: none; border-right: 0;">Generator</h1>
+                <br>
+            </div> 
+            
+            <fieldset class="input_container">
+                <legend for="urlInput">&nbsp Enter URL &nbsp</legend>
+                <input style="font-size: 16px;" type="text" id="urlInput" placeholder=" https://example.com">
+
+                <br><br><br>
+
+                <button class="btn primary" onclick="generateQRCode()">Generate QR Code</button>
+                
+            </fieldset>
+
+            <br>
+
+            <div id="qrcode_container">
+                <div id="qrcode"></div>
+                <button class="btn secondary" id="shareBtn" onclick="saveQRCode()">Save</button>
             </div>
 
-            <h1 class="fancy text_glow" style="animation: none; border-right: 0;">Generator</h1>
-            <br>
-        </div> 
-        
-        <fieldset class="input_container">
-            <legend for="urlInput">&nbsp Enter URL &nbsp</legend>
-            <input style="font-size: 16px;" type="text" id="urlInput" placeholder=" https://example.com">
+            <script>
+                function generateQRCode() {
+                    // Clear previous QR code
+                    var qrcodeDiv = document.getElementById("qrcode");
+                    qrcodeDiv.innerHTML = "";
 
-            <br><br><br>
-
-            <button class="btn primary" onclick="generateQRCode()">Generate QR Code</button>
+                    document.getElementById("qrcode_container").style.display = 'flex';
             
-        </fieldset>
+                    var urlInput = document.getElementById('urlInput').value;
+                    var qrcode = new QRCode(qrcodeDiv, {
+                        text: urlInput,
+                        width: 128,
+                        height: 128
+                    });
+                }
 
-        <br>
-
-        <div id="qrcode_container">
-            <div id="qrcode"></div>
-            <button class="btn secondary" id="shareBtn" onclick="saveQRCode()">Save</button>
-        </div>
-
-        <script>
-            function generateQRCode() {
-                // Clear previous QR code
-                var qrcodeDiv = document.getElementById("qrcode");
-                qrcodeDiv.innerHTML = "";
-
-                document.getElementById("qrcode_container").style.display = 'flex';
-        
-                var urlInput = document.getElementById('urlInput').value;
-                var qrcode = new QRCode(qrcodeDiv, {
-                    text: urlInput,
-                    width: 128,
-                    height: 128
-                });
+                function saveQRCode() {
+                    var canvas = document.getElementById("qrcode").getElementsByTagName("canvas")[0];
+                    var image = canvas.toDataURL("image/png");
+                    var link = document.createElement('a');
+                    link.href = image;
+                    link.download = 'qrcode.png';
+                    link.click();
             }
-
-            function saveQRCode() {
-                var canvas = document.getElementById("qrcode").getElementsByTagName("canvas")[0];
-                var image = canvas.toDataURL("image/png");
-                var link = document.createElement('a');
-                link.href = image;
-                link.download = 'qrcode.png';
-                link.click();
-        }
-        </script>
+            </script>
+        </main>
     </body>
 </html>

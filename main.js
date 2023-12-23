@@ -10,24 +10,23 @@ const body = document.body;
 head.insertAdjacentHTML('afterbegin', `
 <link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
 <link rel="stylesheet" href="/vendor/fontawesome-06/css/all.css?dev=${timestamp}">
-<style>:root {display:none;}</style>
 `);
 
-body.insertAdjacentHTML('afterbegin', `
-<my-header></my-header>
-<main>
-`);
-body.insertAdjacentHTML('beforeend', `
-</main>
-<my-footer></my-footer> 
-`);
+body.insertAdjacentHTML('afterbegin', "<my-header></my-header>");
+body.insertAdjacentHTML('beforeend', "<my-footer></my-footer>");
+
 
 // to prevent unstyled HTML flashing
 window.addEventListener('load', () => {
     setTimeout(function() {
         // :root {display:none;} in the page.
         root.style.display = 'block';
-    }, 250);//ms
+    }, 350);//ms
+});
+
+// prevent right click
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
 });
   
 // -------------------------------------------------------------------------------------------------------------------------------------
@@ -96,14 +95,18 @@ class MyHeader extends HTMLElement {
             <!-- header / nav  -->
             <style>
                 my-header {
-                    position: relative; 
+                    position: sticky; 
                     top: 0; 
                     left: 0;
                     right: 0;
                     z-index: 9999999;
-                    min-width: 100vw;
+                    min-width: 100%;
+                    max-width: 100vw;
                     margin-bottom: auto;
                     backdrop-filter: blur(15px);
+
+                    transform: translatey(-500px);
+                    animation: slide_in .5s ease-out .5s forwards;
                 }
                 header {
                     display: flex;
@@ -386,10 +389,14 @@ class MyFooter extends HTMLElement {
                     left: 0;
                     right: 0;
                     z-index: 9999999;
-                    min-width: 100vw;
+                    min-width: 100%;
+                    max-width: 100vw;
                     margin-top: auto;
                     background: transparent;
                     backdrop-filter: blur(15px);
+
+                    transform: translatey(500px);
+                    animation: slide_in .5s ease-out .5s forwards;
                 }
                 my-footer footer {
                     min-width: 100%; 
@@ -559,3 +566,4 @@ elements.forEach(function(element) {
 
 // -------------------------------------------------------------------------------------------------------------------------------------
 // 
+

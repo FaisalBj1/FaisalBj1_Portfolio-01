@@ -7,8 +7,8 @@
         <link rel="icon" type="image/png" href="">
 
         <!-- FaisalBj1 -->
-        <script type="module" id="main_js" src="/main.js"></script>
         <style>:root {display:none;}</style>
+        <script type="module" id="main_js" src="/main.js"></script>
 
         <style>
             main {
@@ -117,36 +117,38 @@
     </head>
         
     <body>
-        <div class="code_container">
-            <div class="code">
-                <label><i class="fa-brands fa-html5"></i> HTML</label>
-                <textarea id="html_code" onkeyup="run()"></textarea>
+        <main>
+            <div class="code_container">
+                <div class="code">
+                    <label><i class="fa-brands fa-html5"></i> HTML</label>
+                    <textarea id="html_code" onkeyup="run()"></textarea>
+                </div>
+                <di class="code">
+                    <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
+                    <textarea id="css_code" onkeyup="run()"></textarea>
+                </di>
+                <div class="code">
+                    <label><i class="fa-brands fa-square-js"></i> JavaScript</label>
+                    <textarea id="js_code" onkeyup="run()"></textarea>
+                </div>
             </div>
-            <di class="code">
-                <label><i class="fa-brands fa-css3-alt"></i> CSS</label>
-                <textarea id="css_code" onkeyup="run()"></textarea>
-            </di>
-            <div class="code">
-                <label><i class="fa-brands fa-square-js"></i> JavaScript</label>
-                <textarea id="js_code" onkeyup="run()"></textarea>
+
+            <div class="output_container">
+                <label><i class="fa-solid fa-code"></i> Output</label>
+                <iframe id="output"></iframe>
             </div>
-        </div>
 
-        <div class="output_container">
-            <label><i class="fa-solid fa-code"></i> Output</label>
-            <iframe id="output"></iframe>
-        </div>
+            <script>
+                function run() {
+                    let htmlCode = document.getElementById("html_code").value;
+                    let cssCode = document.getElementById("css_code").value;
+                    let jsCode = document.getElementById("js_code").value;
+                    let output = document.getElementById("output");
 
-        <script>
-            function run() {
-                let htmlCode = document.getElementById("html_code").value;
-                let cssCode = document.getElementById("css_code").value;
-                let jsCode = document.getElementById("js_code").value;
-                let output = document.getElementById("output");
-
-                output.contentDocument.body.innerHTML = "<style>" + cssCode + "</style>" + htmlCode;
-                output.contentWindow.eval(jsCode);
-            }
-        </script>
+                    output.contentDocument.body.innerHTML = "<style>" + cssCode + "</style>" + htmlCode;
+                    output.contentWindow.eval(jsCode);
+                }
+            </script>
+        </main>
     </body>
 </html>

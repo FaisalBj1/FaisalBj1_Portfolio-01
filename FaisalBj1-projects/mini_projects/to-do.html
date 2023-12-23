@@ -6,12 +6,10 @@
     <title>To-Do List</title>
 
     <!-- FaisalBj1 -->
+    <style>:root {display:none;}</style>
     <script type="module" id="main_js" src="/main.js"></script>
 
     <style>
-        :root {
-            display: none; /* to prevent unstyled HTML flashing */
-        }
         #todo-container {
             max-width: 400px;
             width: 100%;
@@ -120,102 +118,104 @@
 </head>
 
 <body>
-    <h1 class="fancy text_glow">To-Do List</h1>
-    <br><br><br><br><br>
+    <main>
+        <h1 class="fancy text_glow">To-Do List</h1>
+        <br><br><br><br><br>
 
-    <div id="todo-container">
-        <div id="todo-list"></div>
-        <div id="todo-footer">
-            <input style="font-size: 16px;" type="text" id="add-task-input" placeholder="Add a new task">
-            <button id="add-task-button" class="btn primary" onclick="addTask()"><i class="fa-solid fa-plus"></i></button>
-            <button id="clear-completed-button" class="btn secondary" onclick="clearCompleted()">
-                <i class="fa-solid fa-check"></i>
-                <i class="fa-solid fa-arrow-right"></i>
-                <i class="fa-solid fa-trash"></i>
-            </button>
+        <div id="todo-container">
+            <div id="todo-list"></div>
+            <div id="todo-footer">
+                <input style="font-size: 16px;" type="text" id="add-task-input" placeholder="Add a new task">
+                <button id="add-task-button" class="btn primary" onclick="addTask()"><i class="fa-solid fa-plus"></i></button>
+                <button id="clear-completed-button" class="btn secondary" onclick="clearCompleted()">
+                    <i class="fa-solid fa-check"></i>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', loadTasks);
+        <script>
+            document.addEventListener('DOMContentLoaded', loadTasks);
 
-        function addTask() {
-            const addTaskInput = document.getElementById('add-task-input');
+            function addTask() {
+                const addTaskInput = document.getElementById('add-task-input');
 
-            if (addTaskInput.value.trim() === '') {
-                alert('Please enter a task!');
-                return;
+                if (addTaskInput.value.trim() === '') {
+                    alert('Please enter a task!');
+                    return;
+                }
+
+                const taskList = getTaskList();
+                const newTask = {
+                    text: addTaskInput.value,
+                    completed: false
+                };
+
+                taskList.push(newTask);
+                saveTaskList(taskList);
+                renderTasks();
+
+                addTaskInput.value = '';
             }
 
-            const taskList = getTaskList();
-            const newTask = {
-                text: addTaskInput.value,
-                completed: false
-            };
+            function removeTask(index) {
+                const taskList = getTaskList();
+                taskList.splice(index, 1);
+                saveTaskList(taskList);
+                renderTasks();
+            }
 
-            taskList.push(newTask);
-            saveTaskList(taskList);
-            renderTasks();
+            function toggleTask(index) {
+                const taskList = getTaskList();
+                taskList[index].completed = !taskList[index].completed;
+                saveTaskList(taskList);
+                renderTasks();
+            }
 
-            addTaskInput.value = '';
-        }
+            function clearCompleted() {
+                const taskList = getTaskList();
+                const updatedTaskList = taskList.filter(task => !task.completed);
+                saveTaskList(updatedTaskList);
+                renderTasks();
+            }
 
-        function removeTask(index) {
-            const taskList = getTaskList();
-            taskList.splice(index, 1);
-            saveTaskList(taskList);
-            renderTasks();
-        }
+            function getTaskList() {
+                const storedTasks = localStorage.getItem('tasks');
+                return storedTasks ? JSON.parse(storedTasks) : [];
+            }
 
-        function toggleTask(index) {
-            const taskList = getTaskList();
-            taskList[index].completed = !taskList[index].completed;
-            saveTaskList(taskList);
-            renderTasks();
-        }
+            function saveTaskList(taskList) {
+                localStorage.setItem('tasks', JSON.stringify(taskList));
+            }
 
-        function clearCompleted() {
-            const taskList = getTaskList();
-            const updatedTaskList = taskList.filter(task => !task.completed);
-            saveTaskList(updatedTaskList);
-            renderTasks();
-        }
+            function renderTasks() {
+                const todoList = document.getElementById('todo-list');
+                todoList.innerHTML = '';
 
-        function getTaskList() {
-            const storedTasks = localStorage.getItem('tasks');
-            return storedTasks ? JSON.parse(storedTasks) : [];
-        }
+                const taskList = getTaskList();
 
-        function saveTaskList(taskList) {
-            localStorage.setItem('tasks', JSON.stringify(taskList));
-        }
+                taskList.forEach((task, index) => {
+                    const taskElement = document.createElement('div');
+                    taskElement.classList.add('task');
+                    if (task.completed) {
+                        taskElement.classList.add('completed');
+                    }
+                    taskElement.innerHTML = `
+                    <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTask(${index})">
+                    <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
+                    <button onclick="removeTask(${index})"><i class="fa-solid fa-trash"></i></button>
+                `;
 
-        function renderTasks() {
-            const todoList = document.getElementById('todo-list');
-            todoList.innerHTML = '';
+                    todoList.appendChild(taskElement);
+                });
+            }
 
-            const taskList = getTaskList();
-
-            taskList.forEach((task, index) => {
-                const taskElement = document.createElement('div');
-                taskElement.classList.add('task');
-                if (task.completed) {
-                    taskElement.classList.add('completed');
-                }
-                taskElement.innerHTML = `
-                <input type="checkbox" ${task.completed ? 'checked' : ''} onclick="toggleTask(${index})">
-                <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
-                <button onclick="removeTask(${index})"><i class="fa-solid fa-trash"></i></button>
-            `;
-
-                todoList.appendChild(taskElement);
-            });
-        }
-
-        function loadTasks() {
-            renderTasks();
-        }
-    </script>
+            function loadTasks() {
+                renderTasks();
+            }
+        </script>
+    </main>
 </body>
 
 </html>

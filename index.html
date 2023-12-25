@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>- FAISAL BANJAR -</title>
-        <link rel="icon" type="image/png" href="">
+        <!-- <link rel="icon" type="image/png" href=""> -->
 
         <!-- FaisalBj1 -->
         <style>:root {display:none;}</style>
@@ -16,93 +16,107 @@
                 background-size: cover;
                 background-position: center;
             } */
-            h1 + .typed-cursor{
-                font-size: 3rem;
+            main {
+                display: grid;
+                grid-template-rows: repeat(1, 1fr);
+                gap: 15rem;
+                /* padding: 5rem 15rem; */
+
+            }
+            .hero {
+                grid-area: auto;
+                display: grid;
+                min-width: 100%;
+                grid-template-areas: 'left right';
+                padding: 5rem;
+                place-content: center;
+                justify-content: space-around;
+
+                /* min-height: 75vh; */
+                gap: 25rem;
+                /* background-color: white; */
+            }
+
+            .left {
+                grid-area: left;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                min-width: 43ch;
+                max-width: 43ch;
+
+            }
+                .call_to_action {
+                    margin-top: 25px;
+                    text-align: left;
+                }
+
+            .right {
+                grid-area: right;
+                place-content: center;
+                overflow: visible;
+                width: clamp(15rem , 23rem, 29rem);
+                aspect-ratio: 1/1;
+                place-self: center;
+            }
+                .right img {
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    animation: main_img_animation 5s ease-in-out infinite;
+                }
+
+            /* style for different screens */
+            /* [laptop] */
+            @media screen and (min-width: 1025px){
+                /* default */
+            }
+            /* [ipad] */
+            @media screen and (min-width: 768px) and (max-width: 1024px) { 
+                
+            }
+            /* [phone] */
+            @media screen and (max-width: 767px){
+                .hero {
+                    grid-template-areas: 
+                    "right"
+                    "left";
+                    gap: 7rem;
+                    
+                }
+                .right  {
+                    max-width: 15rem;
+                }
             }
         </style>
     </head>
         
     <body>
-        <!-- <main>
-            <h3 style="color: var(--clr-primary-light); display:flex;" class="fancy">
-                Hello, World! I'm&nbsp<div style="color:var(--clr-text);">Faisal Banjar.</div></h3>
-
-            <div style="display:flex;" class="cursor_blink">
-                <h1 style="display:flex;" class="fancy">&nbsp
-                    <h1 class="fancy text_glow typing_animation_JS">Hello, World! </h1>
-                </h1>
-            </div>
-
-            <br><br><br>
-            <div>
-                <a href="#"><button type="button" class="btn primary">résumé</button></a>
-                <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
-            </div>
-        </main> -->
-
-        <style>
-            main {
-                display: grid;
-
-                min-width: 100%;
-
-                grid-template-areas: "left right";
-                justify-content: space-around;
-            }
-
-            .left {
-                grid-area: 'left';
-                place-content: center;
-                justify-content: start;
-                min-width: 45ch;
-                max-width: 45ch;
-            }
-                .call_to_action {
-                    text-align: left;
-                }
-
-            .right {
-                grid-area: 'right';
-                place-content: center;
-                overflow: visible;
-
-                max-width: 25rem;
-                aspect-ratio: 1/1;
-                overflow: visible;
-            }
-                .right img {
-                    width: 100%;
-                    aspect-ratio: 1/1;
-                    animation: main_img_animation 3s ease-in-out infinite;
-                }
-
-            
-
-           
-        </style>
-
         <main>
-            <div class="left">
-                <h3 style="color: var(--clr-primary-light); display:flex;" class="fancy">
-                    Hello, World! I'm&nbsp
-                    <div style="color:var(--clr-text);">
-                        Faisal Banjar.
+            <div class="hero">
+                <div class="right">
+                    <img id="main_image" src="/images/earth.png" alt="earth image" class="object_glow">
+                </div>
+
+                <div class="left">
+                    <h3 style="color: var(--clr-primary-light); display:flex;" class="fancy">
+                        Hello, World! I'm&nbsp
+                        <div style="color:var(--clr-text);">
+                            Faisal Banjar.
+                        </div>
+                    </h3>
+
+                    <div style="display: flex;">
+                        <h1 class="fancy text_glow typing_animation_JS cursor_blink">Hello, World! </h1>
+                        <h1 class="fancy">&nbsp</h1>
                     </div>
-                </h3>
 
-                <div style="display: flex;">
-                    <h1 class="fancy text_glow typing_animation_JS cursor_blink">Hello, World! </h1>
-                    <h1 class="fancy">&nbsp</h1>
+                    <div class="call_to_action">
+                        <a href="#"><button type="button" class="btn primary">résumé</button></a>
+                        <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
+                    </div>
                 </div>
 
-                <div class="call_to_action">
-                    <a href="#"><button type="button" class="btn primary">résumé</button></a>
-                    <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
-                </div>
-            </div>
-
-            <div class="right">
-               <img src="/images/earth.png" alt="earth image">
             </div>
         </main>
     </body>

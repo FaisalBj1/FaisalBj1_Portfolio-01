@@ -63,8 +63,8 @@ window.addEventListener('load', () => {
     } else {
         // 'theme' does not exist in local storage
         console.log('Theme does not exist in local storage');
-        root.setAttribute('data-theme', 'darkness');
-        localStorage.setItem("theme", 'darkness');
+        root.setAttribute('data-theme', 'dark-green');
+        localStorage.setItem("theme", 'dark-green');
         
         const activeTheme = localStorage.getItem("theme");
         colorThemes.forEach((themeOption) => {
@@ -178,12 +178,44 @@ class MyHeader extends HTMLElement {
                 #menu-2 {
                     display: none;
                     justify-content: center;
+                    text-align: center;
                     padding: 15px 5px;
                     border-bottom: solid 1px var(--clr-primary);
                     animation: fade_in 250ms ease-in-out;
                 }
                 #menu-2 ul {
                     flex-direction: column;
+                }
+
+                header ul li a{
+                    position: relative;
+                    color: var(--clr-primary-dark);
+                }
+
+                header ul li a {
+                    position: relative;
+                }
+
+                header ul li a:hover::before {
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    height: 50%;
+                    inset: 0;
+                    bottom: 0;
+                    top: 50%;
+                    z-index: -1;
+                    background-color: var(--clr-select);
+                    animation: select .15s ease-in forwards;
+                }
+
+                @keyframes select {
+                    from {
+                        width: 0%;
+                    }
+                    to {
+                        width: 100%;
+                    }
                 }
 
                 .themes {

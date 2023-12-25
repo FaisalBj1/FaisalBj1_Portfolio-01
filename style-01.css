@@ -61,7 +61,8 @@
 
     color-scheme: light;
     cursor: url('/cursors/dot_cursor-light.png'), auto;
-} */
+} 
+*/
  
 :root[data-theme="dark"] {
     --clr-text: #fdf3e7;

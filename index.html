@@ -47,7 +47,7 @@
                 min-width: 100%;
 
                 grid-template-areas: "left right";
-                justify-content: space-evenly;
+                justify-content: space-around;
             }
 
             .left {
@@ -57,16 +57,28 @@
                 min-width: 45ch;
                 max-width: 45ch;
             }
+                .call_to_action {
+                    text-align: left;
+                }
 
             .right {
                 grid-area: 'right';
                 place-content: center;
-            }
+                overflow: visible;
 
-            model-viewer {
-                width: 700px;
-                height: 700px;
+                max-width: 25rem;
+                aspect-ratio: 1/1;
+                overflow: visible;
             }
+                .right img {
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    animation: main_img_animation 3s ease-in-out infinite;
+                }
+
+            
+
+           
         </style>
 
         <main>
@@ -83,17 +95,14 @@
                     <h1 class="fancy">&nbsp</h1>
                 </div>
 
-                <div>
+                <div class="call_to_action">
                     <a href="#"><button type="button" class="btn primary">résumé</button></a>
                     <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
                 </div>
             </div>
 
             <div class="right">
-                <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.16/build/spline-viewer.js"></script>
-                <spline-viewer url="https://prod.spline.design/rHpYR8dqNduTftZM/scene.splinecode"></spline-viewer> -->
-               
-                <model-viewer src="/rocket.gltf"></model-viewer>
+               <img src="/images/earth.png" alt="earth image">
             </div>
         </main>
     </body>

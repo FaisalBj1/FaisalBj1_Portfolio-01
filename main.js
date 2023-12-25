@@ -24,9 +24,9 @@ window.addEventListener('load', () => {
 });
 
 // prevent right click
-// window.addEventListener('contextmenu', function (e) {
-//     e.preventDefault();
-// });
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
   
 // -------------------------------------------------------------------------------------------------------------------------------------
 // theme control---

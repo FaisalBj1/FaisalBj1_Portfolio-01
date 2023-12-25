@@ -11,11 +11,11 @@
         <script type="module" id="main_js" src="./main.js"></script>
 
         <style>
-            :root[data-theme="darkness"] body {
-                background: linear-gradient(45deg, rgb(0, 0, 0, 1), rgba(0, 0, 0, 0.50)), url('/Faisal_img-01.JPG');
+            /* :root[data-theme="darkness"] body {
+                background: linear-gradient(45deg, var(--clr-bg), rgba(0, 0, 0, 0.50)), url('/Faisal_img-01.JPG');
                 background-size: cover;
                 background-position: center;
-            }
+            } */
             h1 + .typed-cursor{
                 font-size: 3rem;
             }
@@ -23,8 +23,8 @@
     </head>
         
     <body>
-        <main>
-            <h3 style="color: var(--clr-accent); display:flex;" class="fancy">
+        <!-- <main>
+            <h3 style="color: var(--clr-primary-light); display:flex;" class="fancy">
                 Hello, World! I'm&nbsp<div style="color:var(--clr-text);">Faisal Banjar.</div></h3>
 
             <div style="display:flex;" class="cursor_blink">
@@ -33,11 +33,67 @@
                 </h1>
             </div>
 
-
             <br><br><br>
             <div>
                 <a href="#"><button type="button" class="btn primary">résumé</button></a>
                 <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
+            </div>
+        </main> -->
+
+        <style>
+            main {
+                display: grid;
+
+                min-width: 100%;
+
+                grid-template-areas: "left right";
+                justify-content: space-evenly;
+            }
+
+            .left {
+                grid-area: 'left';
+                place-content: center;
+                justify-content: start;
+                min-width: 45ch;
+                max-width: 45ch;
+            }
+
+            .right {
+                grid-area: 'right';
+                place-content: center;
+            }
+
+            model-viewer {
+                width: 700px;
+                height: 700px;
+            }
+        </style>
+
+        <main>
+            <div class="left">
+                <h3 style="color: var(--clr-primary-light); display:flex;" class="fancy">
+                    Hello, World! I'm&nbsp
+                    <div style="color:var(--clr-text);">
+                        Faisal Banjar.
+                    </div>
+                </h3>
+
+                <div style="display: flex;">
+                    <h1 class="fancy text_glow typing_animation_JS cursor_blink">Hello, World! </h1>
+                    <h1 class="fancy">&nbsp</h1>
+                </div>
+
+                <div>
+                    <a href="#"><button type="button" class="btn primary">résumé</button></a>
+                    <a href="/FaisalBj1-projects"><button type="button" class="btn secondary">projects</button></a>
+                </div>
+            </div>
+
+            <div class="right">
+                <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.16/build/spline-viewer.js"></script>
+                <spline-viewer url="https://prod.spline.design/rHpYR8dqNduTftZM/scene.splinecode"></spline-viewer> -->
+               
+                <model-viewer src="/rocket.gltf"></model-viewer>
             </div>
         </main>
     </body>

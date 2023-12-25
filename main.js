@@ -1,7 +1,6 @@
 //general---
 
 const timestamp = new Date().getTime();
-
 const root = document.documentElement;
 const head = document.head;
 const body = document.body;
@@ -25,9 +24,9 @@ window.addEventListener('load', () => {
 });
 
 // prevent right click
-window.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-});
+// window.addEventListener('contextmenu', function (e) {
+//     e.preventDefault();
+// });
   
 // -------------------------------------------------------------------------------------------------------------------------------------
 // theme control---
@@ -118,6 +117,7 @@ class MyHeader extends HTMLElement {
                     margin: 0;
                     padding: 0;
                     color: var(--clr-primary);
+                    font-weight: 700;
                 }
 
                 nav {
@@ -256,16 +256,6 @@ class MyHeader extends HTMLElement {
                 .color-picker input[type="radio"]:checked {
                     background-color: var(--radio-color);
                 }
-
-                .color-picker input[type="radio"]#light {
-                    --radio-color: rgb(188, 188, 255);
-                }
-                .color-picker input[type="radio"]#dark {
-                    --radio-color: rgb(81, 81, 172);
-                }
-                .color-picker input[type="radio"]#darkness {
-                    --radio-color: rgb(0, 0, 0);
-                }
             </style>
 
             <!-- menu toggle icon -->
@@ -339,13 +329,16 @@ class MyHeader extends HTMLElement {
                         <fieldset>
                             <legend class="visually-hidden">Pick a color scheme</legend>
                             <label for="light" class="visually-hidden">light theme</label>
-                            <input type="radio" id="light" name="theme">
+                            <input type="radio" id="light" name="theme" style="--radio-color:#fdf3e7;">
                         
                             <label for="dark" class="visually-hidden">dark theme</label>
-                            <input type="radio" id="dark" name="theme">
+                            <input type="radio" id="dark" name="theme" style="--radio-color:#4d4bc3;">
                         
                             <label for="darkness" class="visually-hidden">darkness theme</label>
-                            <input type="radio" id="darkness" name="theme">
+                            <input type="radio" id="darkness" name="theme" style="--radio-color:#4712ab;">
+
+                            <label for="dark-green" class="visually-hidden">darkness theme</label>
+                            <input type="radio" id="dark-green" name="theme" style="--radio-color:#00ff36">
                         </fieldset>
                     </form>
                 </div>
@@ -416,7 +409,7 @@ class MyFooter extends HTMLElement {
                         text-decoration: none;
                     }
                     my-footer footer p {
-                        color: var(--clr-accent);
+                        color: var(--clr-text-lighter);
                         font-size: 0.75rem;
                     }
                     my-footer footer .social_media_container {
@@ -433,7 +426,7 @@ class MyFooter extends HTMLElement {
                     my-footer footer .social_media_container a i:hover {
                         transform: scale(1.15);
                         transition: transform 0.25s ease-out;
-                        color: var(--clr-accent);
+                        color: var(--clr-primary);
                     }
                     my-footer footer .social_media_container a i:not(hover) {
                         transform: scale(1);
@@ -441,7 +434,7 @@ class MyFooter extends HTMLElement {
                     }
 
                     my-footer footer .copyright p a {
-                        color: var(--clr-text);
+                        color: var(--clr-primary);
                     }
 
                     /* [phone] */

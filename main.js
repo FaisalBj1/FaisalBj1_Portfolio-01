@@ -172,7 +172,7 @@ class MyHeader extends HTMLElement {
                 }
 
                 #menu-1 {
-                    transform: translate(-3rem);
+                    transform: translate(-2rem);
                 }
 
                 #menu-2 {
@@ -339,14 +339,14 @@ class MyHeader extends HTMLElement {
                         <i id="theme_toggle" class="fa-solid fa-circle-half-stroke"></i>
                     </div>
 
-                <div id="menu-1" class="menu">
-                    <ul>
-                        <li><a href="/Faisal Sami Abdulattar Training resume (Black).pdf">Résumé</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="/FaisalBj1-projects">Projects</a></li>
-                    </ul>
-                </div>
-            </nav>
+                    <div id="menu-1" class="menu">
+                        <ul>
+                            <li><a href="/Faisal Sami Abdulattar Training resume (Black).pdf">Résumé</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="/FaisalBj1-projects">Projects</a></li>
+                        </ul>
+                    </div>
+                </nav>
 
                 <div id="menu-2" class="menu">
                     <ul>

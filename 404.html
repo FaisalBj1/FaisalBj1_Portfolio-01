@@ -3,21 +3,85 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>- FAISAL BANJAR -</title>
-        <link rel="icon" type="image/png" href="">
+        <title>404</title>
 
         <!-- FaisalBj1 -->
         <style>:root {display:none;}</style>
-        <script type="module" id="main_js" src="./main.js"></script>
+        <script type="module" id="main_js" src="/main.js"></script>
 
-
-    </head>
+        <style>
+            html,
+            body,
+            main {
+                overflow: hidden;
+            }
         
+            .glitch-wrapper {
+                padding-top: 180px;
+                width: 100vw;
+                text-align: center;
+                animation: glitch 2s linear infinite;
+                margin-bottom: 110px;
+            }
+        
+            .glitch-text::before {
+                content: 'ERROR 404';
+                color: black;
+                text-shadow: 0px 0px 5px 10px black !IMPORTANT;
+                -webkit-filter: blur(7px);
+                -moz-filter: blur(7px);
+                -o-filter: blur(7x);
+                -ms-filter: blur(7px);
+                filter: blur(7px);
+                display: block;
+                position: absolute;
+                z-index: -1;
+                font-size: 132px;
+                left: 0px;
+                right: 0px;
+                margin-top: -30px;
+                opacity: .5;
+            }
+        
+            .glitch-text {
+                position: relative;
+                z-index: 2;
+                opacity: .9;
+                margin: 0 auto;
+                text-shadow: 0px 0px 3px white;
+                animation: glitch 3s infinite;
+                cursor: pointer;
+                font-size: 52px;
+                font-family: monospace;
+                color: var(--clr-primary);
+                /* color: white; */
+            }
+        
+            .paused {
+                animation-play-state: paused;
+            }
+
+            .btn {
+                animation: glitch 5s infinite;
+            }
+        
+           
+        </style>
+    </head>
+
     <body>
         <main>
+            <div class="glitch-wrapper">
+                <div class="glitch-text">
+                    ERROR 404: Not found
+                </div>
+            </div>
 
-            <h1 class="fancy typing_animation glow">404 &nbsp</h1>
-
+            <div>
+                <button class="btn primary">Homepage</button>
+                <button class="btn secondary">Send error</button>
+            </div>
         </main>
+
     </body>
 </html>

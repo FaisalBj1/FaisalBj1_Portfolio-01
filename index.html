@@ -87,6 +87,12 @@
                     max-width: 15rem;
                 }
             }
+
+            .left #name {
+                color:var(--clr-text); 
+                animation: glitch 5s infinite; 
+                position: relative;
+            }
         </style>
 
         <style>
@@ -104,7 +110,7 @@
                 <div class="left">
                     <h3 style="color: var(--clr-primary-light); display:flex; position:relative; width: 100%;" class="fancy">
                         Hello, World! I'm&nbsp
-                        <div style="color:var(--clr-text); animation: glitch 5s infinite; position: relative;">
+                        <div id="name">
                             Faisal Banjar.
                         </div>
                     </h3>

@@ -343,10 +343,11 @@ animation-range: entry();
 :root {
     min-width: 100%;
     max-width: 100vw;
-    background-color: #fff;
+    position: fixed;
 }
 
 body {
+    min-width: 100%;
     min-height: 100svh;
     background-color: var(--clr-bg);
     position: relative;

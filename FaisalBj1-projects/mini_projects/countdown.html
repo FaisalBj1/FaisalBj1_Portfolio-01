@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +8,9 @@
         <!-- FaisalBj1 -->
         <style>:root {display:none;}</style>
         <script type="module" id="main_js" src="/main.js"></script>
-        <style>
-            main {
-                
-            }
-            #menu {
-                margin-bottom: 20px;
-            }
 
+        <style>
             #countdown {
-                animation: glitch 7s infinite; 
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -56,27 +48,14 @@
                 }
             }
         </style>
-        <style>
-            
-        </style>
     </head>
-
     <body>
         <main>
             <div id="menu">
-                <input type="datetime-local" id="targetDate" style="">
-                <button onclick="setCountdown()" style="">Set Countdown</button>
+                <input type="datetime-local" id="targetDate" style="display:none;">
+                <button onclick="setCountdown()" style="display:none;">Set Countdown</button>
             </div>
-
             <div id="countdown">
-                <div class="time-unit" style="display:none;">
-                    <span class="number" id="years"></span>
-                    <div class="text">Years</div>
-                </div>
-                <div class="time-unit" style="display:none;">
-                    <span class="number" id="months"></span>
-                    <div class="text">Months</div>
-                </div>
                 <div class="time-unit">
                     <span class="number" id="days"></span>
                     <div class="text">Days</div>
@@ -93,66 +72,39 @@
                     <span class="number" id="seconds"></span>
                     <div class="text">Seconds</div>
                 </div>
-                <div class="time-unit" style="display:none;">
-                    <span class="number" id="milliseconds"></span>
-                    <div class="text">Milliseconds</div>
-                </div>
             </div>
-
-            <div>
-                <canvas id="canvas" style="display:none;"></canvas>
-            </div>
-
             <script>
                 const countdown = document.getElementById('countdown');
-                const yearsSpan = document.getElementById('years');
-                const monthsSpan = document.getElementById('months');
                 const daysSpan = document.getElementById('days');
                 const hoursSpan = document.getElementById('hours');
                 const minutesSpan = document.getElementById('minutes');
                 const secondsSpan = document.getElementById('seconds');
-                const millisecondsSpan = document.getElementById('milliseconds');
 
-                // Function to get the next day at 00:00
-                function getNextMidnight() {
-                    let now = new Date();
-                    return new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-                }
-
-                let targetDate = getNextMidnight(); // Default to next day at 00:00
+                let targetDate = new Date(new Date().getFullYear() + 1, 0, 1); // Default to next year's January 1st at 00:00
 
                 function updateCountdown() {
                     const now = new Date();
                     const timeDiff = targetDate - now;
 
                     // Calculate time units
-                    const years = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365));
-                    const months = Math.floor(timeDiff % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24 * 30));
-                    const days = Math.floor(timeDiff % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24));
+                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-                    const milliseconds = Math.floor((timeDiff % 1000));
 
                     // Update the countdown
-                    yearsSpan.textContent = years;
-                    monthsSpan.textContent = months;
                     daysSpan.textContent = days;
                     hoursSpan.textContent = hours;
                     minutesSpan.textContent = minutes;
                     secondsSpan.textContent = seconds;
-                    millisecondsSpan.textContent = milliseconds;
 
-                    // Change background color when countdown reaches 0
                     if (timeDiff <= 0) {
-                        document.getElementById('canvas').style.display = "block";
-                        // document.body.style.backgroundColor = "#34c759"; // Example color change
-                        // countdown.innerHTML = '<div class="time-unit">Time Reached!</div>';
                         clearInterval(interval); // Stop the countdown
+                        // Any additional logic for when countdown reaches 0
                     }
                 }
 
-                let interval = setInterval(updateCountdown, 1); // Update every millisecond
+                let interval = setInterval(updateCountdown, 1000); // Update every second for better performance
 
                 function setCountdown() {
                     const userDate = document.getElementById('targetDate').value;
@@ -161,146 +113,12 @@
                         if (targetTime > new Date()) {
                             targetDate = targetTime;
                             clearInterval(interval); // Clear the existing interval
-                            interval = setInterval(updateCountdown, 1); // Update the countdown every 1 millisecond
+                            interval = setInterval(updateCountdown, 1000); // Update the countdown every second
                         } else {
                             alert("Please choose a future date and time.");
                         }
                     }
                 }
-            </script>
-
-            <style>
-                canvas{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: transparent;
-                }
-            </style>
-            <script>
-                window.addEventListener("resize", resizeCanvas, false);
-                window.addEventListener("DOMContentLoaded", onLoad, false);
-                
-                window.requestAnimationFrame = 
-                    window.requestAnimationFrame       || 
-                    window.webkitRequestAnimationFrame || 
-                    window.mozRequestAnimationFrame    || 
-                    window.oRequestAnimationFrame      || 
-                    window.msRequestAnimationFrame     || 
-                    function (callback) {
-                        window.setTimeout(callback, 1000/60);
-                    };
-                
-                var canvas, ctx, w, h, particles = [], probability = 0.04,
-                    xPoint, yPoint;
-                
-                
-                
-                
-                
-                function onLoad() {
-                    canvas = document.getElementById("canvas");
-                    ctx = canvas.getContext("2d");
-                    resizeCanvas();
-                    
-                    window.requestAnimationFrame(updateWorld);
-                } 
-                
-                function resizeCanvas() {
-                    if (!!canvas) {
-                        w = canvas.width = window.innerWidth;
-                        h = canvas.height = window.innerHeight;
-                    }
-                } 
-                
-                function updateWorld() {
-                    update();
-                    paint();
-                    window.requestAnimationFrame(updateWorld);
-                } 
-                
-                function update() {
-                    if (particles.length < 500 && Math.random() < probability) {
-                        createFirework();
-                    }
-                    var alive = [];
-                    for (var i=0; i<particles.length; i++) {
-                        if (particles[i].move()) {
-                            alive.push(particles[i]);
-                        }
-                    }
-                    particles = alive;
-                } 
-                
-                function paint() {
-                    ctx.globalCompositeOperation = 'source-over';
-                    ctx.fillStyle = "rgba(0,0,0,0.2)";
-                    ctx.fillRect(0, 0, w, h);
-                    ctx.globalCompositeOperation = 'lighter';
-                    for (var i=0; i<particles.length; i++) {
-                        particles[i].draw(ctx);
-                    }
-                } 
-                
-                function createFirework() {
-                    xPoint = Math.random()*(w-200)+100;
-                    yPoint = Math.random()*(h-200)+100;
-                    var nFire = Math.random()*50+100;
-                    var c = "rgb("+(~~(Math.random()*200+55))+","
-                        +(~~(Math.random()*200+55))+","+(~~(Math.random()*200+55))+")";
-                    for (var i=0; i<nFire; i++) {
-                        var particle = new Particle();
-                        particle.color = c;
-                        var vy = Math.sqrt(25-particle.vx*particle.vx);
-                        if (Math.abs(particle.vy) > vy) {
-                            particle.vy = particle.vy>0 ? vy: -vy;
-                        }
-                        particles.push(particle);
-                    }
-                } 
-                
-                function Particle() {
-                    this.w = this.h = Math.random()*4+1;
-                    
-                    this.x = xPoint-this.w/2;
-                    this.y = yPoint-this.h/2;
-                    
-                    this.vx = (Math.random()-0.5)*10;
-                    this.vy = (Math.random()-0.5)*10;
-                    
-                    this.alpha = Math.random()*.5+.5;
-                    
-                    this.color;
-                } 
-                
-                Particle.prototype = {
-                    gravity: 0.05,
-                    move: function () {
-                        this.x += this.vx;
-                        this.vy += this.gravity;
-                        this.y += this.vy;
-                        this.alpha -= 0.01;
-                        if (this.x <= -this.w || this.x >= screen.width ||
-                            this.y >= screen.height ||
-                            this.alpha <= 0) {
-                                return false;
-                        }
-                        return true;
-                    },
-                    draw: function (c) {
-                        c.save();
-                        c.beginPath();
-                        
-                        c.translate(this.x+this.w/2, this.y+this.h/2);
-                        c.arc(0, 0, this.w, 0, Math.PI*2);
-                        c.fillStyle = this.color;
-                        c.globalAlpha = this.alpha;
-                        
-                        c.closePath();
-                        c.fill();
-                        c.restore();
-                    }
-                } 
             </script>
         </main>
     </body>

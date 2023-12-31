@@ -100,7 +100,7 @@ class MyHeader extends HTMLElement {
                     right: 0;
                     z-index: 9999999;
                     min-width: 100%;
-                    max-width: 100vw;
+                    max-width: 100%;
                     margin-bottom: auto;
                     backdrop-filter: blur(15px);
 

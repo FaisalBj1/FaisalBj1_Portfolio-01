@@ -10,6 +10,10 @@
         <script type="module" id="main_js" src="/main.js"></script>
 
         <style>
+            #menu {
+                display: flex;
+                gap: 0.5rem;
+            }
             #countdown {
                 display: flex;
                 flex-wrap: wrap;
@@ -38,7 +42,7 @@
                 margin-top: 0.5em;
             }
 
-            @media (max-width: 480px) {
+            @media screen and (max-width: 767px) {
                 #countdown {
                     flex-direction: column;
                 }
@@ -52,9 +56,10 @@
     <body>
         <main>
             <div id="menu">
-                <input type="datetime-local" id="targetDate" style="display:none;">
-                <button onclick="setCountdown()" style="display:none;">Set Countdown</button>
+                <input type="datetime-local" id="targetDate" style="display:block;">
+                <button onclick="setCountdown()" style="display:block;">Set Countdown</button>
             </div>
+
             <div id="countdown">
                 <div class="time-unit">
                     <span class="number" id="days"></span>

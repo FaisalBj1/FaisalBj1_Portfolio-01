@@ -1,111 +1,63 @@
 :root {
-    --clr-snow: #fffafa;  
-    --clr-antiflash: #fafafa; 
-    --clr-ivory: #fffff0; 
-    --clr-boneWhite: #f9f6ee; 
+    --clr-snow: hsla(60, 100%, 98%, 1);
+    --clr-antiflash: hsla(60, 100%, 98%, 1);
+    --clr-ivory: hsla(60, 100%, 97%, 1);
+    --clr-boneWhite: hsla(45, 24%, 94%, 1);
 
-/* 
-    --clr-success: #12ab12;
-    --clr-warning: #abab12;
-    --clr-error: #ab1212;
-    --clr-success-content: #c3f9c3;
-    --clr-warning-content: #000000;
-    --clr-error-content: #f9c3c3;
-  */
-    --clr-success: #00ff00;
-    --clr-warning: #ffff00;
-    --clr-error: #ff0000;
-    --clr-success-content: #000000;
-    --clr-warning-content: #000000;
-    --clr-error-content: #ffffff;
+    --clr-success: hsla(120, 100%, 50%, 1);
+    --clr-warning: hsla(60, 100%, 50%, 1);
+    --clr-error: hsla(0, 100%, 50%, 1);
+    --clr-success-content: hsla(0, 0%, 0%, 1);
+    --clr-warning-content: hsla(0, 0%, 0%, 1);
+    --clr-error-content: hsla(0, 100%, 100%, 1);
 }
-
-/* root */
 
 :root[data-theme="light"] {
-    --clr-text: #0c0b19;
-    --clr-text-02: #6e778b;
-
-    --clr-bg: #fdf3e7;
-
-    --clr-primary: #26255f;
-    --clr-secondary: #8180d1;
-    --clr-accent: #3e3cb4;
-
-    --clr-glow: var(--clr-secondary);
-
     color-scheme: light;
-    cursor: url('/cursors/dot_cursor-light.png'), auto;
+
+    --clr-text: hsla(235, 86%, 11%, 1);
+    --clr-text-02: hsla(217, 15%, 54%, 1);
+
+    --clr-bg: hsla(28, 100%, 95%, 1);
+
+    --clr-primary: hsla(241, 54%, 30%, 1);
+    --clr-secondary: hsla(237, 44%, 59%, 1);
+    --clr-accent: hsla(238, 61%, 46%, 1);
+
+    --clr-glow: transparent;
+
+    --clr-select: hsla(238, 61%, 46%, 0.5);
 }
 
-/* :root[data-theme="light"] {
-    --clr-primary: #4712ab;
-    --clr-primary-content: #d6c3f9;
-    --clr-primary-dark: #340d7d;
-    --clr-primary-light: #5a17d9;
-    
-    --clr-secondary: #12ab93;
-    --clr-secondary-content: #c3f9f0;
-    --clr-secondary-dark: #0d7d6b;
-    --clr-secondary-light: #17d9bb;
-
-    --clr-bg: #efeff1;
-    --clr-fg: #fbfbfb;
-    --clr-border: #dedde2;
-
-    --clr-text: #252329;
-    --clr-text-light: #645e6e;
-    --clr-text-lighter: #8a8495;
-
-    --clr-glow: var(--clr-primary);
-
-    color-scheme: light;
-    cursor: url('/cursors/dot_cursor-light.png'), auto;
-} 
-*/
- 
 :root[data-theme="dark"] {
-    --clr-text: #fdf3e7;
-    --clr-text-02: #6e778b;
+    color-scheme: dark;
 
-    --clr-bg: #0a0d14;
+    --clr-primary: hsla(258, 88%, 35%, 1);
+    --clr-primary-content: hsla(259, 57%, 88%, 1);
+    --clr-primary-dark: hsla(241, 70%, 20%, 1);
+    --clr-primary-light: hsla(256, 75%, 43%, 1);
 
-    --clr-primary: #4712ab;
-    --clr-secondary: #2f2e7f;
-    --clr-accent: #4d4bc3;
+    --clr-secondary: hsla(168, 81%, 40%, 1);
+    --clr-secondary-content: hsla(168, 57%, 94%, 1);
+    --clr-secondary-dark: hsla(169, 70%, 25%, 1);
+    --clr-secondary-light: hsla(169, 75%, 50%, 1);
+
+    --clr-bg: hsla(210, 6%, 9%, 1);
+    --clr-bg: hsla(210, 17%, 8%, 1);
+    --clr-fg: hsla(30, 100%, 7%, 1);
+    --clr-border: hsla(258, 4%, 27%, 1);
+
+    --clr-text: hsla(0, 0%, 98%, 1);
+    --clr-text-light: hsla(259, 21%, 84%, 1);
+    --clr-text-lighter: hsla(30, 10%, 67%, 1);
 
     --clr-glow: var(--clr-primary);
-    
-    color-scheme: dark;
-    cursor: url('cursors/dot_cursor-dark.png'), auto;
+    --clr-select: hsla(238, 61%, 46%, 0.15);
 }
-
-/* :root[data-theme="dark"] {
-    --clr-primary: #4712ab;
-    --clr-primary-content: #d6c3f9;
-    --clr-primary-dark: #340d7d;
-    --clr-primary-light: #5a17d9;
-
-    --clr-secondary: #12ab93;
-    --clr-secondary-content: #c3f9f0;
-    --clr-secondary-dark: #0d7d6b;
-    --clr-secondary-light: #17d9bb;
-
-    --clr-bg: #19181b;
-    --clr-fg: #252329;
-    --clr-border: #3e3b45;
-
-    --clr-text: #fbfbfb;
-    --clr-text-light: #d8d6dc;
-    --clr-text-lighter: #a49fac;
-
-    --clr-glow: var(--clr-primary);
-    
-    color-scheme: dark;
-    cursor: url('cursors/dot_cursor-dark.png'), auto;
-} */
 
 :root[data-theme="darkness"] {
+    color-scheme: dark;
+    
     --clr-primary: #4712ab;
     --clr-primary-content: #d6c3f9;
     --clr-primary-dark: #340d7d;
@@ -120,12 +72,12 @@
     --clr-text-lighter: #a49fac;
 
     --clr-glow: var(--clr-primary);
-    
-    color-scheme: dark;
-    cursor: url('cursors/dot_cursor-dark.png'), auto;
+    --clr-select: hsla(238, 61%, 46%, 0.15);
 }
 
 :root[data-theme="dark-green"]{
+    color-scheme: dark;
+    
     --clr-primary: #00ff36;
     --clr-primary-content: #000000;
     --clr-primary-dark: #00cc2b;
@@ -145,17 +97,15 @@
     --clr-text-lighter: #9faca2;
 
     --clr-glow: var(--clr-primary-dark);
-
     --clr-select: rgba(0, 255, 54,.25);
-    
+}
+
+
+/* :root[data-theme="light-b&w"] {
+    color-scheme: light;
+}
+:root[data-theme="dark-b&w"] {  
     color-scheme: dark;
-}
-
-
-
-/* :root[data-theme="light-b&w"] {    
-}
-:root[data-theme="dark-b&w"] {    
 } */
 
 
@@ -218,30 +168,11 @@
     to {
         overflow: auto;
     }
-}
-/* 
-animation: scrollAnimation linear forwards;
-animation-timeline: view();
-animation-range: entry(); 
-*/
-
-@keyframes main_img_animation {
-    0% {
-        transform: scale(.95);
-    }
-    25% {
-        transform: rotate(15deg);
-    }
-    50% {
-        transform: scale(1);
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(-15deg);
-    }
-    100% {
-        transform: scale(.95)
-    }
+    /* 
+    animation: scrollAnimation linear forwards;
+    animation-timeline: view();
+    animation-range: entry(); 
+    */
 }
 
 /* JUST RANDOM VALUES HERE! */
@@ -422,7 +353,7 @@ h1.fancy{
     color: var(--clr-primary);
 }
 
-.btn.succes {
+.btn.success {
     background-color: var(--clr-success);
     color: var(--clr-success-content);
     border: none;
@@ -444,3 +375,33 @@ h1.fancy{
 }
 
 
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+/* Utility Classes */
+
+/* general */
+.center {
+
+}
+
+/* text */
+.font-bold {
+    font-weight: bold;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/* xxx */

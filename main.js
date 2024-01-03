@@ -7,6 +7,7 @@ const body = document.body;
 
 // css
 head.insertAdjacentHTML('afterbegin', `
+<link rel="icon" type="image/png" href="/images/dark_planet.png">
 <link rel="stylesheet" href="/style-01.css?dev=${timestamp}">
 <link rel="stylesheet" href="/vendor/fontawesome-06/css/all.css?dev=${timestamp}">
 `);

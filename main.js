@@ -490,7 +490,7 @@ class MyFooter extends HTMLElement {
                 </div>
 
                 <div class='copyright'>
-                    <p>Copyright ©${new Date().getFullYear()} All rights reserved | Desined & Developed by <a href="http://FaisalBj1.com" target="_blank">FaisalBj1</a></p>
+                    <p>Copyright ©${new Date().getFullYear()} All rights reserved | Designed & Developed by <a href="http://FaisalBj1.com" target="_blank">FaisalBj1</a></p>
                 </div>
             </footer>
             `

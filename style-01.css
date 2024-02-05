@@ -10,6 +10,31 @@
     --clr-success-content: hsla(0, 0%, 0%, 1);
     --clr-warning-content: hsla(0, 0%, 0%, 1);
     --clr-error-content: hsla(0, 100%, 100%, 1);
+
+    /* ------------------------------------ */
+
+    color-scheme: dark light;
+
+    --clr-primary: rgba(71, 18, 171, 1);
+    --clr-primary-content: rgba(214, 195, 249, 1);
+    --clr-primary-dark: rgba(52, 13, 125, 1);
+    --clr-primary-light: rgba(90, 23, 217, 1);
+
+    --clr-secondary: rgba(18, 171, 147, 1);
+    --clr-secondary-content: rgba(195, 249, 240, 1);
+    --clr-secondary-dark: rgba(13, 125, 107, 1);
+    --clr-secondary-light: rgba(23, 217, 187, 1);
+
+    --clr-bg: rgba(10, 13, 20, 1);
+    --clr-fg: rgba(37, 35, 41, 1);
+    --clr-border: rgba(62, 59, 69, 1);
+
+    --clr-text: rgba(251, 251, 251, 1);
+    --clr-text-light: rgba(216, 214, 220, 1);
+    --clr-text-lighter: rgba(164, 159, 172, 1);
+
+    --clr-glow: var(--clr-primary);
+    --clr-select: rgba(238, 61, 46, 0.15);
 }
 
 :root[data-theme="light"] {
@@ -32,27 +57,26 @@
 :root[data-theme="dark"] {
     color-scheme: dark;
 
-    --clr-primary: hsla(258, 88%, 35%, 1);
-    --clr-primary-content: hsla(259, 57%, 88%, 1);
-    --clr-primary-dark: hsla(241, 70%, 20%, 1);
-    --clr-primary-light: hsla(256, 75%, 43%, 1);
+    --clr-primary: rgba(71, 18, 171, 1);
+    --clr-primary-content: rgba(214, 195, 249, 1);
+    --clr-primary-dark: rgba(52, 13, 125, 1);
+    --clr-primary-light: rgba(90, 23, 217, 1);
 
-    --clr-secondary: hsla(168, 81%, 40%, 1);
-    --clr-secondary-content: hsla(168, 57%, 94%, 1);
-    --clr-secondary-dark: hsla(169, 70%, 25%, 1);
-    --clr-secondary-light: hsla(169, 75%, 50%, 1);
+    --clr-secondary: rgba(18, 171, 147, 1);
+    --clr-secondary-content: rgba(195, 249, 240, 1);
+    --clr-secondary-dark: rgba(13, 125, 107, 1);
+    --clr-secondary-light: rgba(23, 217, 187, 1);
 
-    --clr-bg: hsla(210, 6%, 9%, 1);
-    --clr-bg: hsla(210, 17%, 8%, 1);
-    --clr-fg: hsla(30, 100%, 7%, 1);
-    --clr-border: hsla(258, 4%, 27%, 1);
+    --clr-bg: rgba(10, 13, 20, 1);
+    --clr-fg: rgba(37, 35, 41, 1);
+    --clr-border: rgba(62, 59, 69, 1);
 
-    --clr-text: hsla(0, 0%, 98%, 1);
-    --clr-text-light: hsla(259, 21%, 84%, 1);
-    --clr-text-lighter: hsla(30, 10%, 67%, 1);
+    --clr-text: rgba(251, 251, 251, 1);
+    --clr-text-light: rgba(216, 214, 220, 1);
+    --clr-text-lighter: rgba(164, 159, 172, 1);
 
     --clr-glow: var(--clr-primary);
-    --clr-select: hsla(238, 61%, 46%, 0.15);
+    --clr-select: rgba(238, 61, 46, 0.15);
 }
 
 :root[data-theme="darkness"] {

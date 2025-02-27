@@ -22,21 +22,23 @@
         table {
             width: 95%;
             margin: 20px auto;
-            border-collapse: collapse;
+            /* border-collapse: collapse; */
+            border: 0px solid var(--clr-primary);
+            border-radius: 1em;
         }
         th {
-            border: 1px solid #ddd;
+            background-color: transparent;
+            color: var(--clr-primary);
             padding: 10px;
             text-align: center;
+            border-radius: 1em;
+            border: 3px solid var(--clr-primary);
         }
         td {
-            border: 1px solid #ddd;
             padding: 0px;
             text-align: center;
-        }
-        th {
-            background-color: var(--clr-primary);
-            color: white;
+            border-radius: 1em;
+            border: 3px solid var(--clr-primary);
         }
         input {
             width: 100%;
@@ -55,7 +57,7 @@
             color: white;
             padding: 10px;
             display: flex;
-            justify-content: center;
+            justify-content:space-evenly;
             gap: 15px;
             font-size: 18px;
             font-weight: bold;
@@ -79,9 +81,9 @@
                     <tr>
                         <th>No.</th>
                         <th>Item</th>
-                        <th>Price in USD ($)</th>
-                        <th>Price + 10% ($)</th>
-                        <th>Price in SAR (SAR)</th>
+                        <th>Price/USD</th>
+                        <th>Price+10%</th>
+                        <th>Price/SAR</th>
                     </tr>
                 </thead>
                 <tbody>

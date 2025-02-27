@@ -56,10 +56,11 @@
             background: var(--clr-primary);
             color: white;
             padding: 10px;
+            margin:0px;
             display: flex;
             justify-content:space-evenly;
             gap: 15px;
-            font-size: 18px;
+            font-size: 1rem;
             font-weight: bold;
         }
     </style>
@@ -98,12 +99,7 @@
             </table>
         </div>
 
-        <!-- Fixed Total Row -->
-        <div class="total-row">
-            <span>Total (USD): <span id="totalPriceUSD">$0.00</span></span>
-            <span>Total + 10% (USD): <span id="totalPricePlus10">$0.00</span></span>
-            <span>Total (SAR): <span id="totalPriceSAR">0.00 SAR</span></span>
-        </div>
+
 
         <script>
             function updateRowNumbers() {
@@ -164,6 +160,13 @@
             }
         </script>
     </main>
+    
+    <!-- Total Row -->
+    <div class="total-row">
+        <span>$: <span id="totalPriceUSD">$0.00</span></span>
+        <span>$+10%: <span id="totalPricePlus10">$0.00</span></span>
+        <span>(SAR): <span id="totalPriceSAR">0.00 SAR</span></span>
+    </div>
 </body>
 
 </html>

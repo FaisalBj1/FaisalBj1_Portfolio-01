@@ -6,7 +6,7 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dynamic Price Table</title>
+    <title>Dynamic Price</title>
 
     <style>:root {display:none;}</style>
     <script type="module" id="main_js" src="/main.js"></script>
@@ -24,9 +24,14 @@
             margin: 20px auto;
             border-collapse: collapse;
         }
-        th, td {
+        th {
             border: 1px solid #ddd;
             padding: 10px;
+            text-align: center;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 0px;
             text-align: center;
         }
         th {
@@ -40,24 +45,11 @@
             border: 0;
             background-color: transparent;
         }
-        button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: var(--clr-primary);
-            color: white;
-            border: none;
-            border-radius: 15em;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
         /* Fixed total row at bottom */
         .total-row {
-            position: fixed;
-            bottom: 0;
-            left: 0;
+            /* position: fixed; */
+            /* bottom: 0; */
+            /* left: 0; */
             width: 100%;
             background: var(--clr-primary);
             color: white;
@@ -73,11 +65,11 @@
 
 <body>
     <main>
-        <h1 class="fancy text_glow">Dynamic Price Table</h1>
+        <h1 class="fancy text_glow">Dynamic Price</h1>
 
         <br><br><br>
 
-        <button onclick="addRow()">Add Row</button>
+        <button onclick="addRow()"class="btn secondary">Add Row</button>
 
         <br><br>
 
